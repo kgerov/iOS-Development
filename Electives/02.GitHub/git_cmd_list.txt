@@ -6,15 +6,19 @@ git log --stat (more details e.g. insertions and deletions)
 
 git log --graph --oneline branch1 branch2
 
+git log -n 1 (show only the last commit. 1 can be changed with any number of commits)
+
 // Check differences between files
 
 diff -u file1 file2 (on mac)
 
 git diff OldCommitId NewerCommitId
 
-git diff (shows difference between working directory and staged files)
+git diff (shows difference between working directory and staged area)
 
-git diff --staged (shows difference between staged files and latest commit)
+git diff --staged (shows difference between staged area and latest commit)
+
+git show commitId (USEFUL FOR SEEING CHANGE AFTER MERGING BRANCHES: shows the changes that were made in this commit.)
 
 // Branching
 
