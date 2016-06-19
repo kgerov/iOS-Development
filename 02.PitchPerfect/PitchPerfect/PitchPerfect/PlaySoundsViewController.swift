@@ -50,9 +50,19 @@ class PlaySoundsViewController: UIViewController {
         stopAudio()
     }
     
+    private func changeAspectFitOfButtons() {
+        snailButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        rabbitButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        chipmunkButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        vaderButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        echoButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+        reverbButton.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
+        changeAspectFitOfButtons()
         // Do any additional setup after loading the view.
     }
     
