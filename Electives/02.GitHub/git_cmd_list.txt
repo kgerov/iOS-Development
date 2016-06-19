@@ -1,0 +1,73 @@
+// log - see past commits
+
+git log
+
+git log --stat (more details e.g. insertions and deletions)
+
+git log --graph --oneline branch1 branch2
+
+// Check differences between files
+
+diff -u file1 file2 (on mac)
+
+git diff OldCommitId NewerCommitId
+
+git diff (shows difference between working directory and staged files)
+
+git diff --staged (shows difference between staged files and latest commit)
+
+// Branching
+
+git branch (displays all branches. Current branch is with a star *)
+
+git branch branchName (creates new branch)
+
+git checkout branchName (changes branch to branchName)
+
+git merge branchName1 branchName2 (merges two branches)
+
+git branch -d branchName (deletes branch)
+
+// Misc
+
+git clone - download/clone repository on computer
+
+git checkout commitID (go back to a commit)
+
+git reset --hard (removes changes that were not commited)
+
+// Change git + terminal settings
+
+1. download in "~": and Save As ".bash"
+2. download in "~": and Save As ".sh"
+3. create file in "~" named .bash_profile with contents:
+***START_OF_FILE***
+
+# Enable tab completion
+source ~/git-completion.bash
+
+# colors!
+green="\[\033[0;32m\]"
+yellow="\[\033[0;93m\]"
+purple="\[\033[0;95m\]"
+reset="\[\033[0m\]"
+
+# Change command prompt
+source ~/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+# '\u' adds the name of the current user to the prompt
+# '\$(__git_ps1)' adds git-related stuff
+# '\W' adds the name of the current directory
+export PS1="$purple\u$green\$(__git_ps1)$yellow \W $ $reset"
+
+#Open Sublime from terminal
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+
+***END_OF_FILE***
+
+4. Run commands in Terminal
+git config --global core.editor "'/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl' -n -w"
+git config --global push.default upstream
+git config --global merge.conflictstyle diff3
+
+5. Restart terminal
