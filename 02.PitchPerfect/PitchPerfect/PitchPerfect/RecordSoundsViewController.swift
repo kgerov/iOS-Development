@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordSoundsViewController.swift
 //  PitchPerfect
 //
 //  Created by Konstantin Gerov on 6/14/16.
@@ -18,21 +18,9 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var stopRecordingButton: UIButton!
     
     var audioRecorder:AVAudioRecorder!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        stopRecordingButton.enabled = false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     @IBAction func recordAudio(sender: AnyObject) {
-        recordingLabel.text = "Recording in progress"
-        stopRecordingButton.enabled = true
-        recordButton.enabled = false
+        changeRecordingState(true)
         
         let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory,.UserDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
@@ -52,10 +40,7 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
 
     
     @IBAction func stopRecording(sender: AnyObject) {
-        recordingLabel.text = "Tap to record"
-        stopRecordingButton.enabled = false
-        recordButton.enabled = true
-        
+        changeRecordingState(false)
         audioRecorder.stop()
         let audioSession = AVAudioSession.sharedInstance()
         try! audioSession.setActive(false)
@@ -64,10 +49,21 @@ class RecordSoundsViewController: UIViewController, AVAudioRecorderDelegate {
     
     func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
         if (flag) {
-            self.performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
+            performSegueWithIdentifier("stopRecording", sender: audioRecorder.url)
         } else {
             print("Failed to save recording")
         }
+    }
+    
+    private func changeRecordingState(startRecording: Bool) {
+        recordingLabel.text = startRecording ? "Recording in progress" : "Tap to record"
+        stopRecordingButton.enabled = startRecording
+        recordButton.enabled = !startRecording
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        stopRecordingButton.enabled = false
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
