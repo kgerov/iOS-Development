@@ -32,9 +32,35 @@ git merge branchName1 branchName2 (merges two branches)
 
 git branch -d branchName (deletes branch)
 
+git branch -a (shows brances on remote and branches on local)
+
+// Remote
+
+git remote (displays all remotes)
+
+git remote add remoteName remoteUrl (adds remote, first remoteName is usually origin)
+
+git remote -v (displays more details on remote)
+
+// Usual Workflow
+
+git pull
+
+git add .
+
+git commit -m ""
+
+git push -u origin master
+
 // Misc
 
-git clone - download/clone repository on computer
+git clone - download/copy repository on computer from github/computer
+
+git fork - copy repository from github to github
+
+git fetch remoteName (remoteName is usually origin. Copies all comits from remote that have not been pulled in a new branch (origin/master) 
+						on your local computer. There  are now two branches on local - origin/master and master). Git pull is the same as 
+						1. git fetch origin 2. git merge master origin/master 
 
 git checkout commitID (go back to a commit)
 
@@ -42,8 +68,8 @@ git reset --hard (removes changes that were not commited)
 
 // Change git + terminal settings
 
-1. download in "~": and Save As ".bash"
-2. download in "~": and Save As ".sh"
+1. download in "~": https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash and Save As ".bash"
+2. download in "~": https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh and Save As ".sh"
 3. create file in "~" named .bash_profile with contents:
 ***START_OF_FILE***
 
