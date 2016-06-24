@@ -50,14 +50,23 @@
                                             <slider opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-Sg-KYI">
                                                 <rect key="frame" x="-2" y="0.0" width="284" height="31"/>
                                                 <color key="minimumTrackTintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="changeViewColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="Olh-Ni-mCd"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yDT-uQ-gf7">
                                                 <rect key="frame" x="-2" y="30" width="284" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="changeViewColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ipw-oX-d1X"/>
+                                                </connections>
                                             </slider>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Jcb-Cl-WJl">
                                                 <rect key="frame" x="-2" y="60" width="284" height="31"/>
                                                 <color key="minimumTrackTintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <connections>
+                                                    <action selector="changeViewColor:" destination="BYZ-38-t0r" eventType="valueChanged" id="nau-BY-nRT"/>
+                                                </connections>
                                             </slider>
                                         </subviews>
                                     </stackView>
@@ -87,6 +96,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="LzZ-xL-rzD" secondAttribute="trailing" constant="10" id="zk9-Cf-qEH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="blueColor" destination="Jcb-Cl-WJl" id="iCZ-AX-xkX"/>
+                        <outlet property="colorView" destination="x17-5k-wZl" id="DdD-2p-esS"/>
+                        <outlet property="greenColor" destination="yDT-uQ-gf7" id="0a5-1E-ejn"/>
+                        <outlet property="redColor" destination="Fzq-Sg-KYI" id="h0G-xx-kFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
