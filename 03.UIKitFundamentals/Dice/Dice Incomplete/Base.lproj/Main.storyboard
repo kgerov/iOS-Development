@@ -27,7 +27,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="rollTheDice" destination="vXZ-lx-hvc" eventType="touchUpInside" id="GXc-d8-kyp"/>
+                                    <segue destination="qUR-90-axl" kind="modal" id="CPI-c5-dBG"/>
                                 </connections>
                             </button>
                         </subviews>
