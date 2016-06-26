@@ -15,6 +15,7 @@
 		9897B9EE1D1FC76E00BD20E1 /* RoshamboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B9ED1D1FC76E00BD20E1 /* RoshamboTests.swift */; };
 		9897B9F91D1FC76E00BD20E1 /* RoshamboUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9897B9F81D1FC76E00BD20E1 /* RoshamboUITests.swift */; };
 		989F176A1D1FD2E400D3C7EA /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989F17691D1FD2E400D3C7EA /* ResultViewController.swift */; };
+		989F176C1D1FDC5A00D3C7EA /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989F176B1D1FDC5A00D3C7EA /* GlobalConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9897B9F81D1FC76E00BD20E1 /* RoshamboUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoshamboUITests.swift; sourceTree = "<group>"; };
 		9897B9FA1D1FC76E00BD20E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		989F17691D1FD2E400D3C7EA /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		989F176B1D1FDC5A00D3C7EA /* GlobalConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				9897B9D81D1FC76E00BD20E1 /* AppDelegate.swift */,
 				9897B9DA1D1FC76E00BD20E1 /* PlayViewController.swift */,
+				989F176B1D1FDC5A00D3C7EA /* GlobalConstants.swift */,
 				9897B9DC1D1FC76E00BD20E1 /* Main.storyboard */,
 				9897B9DF1D1FC76E00BD20E1 /* Assets.xcassets */,
 				9897B9E11D1FC76E00BD20E1 /* LaunchScreen.storyboard */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989F176C1D1FDC5A00D3C7EA /* GlobalConstants.swift in Sources */,
 				9897B9DB1D1FC76E00BD20E1 /* PlayViewController.swift in Sources */,
 				9897B9D91D1FC76E00BD20E1 /* AppDelegate.swift in Sources */,
 				989F176A1D1FD2E400D3C7EA /* ResultViewController.swift in Sources */,

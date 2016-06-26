@@ -27,17 +27,23 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzN-Oj-G7h" userLabel="Rock">
                                 <rect key="frame" x="143" y="267" width="75" height="65"/>
                                 <state key="normal" image="Rock"/>
+                                <connections>
+                                    <action selector="showResultOfMatch" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLv-lF-MU4"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHy-Ko-7np" userLabel="Scissors">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHy-Ko-7np" userLabel="Scissors">
                                 <rect key="frame" x="383" y="267" width="75" height="65"/>
                                 <state key="normal" image="Scissors"/>
                                 <connections>
                                     <segue destination="J2E-08-KIE" kind="presentation" id="vWW-VW-BJB"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R04-UM-Rms" userLabel="Paper">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R04-UM-Rms" userLabel="Paper">
                                 <rect key="frame" x="263" y="148" width="75" height="65"/>
                                 <state key="normal" image="Paper"/>
+                                <connections>
+                                    <action selector="showResultOfMatchWithSegue" destination="BYZ-38-t0r" eventType="touchUpInside" id="Alr-TW-JFW"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -52,10 +58,13 @@
                             <constraint firstItem="R04-UM-Rms" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zTD-ej-6oY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="J2E-08-KIE" kind="show" identifier="ShowResult" id="k7N-Tk-QfJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="350"/>
+            <point key="canvasLocation" x="241" y="350"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="wAd-Gq-ELx">
@@ -105,4 +114,7 @@
         <image name="Rock" width="75" height="65"/>
         <image name="Scissors" width="75" height="65"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="k7N-Tk-QfJ"/>
+    </inferredMetricsTieBreakers>
 </document>
