@@ -31,7 +31,7 @@
                                     <action selector="showResultOfMatch" destination="BYZ-38-t0r" eventType="touchUpInside" id="kLv-lF-MU4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHy-Ko-7np" userLabel="Scissors">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHy-Ko-7np" userLabel="Scissors">
                                 <rect key="frame" x="383" y="267" width="75" height="65"/>
                                 <state key="normal" image="Scissors"/>
                                 <connections>
@@ -69,7 +69,7 @@
         <!--Result View Controller-->
         <scene sceneID="wAd-Gq-ELx">
             <objects>
-                <viewController id="J2E-08-KIE" customClass="ResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultViewController" id="J2E-08-KIE" customClass="ResultViewController" customModule="Roshambo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AzM-1J-DGH"/>
                         <viewControllerLayoutGuide type="bottom" id="hIQ-PK-QQv"/>

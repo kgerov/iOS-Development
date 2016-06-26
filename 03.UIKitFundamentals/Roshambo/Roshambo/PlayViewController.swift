@@ -44,7 +44,7 @@ class PlayViewController: UIViewController {
     }
     
     private func getComputerChoice() -> Roshambo {
-        let randomValue = 1 + arc4random() % 6
+        let randomValue = arc4random() % 3
         
         return Roshambo(rawValue: Int(randomValue))!
     }
