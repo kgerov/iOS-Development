@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,47 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Play" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kr0-zN-cMH">
+                                <rect key="frame" x="255" y="530" width="90" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzN-Oj-G7h" userLabel="Rock">
+                                <rect key="frame" x="143" y="267" width="75" height="65"/>
+                                <state key="normal" image="Rock"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHy-Ko-7np" userLabel="Scissors">
+                                <rect key="frame" x="383" y="267" width="75" height="65"/>
+                                <state key="normal" image="Scissors"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R04-UM-Rms" userLabel="Paper">
+                                <rect key="frame" x="263" y="148" width="75" height="65"/>
+                                <state key="normal" image="Paper"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VzN-Oj-G7h" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="OCg-6N-sgr"/>
+                            <constraint firstItem="yHy-Ko-7np" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="120" id="SWN-yV-NkZ"/>
+                            <constraint firstItem="VzN-Oj-G7h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-120" id="UeK-Rs-Fqg"/>
+                            <constraint firstItem="R04-UM-Rms" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-120" id="c17-h2-yPf"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kr0-zN-cMH" secondAttribute="bottom" multiplier="0.9" constant="100" id="cld-Zc-sQj"/>
+                            <constraint firstItem="yHy-Ko-7np" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="lam-3N-bIn"/>
+                            <constraint firstItem="kr0-zN-cMH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mQt-WU-dkO"/>
+                            <constraint firstItem="R04-UM-Rms" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zTD-ej-6oY"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="350"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Paper" width="75" height="65"/>
+        <image name="Rock" width="75" height="65"/>
+        <image name="Scissors" width="75" height="65"/>
+    </resources>
 </document>
