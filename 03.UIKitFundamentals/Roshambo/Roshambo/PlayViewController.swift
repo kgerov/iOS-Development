@@ -24,7 +24,7 @@ class PlayViewController: UIViewController {
     }
     
     // Code and Segue - Paper
-    @IBAction func showResultOfMatchWithSegue(sender: UIButton?) {
+    @IBAction func showResultOfMatchWithSegue(sender: UIButton) {
         performSegueWithIdentifier("ShowResult", sender: sender)
     }
     

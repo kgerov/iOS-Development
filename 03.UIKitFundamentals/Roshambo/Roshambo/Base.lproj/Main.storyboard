@@ -42,7 +42,7 @@
                                 <rect key="frame" x="263" y="148" width="75" height="65"/>
                                 <state key="normal" image="Paper"/>
                                 <connections>
-                                    <action selector="showResultOfMatchWithSegue" destination="BYZ-38-t0r" eventType="touchUpInside" id="Alr-TW-JFW"/>
+                                    <action selector="showResultOfMatchWithSegue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eNh-BR-ual"/>
                                 </connections>
                             </button>
                         </subviews>
