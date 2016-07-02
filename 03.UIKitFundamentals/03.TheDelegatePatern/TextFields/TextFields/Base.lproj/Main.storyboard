@@ -53,6 +53,11 @@
                             <constraint firstItem="EsW-CX-LjE" firstAttribute="width" secondItem="aXW-QS-6aw" secondAttribute="width" id="xTG-xY-rI4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dollarsField" destination="EsW-CX-LjE" id="YD2-VP-XTc"/>
+                        <outlet property="startableField" destination="E7L-Wo-IbR" id="a1U-xy-jKM"/>
+                        <outlet property="zipCodeField" destination="aXW-QS-6aw" id="stI-B4-oxU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
