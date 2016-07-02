@@ -11,4 +11,20 @@ import UIKit
 
 class StartableTextFieldDelegate : NSObject, UITextFieldDelegate {
     
+    var textFieldSwitch: UISwitch!
+    
+    internal init(textFieldSwitch: UISwitch) {
+        super.init()
+        self.textFieldSwitch = textFieldSwitch
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        if textFieldSwitch.on {
+            return true
+        }
+        
+        return false
+    }
+
 }

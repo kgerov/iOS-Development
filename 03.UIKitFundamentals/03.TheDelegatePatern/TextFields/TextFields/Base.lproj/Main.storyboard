@@ -56,6 +56,7 @@
                     <connections>
                         <outlet property="dollarsField" destination="EsW-CX-LjE" id="YD2-VP-XTc"/>
                         <outlet property="startableField" destination="E7L-Wo-IbR" id="a1U-xy-jKM"/>
+                        <outlet property="textFieldSwitch" destination="xUk-6v-uhJ" id="caa-dv-eMN"/>
                         <outlet property="zipCodeField" destination="aXW-QS-6aw" id="stI-B4-oxU"/>
                     </connections>
                 </viewController>
