@@ -14,9 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var dollarsField: UITextField!
     @IBOutlet weak var startableField: UITextField!
     
+    let zipCodeDelegate = ZipCodeTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.zipCodeField.delegate = zipCodeDelegate
     }
 }
 

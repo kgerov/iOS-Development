@@ -11,4 +11,21 @@ import UIKit
 
 class ZipCodeTextFieldDelegate : NSObject, UITextFieldDelegate {
     
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let invalidCharacters = NSCharacterSet.decimalDigitCharacterSet().invertedSet
+        
+        var newText = textField.text! as NSString
+        newText = newText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        if newText.length > 5 {
+            return false
+        }
+        
+        if newText.rangeOfCharacterFromSet(invalidCharacters).location != NSNotFound {
+            return false
+        }
+        
+        return true
+    }
 }
