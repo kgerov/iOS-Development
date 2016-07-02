@@ -17,14 +17,16 @@ class ViewController: UIViewController {
     
     let zipCodeDelegate = ZipCodeTextFieldDelegate()
     var startableDelegate: StartableTextFieldDelegate!
+    let dollarDelegate = DollarsTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.startableDelegate = StartableTextFieldDelegate(textFieldSwitch: textFieldSwitch)
+        
         self.zipCodeField.delegate = zipCodeDelegate
         self.startableField.delegate = startableDelegate
-        
+        self.dollarsField.delegate = dollarDelegate
     }
 }
 
