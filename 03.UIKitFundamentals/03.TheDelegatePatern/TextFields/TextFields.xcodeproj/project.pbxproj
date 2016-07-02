@@ -14,6 +14,9 @@
 		98CB15FE1D2464DC00C6B7A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB15FC1D2464DC00C6B7A9 /* LaunchScreen.storyboard */; };
 		98CB16091D2464DC00C6B7A9 /* TextFieldsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16081D2464DC00C6B7A9 /* TextFieldsTests.swift */; };
 		98CB16141D2464DC00C6B7A9 /* TextFieldsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16131D2464DC00C6B7A9 /* TextFieldsUITests.swift */; };
+		98CB16231D28267A00C6B7A9 /* ZipCodeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16221D28267A00C6B7A9 /* ZipCodeTextFieldDelegate.swift */; };
+		98CB16251D28268B00C6B7A9 /* StartableTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16241D28268B00C6B7A9 /* StartableTextFieldDelegate.swift */; };
+		98CB16271D28269900C6B7A9 /* DollarsTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16261D28269900C6B7A9 /* DollarsTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		98CB160F1D2464DC00C6B7A9 /* TextFieldsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TextFieldsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CB16131D2464DC00C6B7A9 /* TextFieldsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldsUITests.swift; sourceTree = "<group>"; };
 		98CB16151D2464DC00C6B7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98CB16221D28267A00C6B7A9 /* ZipCodeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZipCodeTextFieldDelegate.swift; sourceTree = "<group>"; };
+		98CB16241D28268B00C6B7A9 /* StartableTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartableTextFieldDelegate.swift; sourceTree = "<group>"; };
+		98CB16261D28269900C6B7A9 /* DollarsTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DollarsTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		98CB15F21D2464DC00C6B7A9 /* TextFields */ = {
 			isa = PBXGroup;
 			children = (
+				98CB16211D28265000C6B7A9 /* TextFieldDelegates */,
 				98CB15F31D2464DC00C6B7A9 /* AppDelegate.swift */,
 				98CB15F51D2464DC00C6B7A9 /* ViewController.swift */,
 				98CB15F71D2464DC00C6B7A9 /* Main.storyboard */,
@@ -123,6 +130,16 @@
 				98CB16151D2464DC00C6B7A9 /* Info.plist */,
 			);
 			path = TextFieldsUITests;
+			sourceTree = "<group>";
+		};
+		98CB16211D28265000C6B7A9 /* TextFieldDelegates */ = {
+			isa = PBXGroup;
+			children = (
+				98CB16221D28267A00C6B7A9 /* ZipCodeTextFieldDelegate.swift */,
+				98CB16241D28268B00C6B7A9 /* StartableTextFieldDelegate.swift */,
+				98CB16261D28269900C6B7A9 /* DollarsTextFieldDelegate.swift */,
+			);
+			name = TextFieldDelegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +273,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98CB16271D28269900C6B7A9 /* DollarsTextFieldDelegate.swift in Sources */,
 				98CB15F61D2464DC00C6B7A9 /* ViewController.swift in Sources */,
+				98CB16231D28267A00C6B7A9 /* ZipCodeTextFieldDelegate.swift in Sources */,
+				98CB16251D28268B00C6B7A9 /* StartableTextFieldDelegate.swift in Sources */,
 				98CB15F41D2464DC00C6B7A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
