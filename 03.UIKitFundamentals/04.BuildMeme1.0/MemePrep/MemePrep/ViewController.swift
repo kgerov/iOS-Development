@@ -11,17 +11,43 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
     UINavigationControllerDelegate {
     
+    let memeTextAttributes = [
+        NSStrokeColorAttributeName : UIColor.blackColor(),
+        NSForegroundColorAttributeName : UIColor.whiteColor(),
+        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSStrokeWidthAttributeName : 7
+    ]
+    
+    @IBOutlet weak var topTextField: UITextField!
+    @IBOutlet weak var bottomTextField: UITextField!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
-
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
     }
 
-    @IBAction func selectImage(sender: AnyObject) {
+    @IBAction func selectImageFromAlbum(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(pickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func selectImageFromCamera(sender: AnyObject) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(pickerController, animated: true, completion: nil)
+
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -32,5 +58,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageView.image = image
         }
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }

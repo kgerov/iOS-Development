@@ -14,6 +14,7 @@
 		98CB163F1D29672900C6B7A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98CB163D1D29672900C6B7A9 /* LaunchScreen.storyboard */; };
 		98CB164A1D29672900C6B7A9 /* MemePrepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16491D29672900C6B7A9 /* MemePrepTests.swift */; };
 		98CB16551D29672900C6B7A9 /* MemePrepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16541D29672900C6B7A9 /* MemePrepUITests.swift */; };
+		98CB16631D29B8DE00C6B7A9 /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98CB16621D29B8DE00C6B7A9 /* MemeTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		98CB16501D29672900C6B7A9 /* MemePrepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemePrepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		98CB16541D29672900C6B7A9 /* MemePrepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemePrepUITests.swift; sourceTree = "<group>"; };
 		98CB16561D29672900C6B7A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		98CB16621D29B8DE00C6B7A9 /* MemeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				98CB163B1D29672900C6B7A9 /* Assets.xcassets */,
 				98CB163D1D29672900C6B7A9 /* LaunchScreen.storyboard */,
 				98CB16401D29672900C6B7A9 /* Info.plist */,
+				98CB16621D29B8DE00C6B7A9 /* MemeTextFieldDelegate.swift */,
 			);
 			path = MemePrep;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98CB16371D29672900C6B7A9 /* ViewController.swift in Sources */,
+				98CB16631D29B8DE00C6B7A9 /* MemeTextFieldDelegate.swift in Sources */,
 				98CB16351D29672900C6B7A9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
