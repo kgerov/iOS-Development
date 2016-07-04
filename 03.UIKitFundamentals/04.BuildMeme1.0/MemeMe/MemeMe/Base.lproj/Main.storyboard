@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pmx-kS-e57" userLabel="MemeView">
-                                <rect key="frame" x="0.0" y="74" width="600" height="472"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="51Q-t2-pn9" userLabel="BottomToolbar">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
@@ -55,7 +55,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-It-BiG" userLabel="TopTextField">
-                                <rect key="frame" x="0.0" y="124" width="600" height="20"/>
+                                <rect key="frame" x="0.0" y="114" width="600" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="TOP">
                                         <attributes>
@@ -68,7 +68,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-fW-FFw" userLabel="BottomTextField">
-                                <rect key="frame" x="0.0" y="476" width="600" height="20"/>
+                                <rect key="frame" x="0.0" y="486" width="600" height="20"/>
                                 <attributedString key="attributedText">
                                     <fragment content="BOTTOM">
                                         <attributes>
@@ -97,8 +97,8 @@
                             <constraint firstItem="51Q-t2-pn9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="lWW-wp-Ux3"/>
                             <constraint firstItem="pmx-kS-e57" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="rjy-t7-4Jh"/>
                             <constraint firstItem="pmx-kS-e57" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tP4-hN-buo"/>
-                            <constraint firstItem="pmx-kS-e57" firstAttribute="top" secondItem="zA6-3v-TIo" secondAttribute="bottom" constant="10" id="vVk-wb-a4i"/>
-                            <constraint firstItem="51Q-t2-pn9" firstAttribute="top" secondItem="pmx-kS-e57" secondAttribute="bottom" constant="10" id="yjG-Ty-RT8"/>
+                            <constraint firstItem="pmx-kS-e57" firstAttribute="top" secondItem="zA6-3v-TIo" secondAttribute="bottom" id="vVk-wb-a4i"/>
+                            <constraint firstItem="51Q-t2-pn9" firstAttribute="top" secondItem="pmx-kS-e57" secondAttribute="bottom" id="yjG-Ty-RT8"/>
                         </constraints>
                     </view>
                     <connections>

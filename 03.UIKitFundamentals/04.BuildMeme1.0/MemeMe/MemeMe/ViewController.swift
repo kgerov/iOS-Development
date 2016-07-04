@@ -39,7 +39,7 @@ UINavigationControllerDelegate {
         bottomTextField.delegate = memeDelegate
         
         // Hide cursos and keyboard on touch
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.hideKeyboard))
         view.addGestureRecognizer(tapRecognizer)
     }
     
@@ -76,8 +76,11 @@ UINavigationControllerDelegate {
         
         activityController.excludedActivityTypes = [UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard,
                                                     UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+        
         activityController.completionWithItemsHandler = {
-            (activity, success, items, error) in self.save()
+            (activity, success, items, error) in
+            self.save()
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
         
         self.presentViewController(activityController, animated: true, completion: nil)
@@ -135,7 +138,7 @@ UINavigationControllerDelegate {
         let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!,
                         originalImage: self.imageView.image!, memeImage: memeImage)
         
-        dismissViewControllerAnimated(true, completion: nil)
+        // TODO: Save meme in app. Have a collection of memes
     }
     
     func generateMemedImage() -> UIImage
