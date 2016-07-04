@@ -37,6 +37,10 @@ UINavigationControllerDelegate {
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
         bottomTextField.delegate = memeDelegate
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "hideKeyboard")
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -66,7 +70,17 @@ UINavigationControllerDelegate {
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
+        let memeImage = generateMemedImage()
+        let shareItems: Array = [memeImage]
+        let activityController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         
+        activityController.excludedActivityTypes = [UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard,
+                                                    UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+        activityController.completionWithItemsHandler = {
+            (activity, success, items, error) in self.save()
+        }
+        
+        self.presentViewController(activityController, animated: true, completion: nil)
     }
     
     @IBAction func cancelMemeEditing(sender: AnyObject) {
@@ -120,13 +134,16 @@ UINavigationControllerDelegate {
         let memeImage = generateMemedImage()
         let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!,
                         originalImage: self.imageView.image!, memeImage: memeImage)
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage
     {
-        // Hide toolbars
+        // Hide toolbars and keyboard
         self.topToolbar.hidden = true
         self.bottomToolbar.hidden = true
+        hideKeyboard()
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -139,6 +156,10 @@ UINavigationControllerDelegate {
         self.bottomToolbar.hidden = false
         
         return memedImage
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(true)
     }
 }
 
