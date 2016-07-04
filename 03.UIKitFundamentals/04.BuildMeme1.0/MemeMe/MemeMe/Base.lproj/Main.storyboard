@@ -39,14 +39,46 @@
                                     <barButtonItem systemItem="cancel" id="CRL-nh-zP5"/>
                                 </items>
                             </toolbar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-It-BiG" userLabel="TopTextField">
+                                <rect key="frame" x="0.0" y="124" width="600" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="TOP">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNr-fW-FFw" userLabel="BottomTextField">
+                                <rect key="frame" x="0.0" y="476" width="600" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="BOTTOM">
+                                        <attributes>
+                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="zA6-3v-TIo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="0zr-wC-uBH"/>
                             <constraint firstItem="51Q-t2-pn9" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="6G4-Nm-DzZ"/>
+                            <constraint firstItem="HNr-fW-FFw" firstAttribute="width" secondItem="pmx-kS-e57" secondAttribute="width" id="87c-vU-bDx"/>
                             <constraint firstItem="zA6-3v-TIo" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="BVq-f5-UH3"/>
+                            <constraint firstItem="MVc-It-BiG" firstAttribute="centerX" secondItem="pmx-kS-e57" secondAttribute="centerX" id="E2y-dH-dy1"/>
                             <constraint firstItem="zA6-3v-TIo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ERj-gs-c4R"/>
+                            <constraint firstItem="HNr-fW-FFw" firstAttribute="centerX" secondItem="pmx-kS-e57" secondAttribute="centerX" id="GJm-Gk-BTS"/>
                             <constraint firstItem="51Q-t2-pn9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RAp-y4-uE5"/>
+                            <constraint firstItem="MVc-It-BiG" firstAttribute="width" secondItem="pmx-kS-e57" secondAttribute="width" id="TtC-Ek-VM2"/>
+                            <constraint firstItem="HNr-fW-FFw" firstAttribute="top" secondItem="pmx-kS-e57" secondAttribute="bottom" constant="-70" id="ZSm-F5-6AZ"/>
+                            <constraint firstItem="pmx-kS-e57" firstAttribute="top" secondItem="MVc-It-BiG" secondAttribute="bottom" constant="-70" id="ekd-xB-ImM"/>
                             <constraint firstItem="51Q-t2-pn9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="lWW-wp-Ux3"/>
                             <constraint firstItem="pmx-kS-e57" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="rjy-t7-4Jh"/>
                             <constraint firstItem="pmx-kS-e57" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tP4-hN-buo"/>
