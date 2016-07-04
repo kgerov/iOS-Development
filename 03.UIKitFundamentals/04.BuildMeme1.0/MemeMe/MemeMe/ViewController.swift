@@ -24,6 +24,9 @@ UINavigationControllerDelegate {
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var topToolbar: UIToolbar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,25 +52,28 @@ UINavigationControllerDelegate {
         return true
     }
     
-    @IBAction func selectImageFromAlbum(sender: AnyObject) {
+    @IBAction func selectImage(sender: AnyObject) {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(pickerController, animated: true, completion: nil)
-    }
-    
-    @IBAction func selectImageFromCamera(sender: AnyObject) {
-        let pickerController = UIImagePickerController()
-        pickerController.delegate = self
-        pickerController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(pickerController, animated: true, completion: nil)
         
+        if sender.tag == 0 {
+            pickerController.sourceType = UIImagePickerControllerSourceType.Camera
+        } else {
+            pickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        
+        self.presentViewController(pickerController, animated: true, completion: nil)
     }
     
     @IBAction func shareMeme(sender: AnyObject) {
+        
     }
     
     @IBAction func cancelMemeEditing(sender: AnyObject) {
+        imageView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        shareButton.enabled = false
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -75,8 +81,10 @@ UINavigationControllerDelegate {
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageView.image = image
+            shareButton.enabled = true
         }
         
         dismissViewControllerAnimated(true, completion: nil)
@@ -106,6 +114,31 @@ UINavigationControllerDelegate {
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.CGRectValue().height
+    }
+    
+    func save() {
+        let memeImage = generateMemedImage()
+        let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!,
+                        originalImage: self.imageView.image!, memeImage: memeImage)
+    }
+    
+    func generateMemedImage() -> UIImage
+    {
+        // Hide toolbars
+        self.topToolbar.hidden = true
+        self.bottomToolbar.hidden = true
+        
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        // Show toolbars
+        self.topToolbar.hidden = false
+        self.bottomToolbar.hidden = false
+        
+        return memedImage
     }
 }
 
