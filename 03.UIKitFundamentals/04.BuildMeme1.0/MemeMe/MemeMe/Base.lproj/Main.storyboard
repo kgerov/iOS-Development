@@ -25,18 +25,34 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="pk0-If-DGo"/>
-                                    <barButtonItem systemItem="camera" id="rAG-3e-HHL" userLabel="Camera"/>
+                                    <barButtonItem systemItem="camera" id="rAG-3e-HHL" userLabel="Camera">
+                                        <connections>
+                                            <action selector="selectImageFromCamera:" destination="BYZ-38-t0r" id="fHE-yo-1JW"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="hHn-yd-QRs"/>
-                                    <barButtonItem title="Album" width="67" id="BDc-Zo-Is6"/>
+                                    <barButtonItem title="Album" width="67" id="BDc-Zo-Is6">
+                                        <connections>
+                                            <action selector="selectImageFromAlbum:" destination="BYZ-38-t0r" id="6p0-Q7-w1Z"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nBt-uG-qm7"/>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA6-3v-TIo" userLabel="TopToolbar">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="XpT-VI-pFw"/>
+                                    <barButtonItem systemItem="action" id="XpT-VI-pFw">
+                                        <connections>
+                                            <action selector="shareMeme:" destination="BYZ-38-t0r" id="RBA-KL-ejA"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="qat-5q-RSP"/>
-                                    <barButtonItem systemItem="cancel" id="CRL-nh-zP5"/>
+                                    <barButtonItem systemItem="cancel" id="CRL-nh-zP5">
+                                        <connections>
+                                            <action selector="cancelMemeEditing:" destination="BYZ-38-t0r" id="Rz9-xR-nUo"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MVc-It-BiG" userLabel="TopTextField">
@@ -86,6 +102,12 @@
                             <constraint firstItem="51Q-t2-pn9" firstAttribute="top" secondItem="pmx-kS-e57" secondAttribute="bottom" constant="10" id="yjG-Ty-RT8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomTextField" destination="HNr-fW-FFw" id="gB0-pz-58s"/>
+                        <outlet property="cameraButton" destination="rAG-3e-HHL" id="iEW-uS-YHv"/>
+                        <outlet property="imageView" destination="pmx-kS-e57" id="7LU-rE-BZl"/>
+                        <outlet property="topTextField" destination="MVc-It-BiG" id="7jJ-oy-Nyv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
