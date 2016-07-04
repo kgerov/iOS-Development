@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,11 +17,33 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sKp-dN-9Dd">
+                                <rect key="frame" x="58" y="13" width="484" height="515"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4jQ-mI-TwP">
+                                <rect key="frame" x="124" y="550" width="344" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4jQ-mI-TwP" secondAttribute="trailing" constant="112" id="6XG-UU-HTW"/>
+                            <constraint firstItem="sKp-dN-9Dd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="38" id="7bT-68-hNz"/>
+                            <constraint firstItem="4jQ-mI-TwP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="104" id="V3z-SJ-mWm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sKp-dN-9Dd" secondAttribute="trailing" constant="38" id="bXE-Nc-sId"/>
+                            <constraint firstItem="4jQ-mI-TwP" firstAttribute="top" secondItem="sKp-dN-9Dd" secondAttribute="bottom" constant="22" id="fpN-Sd-VXs"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="4jQ-mI-TwP" secondAttribute="bottom" constant="20" id="g7O-fr-Sdj"/>
+                            <constraint firstItem="sKp-dN-9Dd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="13" id="hts-Sd-v39"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sKp-dN-9Dd" secondAttribute="bottom" constant="72" id="uux-4n-cA5"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="350"/>
         </scene>
     </scenes>
 </document>
