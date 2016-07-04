@@ -18,6 +18,8 @@ UINavigationControllerDelegate {
         NSStrokeWidthAttributeName : -7
     ]
     
+    let memeDelegate = MemeTextFieldDelegate()
+    
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -28,11 +30,10 @@ UINavigationControllerDelegate {
         
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = NSTextAlignment.Center
-        //topTextField.delegate = memeDelegate
+        topTextField.delegate = memeDelegate
         bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.textAlignment = NSTextAlignment.Center
-        //bottomTextField.delegate = memeDelegate
-
+        bottomTextField.delegate = memeDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
