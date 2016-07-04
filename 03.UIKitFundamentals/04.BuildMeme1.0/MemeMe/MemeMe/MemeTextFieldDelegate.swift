@@ -15,9 +15,15 @@ class MemeTextFieldDelegate : NSObject, UITextFieldDelegate {
         
         // Remove "TOP" and "BOTTOM" once users start to type text
         let topRange = newText.rangeOfString("TOP", options: NSStringCompareOptions.CaseInsensitiveSearch)
-        newText = newText.stringByReplacingCharactersInRange(topRange, withString: "")
+        if topRange.location != NSNotFound {
+            newText = newText.stringByReplacingCharactersInRange(topRange, withString: "")
+        }
+        
         let bottomRange = newText.rangeOfString("BOTTOM", options: NSStringCompareOptions.CaseInsensitiveSearch)
-        newText = newText.stringByReplacingCharactersInRange(bottomRange, withString: "")
+        if bottomRange.location != NSNotFound {
+            newText = newText.stringByReplacingCharactersInRange(bottomRange, withString: "")
+        }
+        
         
         textField.text = newText as String
     }
