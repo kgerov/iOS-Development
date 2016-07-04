@@ -15,8 +15,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : 7
+        NSStrokeWidthAttributeName : -7
     ]
+    
+    let memeDelegate = MemeTextFieldDelegate()
     
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -25,14 +27,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,
     
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = NSTextAlignment.Center
+        topTextField.delegate = memeDelegate
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.textAlignment = NSTextAlignment.Center
+        bottomTextField.delegate = memeDelegate
     }
     
     override func viewWillAppear(animated: Bool) {
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
+        
     }
 
     @IBAction func selectImageFromAlbum(sender: AnyObject) {
