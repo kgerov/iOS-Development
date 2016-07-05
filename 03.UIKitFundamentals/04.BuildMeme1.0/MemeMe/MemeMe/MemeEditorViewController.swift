@@ -15,7 +15,7 @@ UINavigationControllerDelegate {
         NSStrokeColorAttributeName : UIColor.blackColor(),
         NSForegroundColorAttributeName : UIColor.whiteColor(),
         NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -7
+        NSStrokeWidthAttributeName : -3.3
     ]
     
     let memeDelegate = MemeTextFieldDelegate()
@@ -32,12 +32,8 @@ UINavigationControllerDelegate {
         super.viewDidLoad()
         
         // Style for text fields
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = NSTextAlignment.Center
-        topTextField.delegate = memeDelegate
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.textAlignment = NSTextAlignment.Center
-        bottomTextField.delegate = memeDelegate
+        addStyleToTextField(topTextField)
+        addStyleToTextField(bottomTextField)
         
         // Hide cursos and keyboard on touch
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MemeEditorViewController.hideKeyboard))
@@ -168,6 +164,12 @@ UINavigationControllerDelegate {
     
     func hideKeyboard() {
         view.endEditing(true)
+    }
+    
+    func addStyleToTextField(textField: UITextField) {
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = NSTextAlignment.Center
+        textField.delegate = memeDelegate
     }
 }
 
