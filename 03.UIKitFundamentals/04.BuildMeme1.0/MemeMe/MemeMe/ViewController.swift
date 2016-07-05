@@ -31,6 +31,7 @@ UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Style for text fields
         topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = NSTextAlignment.Center
         topTextField.delegate = memeDelegate
@@ -44,7 +45,10 @@ UINavigationControllerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        // Enable camera button if device has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        // Subscribe to keyboard notification
         subscribeToKeyboardNotifications()
     }
     
@@ -52,6 +56,7 @@ UINavigationControllerDelegate {
         ubsubscribeFromKeyboardNotifications()
     }
     
+    // Hide status bar
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
