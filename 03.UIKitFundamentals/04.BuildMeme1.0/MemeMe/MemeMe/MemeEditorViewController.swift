@@ -41,6 +41,8 @@ UINavigationControllerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Enable camera button if device has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
@@ -49,6 +51,8 @@ UINavigationControllerDelegate {
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         ubsubscribeFromKeyboardNotifications()
     }
     
@@ -121,11 +125,16 @@ UINavigationControllerDelegate {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        view.frame.origin.y -= getKeyBoardHeight(notification)
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = getKeyBoardHeight(notification) * (-1)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        view.frame.origin.y = 0
+        if bottomTextField.isFirstResponder() {
+            view.frame.origin.y = 0
+        }
+        
     }
     
     func getKeyBoardHeight(notification: NSNotification) -> CGFloat {
