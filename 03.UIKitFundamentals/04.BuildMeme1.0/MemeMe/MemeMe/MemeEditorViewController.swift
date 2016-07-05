@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Konstantin Gerov on 7/4/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate,
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
     
     let memeTextAttributes = [
@@ -40,7 +40,7 @@ UINavigationControllerDelegate {
         bottomTextField.delegate = memeDelegate
         
         // Hide cursos and keyboard on touch
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.hideKeyboard))
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MemeEditorViewController.hideKeyboard))
         view.addGestureRecognizer(tapRecognizer)
     }
     
@@ -113,9 +113,9 @@ UINavigationControllerDelegate {
     }
     
     func subscribeToKeyboardNotifications() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillShow(_:)), name: UIKeyboardWillShowNotification, object: nil)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(MemeEditorViewController.keyboardWillHide(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func ubsubscribeFromKeyboardNotifications() {
