@@ -89,5 +89,4 @@ class RockPaperScissorsViewController: UIViewController {
     private func initiateHistoryController(controller: HistoryViewController, history: [RPSMatch]) {
         controller.history = history
     }
-    
 }

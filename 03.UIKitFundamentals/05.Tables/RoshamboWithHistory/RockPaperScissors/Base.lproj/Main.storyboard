@@ -146,7 +146,7 @@
         <!--HistoryViewController-->
         <scene sceneID="RCY-lw-7P8">
             <objects>
-                <viewController title="HistoryViewController" id="665-oN-MPX" customClass="HistoryViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HistoryViewController" title="HistoryViewController" id="665-oN-MPX" customClass="HistoryViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3oc-c4-VaC"/>
                         <viewControllerLayoutGuide type="bottom" id="drO-d5-QjH"/>
