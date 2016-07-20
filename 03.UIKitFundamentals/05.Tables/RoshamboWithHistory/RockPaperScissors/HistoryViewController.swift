@@ -17,6 +17,11 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    @IBAction func homeButtonPressed(sender: AnyObject)
+    {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let placeholderCount = self.history.count
         return placeholderCount

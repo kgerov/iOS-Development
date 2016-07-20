@@ -155,14 +155,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwe-ep-ymI">
-                                <rect key="frame" x="133" y="20" width="55" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="haz-HU-gqI">
-                                <rect key="frame" x="-4" y="55" width="328" height="513"/>
+                                <rect key="frame" x="-4" y="55" width="328" height="473"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoshamboMatchCell" textLabel="zpA-ek-gLj" detailTextLabel="Hyg-Vx-LMf" style="IBUITableViewCellStyleValue1" id="1rc-Ik-VMR">
@@ -194,6 +188,19 @@
                                     <outlet property="dataSource" destination="665-oN-MPX" id="BHJ-i0-ps8"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwe-ep-ymI">
+                                <rect key="frame" x="133" y="20" width="55" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UpZ-IP-jTj">
+                                <rect key="frame" x="135" y="536" width="51" height="30"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="665-oN-MPX" eventType="touchUpInside" id="MV9-DI-pXL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -201,7 +208,9 @@
                             <constraint firstItem="Wwe-ep-ymI" firstAttribute="centerX" secondItem="fUf-wf-dzP" secondAttribute="centerX" id="A6a-Pb-moU"/>
                             <constraint firstItem="haz-HU-gqI" firstAttribute="leading" secondItem="fUf-wf-dzP" secondAttribute="leadingMargin" constant="-20" id="D3n-bP-bDZ"/>
                             <constraint firstItem="haz-HU-gqI" firstAttribute="top" secondItem="Wwe-ep-ymI" secondAttribute="bottom" constant="14" id="GmM-aJ-waE"/>
-                            <constraint firstItem="drO-d5-QjH" firstAttribute="top" secondItem="haz-HU-gqI" secondAttribute="bottom" id="Xto-dI-l47"/>
+                            <constraint firstItem="drO-d5-QjH" firstAttribute="top" secondItem="haz-HU-gqI" secondAttribute="bottom" constant="40" id="Xto-dI-l47"/>
+                            <constraint firstItem="UpZ-IP-jTj" firstAttribute="centerX" secondItem="haz-HU-gqI" secondAttribute="centerX" id="i2X-Pw-utO"/>
+                            <constraint firstItem="UpZ-IP-jTj" firstAttribute="top" secondItem="haz-HU-gqI" secondAttribute="bottom" constant="8" id="xib-6k-g4T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="haz-HU-gqI" secondAttribute="trailing" constant="-20" id="zTC-hE-5gT"/>
                         </constraints>
                     </view>
