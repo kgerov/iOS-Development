@@ -10,6 +10,7 @@
 		4D08C4CB1A16B28300A95F43 /* RPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D08C4CA1A16B28300A95F43 /* RPS.swift */; };
 		4D08C4CD1A16B29700A95F43 /* RPSMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D08C4CC1A16B29700A95F43 /* RPSMatch.swift */; };
 		4D37A9B91A3916A6007035E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D37A9B71A3916A6007035E1 /* Main.storyboard */; };
+		9892B4ED1D3FA8910092AEDA /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892B4EC1D3FA8910092AEDA /* HistoryViewController.swift */; };
 		ED3A4E191A01B7E5002B8AA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3A4E181A01B7E5002B8AA1 /* AppDelegate.swift */; };
 		ED3A4E201A01B7E5002B8AA1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED3A4E1F1A01B7E5002B8AA1 /* Images.xcassets */; };
 		ED3A4E231A01B7E5002B8AA1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED3A4E211A01B7E5002B8AA1 /* LaunchScreen.xib */; };
@@ -32,6 +33,7 @@
 		4D08C4CA1A16B28300A95F43 /* RPS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPS.swift; sourceTree = "<group>"; };
 		4D08C4CC1A16B29700A95F43 /* RPSMatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RPSMatch.swift; sourceTree = "<group>"; };
 		4D37A9B81A3916A6007035E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9892B4EC1D3FA8910092AEDA /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		ED3A4E131A01B7E5002B8AA1 /* RockPaperScissors.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RockPaperScissors.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED3A4E171A01B7E5002B8AA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED3A4E181A01B7E5002B8AA1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				ED3A4E211A01B7E5002B8AA1 /* LaunchScreen.xib */,
 				ED3A4E181A01B7E5002B8AA1 /* AppDelegate.swift */,
 				ED3A4E161A01B7E5002B8AA1 /* Supporting Files */,
+				9892B4EC1D3FA8910092AEDA /* HistoryViewController.swift */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				4D08C4CB1A16B28300A95F43 /* RPS.swift in Sources */,
 				ED3A4E191A01B7E5002B8AA1 /* AppDelegate.swift in Sources */,
 				4D08C4CD1A16B29700A95F43 /* RPSMatch.swift in Sources */,
+				9892B4ED1D3FA8910092AEDA /* HistoryViewController.swift in Sources */,
 				EDA5EFB31A02B4F200AABA2F /* ResultViewController.swift in Sources */,
 				EDA5EFB51A02BFB800AABA2F /* RockPaperScissorsViewController.swift in Sources */,
 			);
