@@ -9,8 +9,22 @@
 import UIKit
 
 class HistoryViewController: UIViewController {
-
+    
+    let cellReuseIdentifier = "RoshamboMatchCell"
+    var history = [RPSMatch]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let placeholderCount = self.history.count
+        return placeholderCount
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier)!
+        cell.textLabel?.text = history[indexPath.row].loser.description
+        return cell
     }
 }
