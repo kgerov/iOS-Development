@@ -78,7 +78,7 @@
         <!--View Controller-->
         <scene sceneID="J2H-H4-UPz">
             <objects>
-                <viewController id="jVY-g2-V33" sceneMemberID="viewController">
+                <viewController id="jVY-g2-V33" customClass="ViewController" customModule="MYOA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nyH-kx-0qt"/>
                         <viewControllerLayoutGuide type="bottom" id="oFi-RU-XTq"/>
@@ -131,7 +131,7 @@
         <!--View Controller-->
         <scene sceneID="PZh-st-dlf">
             <objects>
-                <viewController id="SGw-Jj-P2b" sceneMemberID="viewController">
+                <viewController id="SGw-Jj-P2b" customClass="ViewController" customModule="MYOA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Iah-VD-9fl"/>
                         <viewControllerLayoutGuide type="bottom" id="ZYN-4B-1ts"/>
@@ -184,7 +184,7 @@
         <!--View Controller-->
         <scene sceneID="Jf7-JR-xhi">
             <objects>
-                <viewController id="esA-lT-C7p" sceneMemberID="viewController">
+                <viewController id="esA-lT-C7p" customClass="ViewController" customModule="MYOA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Lu-aU-u2s"/>
                         <viewControllerLayoutGuide type="bottom" id="lcW-lT-Db0"/>
@@ -217,7 +217,7 @@
         <!--View Controller-->
         <scene sceneID="HHX-Hm-nNt">
             <objects>
-                <viewController id="XBK-Wy-Is5" sceneMemberID="viewController">
+                <viewController id="XBK-Wy-Is5" customClass="ViewController" customModule="MYOA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AuG-lM-Hqr"/>
                         <viewControllerLayoutGuide type="bottom" id="F2R-Ml-45e"/>
@@ -250,7 +250,7 @@
         <!--View Controller-->
         <scene sceneID="Ryc-lZ-cFZ">
             <objects>
-                <viewController id="q80-Jz-RSe" sceneMemberID="viewController">
+                <viewController id="q80-Jz-RSe" customClass="ViewController" customModule="MYOA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GAD-Fe-hNH"/>
                         <viewControllerLayoutGuide type="bottom" id="XL0-V7-7F3"/>
