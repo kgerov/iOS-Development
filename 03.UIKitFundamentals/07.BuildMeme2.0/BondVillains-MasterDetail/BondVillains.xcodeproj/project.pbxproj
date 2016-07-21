@@ -15,6 +15,7 @@
 		4D04CC181A1D1E5700FAB0D8 /* BondVillainsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04CC171A1D1E5700FAB0D8 /* BondVillainsTests.swift */; };
 		4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D04CC211A1D261800FAB0D8 /* Villain.swift */; };
 		4D1828D81A3BCDD5005D80E9 /* VillainDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1828D71A3BCDD5005D80E9 /* VillainDetailViewController.swift */; };
+		982879221D411D0D00AADE4B /* VillianCollectionViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982879211D411D0D00AADE4B /* VillianCollectionViewContoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		4D04CC171A1D1E5700FAB0D8 /* BondVillainsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BondVillainsTests.swift; sourceTree = "<group>"; };
 		4D04CC211A1D261800FAB0D8 /* Villain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Villain.swift; sourceTree = "<group>"; };
 		4D1828D71A3BCDD5005D80E9 /* VillainDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainDetailViewController.swift; sourceTree = "<group>"; };
+		982879211D411D0D00AADE4B /* VillianCollectionViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillianCollectionViewContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				4D04CC211A1D261800FAB0D8 /* Villain.swift */,
 				4D04CC011A1D1E5700FAB0D8 /* AppDelegate.swift */,
 				4D04CC051A1D1E5700FAB0D8 /* Main.storyboard */,
+				982879211D411D0D00AADE4B /* VillianCollectionViewContoller.swift */,
 				4D04CC081A1D1E5700FAB0D8 /* Images.xcassets */,
 				4D04CC0A1A1D1E5700FAB0D8 /* LaunchScreen.xib */,
 				4D04CBFF1A1D1E5700FAB0D8 /* Supporting Files */,
@@ -219,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				982879221D411D0D00AADE4B /* VillianCollectionViewContoller.swift in Sources */,
 				4D04CC041A1D1E5700FAB0D8 /* ViewController.swift in Sources */,
 				4D04CC021A1D1E5700FAB0D8 /* AppDelegate.swift in Sources */,
 				4D04CC221A1D261800FAB0D8 /* Villain.swift in Sources */,
