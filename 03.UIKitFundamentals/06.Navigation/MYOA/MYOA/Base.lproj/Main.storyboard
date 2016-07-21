@@ -1,8 +1,287 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kjb-iP-rHj">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="eeI-NH-VXg">
+            <objects>
+                <navigationController id="Kjb-iP-rHj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDR-QE-dim">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="y0W-v5-h9R" kind="relationship" relationship="rootViewController" id="Fno-io-fLi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pb-a0-xL7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-648" y="376"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eD7-Zd-2oG">
+            <objects>
+                <viewController id="y0W-v5-h9R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LDQ-vJ-12K"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gpm-Qc-ugP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R5k-Tx-f5M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The tiger is walking on the street. It sees a cat." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-jK-1Mw">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7Q-rq-iNy">
+                                <rect key="frame" x="209" y="411" width="182" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="The tiger eats the cat"/>
+                                <connections>
+                                    <segue destination="jVY-g2-V33" kind="show" id="QVW-8v-U22"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAu-PT-KY6">
+                                <rect key="frame" x="185" y="467" width="230" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="The tiger continues to walk"/>
+                                <connections>
+                                    <segue destination="SGw-Jj-P2b" kind="show" id="qnx-AS-7kH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RAu-PT-KY6" firstAttribute="top" secondItem="G7Q-rq-iNy" secondAttribute="bottom" constant="21" id="N8Z-FS-EnR"/>
+                            <constraint firstItem="HKC-jK-1Mw" firstAttribute="top" secondItem="LDQ-vJ-12K" secondAttribute="bottom" constant="42" id="PHf-oh-F2B"/>
+                            <constraint firstItem="Gpm-Qc-ugP" firstAttribute="top" secondItem="HKC-jK-1Mw" secondAttribute="bottom" constant="250" id="TWZ-tA-G5Z"/>
+                            <constraint firstItem="Gpm-Qc-ugP" firstAttribute="top" secondItem="RAu-PT-KY6" secondAttribute="bottom" constant="98" id="fSY-nN-VYY"/>
+                            <constraint firstItem="HKC-jK-1Mw" firstAttribute="leading" secondItem="R5k-Tx-f5M" secondAttribute="leadingMargin" constant="48" id="jbv-aa-Lpy"/>
+                            <constraint firstItem="HKC-jK-1Mw" firstAttribute="centerX" secondItem="R5k-Tx-f5M" secondAttribute="centerX" id="ldg-48-WKe"/>
+                            <constraint firstItem="RAu-PT-KY6" firstAttribute="centerX" secondItem="R5k-Tx-f5M" secondAttribute="centerX" id="stK-S2-3P9"/>
+                            <constraint firstItem="G7Q-rq-iNy" firstAttribute="centerX" secondItem="R5k-Tx-f5M" secondAttribute="centerX" id="uqZ-LR-1ht"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="qIm-bJ-PxY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDC-xo-L8u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91" y="372"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="J2H-H4-UPz">
+            <objects>
+                <viewController id="jVY-g2-V33" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nyH-kx-0qt"/>
+                        <viewControllerLayoutGuide type="bottom" id="oFi-RU-XTq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aeD-gV-u6n">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqc-zh-af7">
+                                <rect key="frame" x="219" y="411" width="163" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Tiger goes to sleep"/>
+                                <connections>
+                                    <segue destination="esA-lT-C7p" kind="show" id="yOz-HB-wGL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dTd-Ow-k9S">
+                                <rect key="frame" x="215" y="467" width="171" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Tiger starts dancing"/>
+                                <connections>
+                                    <segue destination="q80-Jz-RSe" kind="show" id="k7A-1q-rnP"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The tiger get tired he sits on the sidewalk" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dKu-kh-BAD">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dTd-Ow-k9S" firstAttribute="top" secondItem="Nqc-zh-af7" secondAttribute="bottom" constant="21" id="9Ay-xA-mLT"/>
+                            <constraint firstItem="dTd-Ow-k9S" firstAttribute="centerX" secondItem="aeD-gV-u6n" secondAttribute="centerX" id="GbL-u2-ewE"/>
+                            <constraint firstItem="Nqc-zh-af7" firstAttribute="centerX" secondItem="aeD-gV-u6n" secondAttribute="centerX" id="HQr-Nq-jwW"/>
+                            <constraint firstItem="oFi-RU-XTq" firstAttribute="top" secondItem="dTd-Ow-k9S" secondAttribute="bottom" constant="98" id="bmt-MR-5Um"/>
+                            <constraint firstItem="dKu-kh-BAD" firstAttribute="centerX" secondItem="aeD-gV-u6n" secondAttribute="centerX" id="bqD-SW-p92"/>
+                            <constraint firstItem="dKu-kh-BAD" firstAttribute="leading" secondItem="aeD-gV-u6n" secondAttribute="leadingMargin" constant="48" id="eGf-cu-SrO"/>
+                            <constraint firstItem="oFi-RU-XTq" firstAttribute="top" secondItem="dKu-kh-BAD" secondAttribute="bottom" constant="250" id="qLQ-Qc-PGt"/>
+                            <constraint firstItem="dKu-kh-BAD" firstAttribute="top" secondItem="nyH-kx-0qt" secondAttribute="bottom" constant="42" id="zVs-eT-UjB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="MIP-CY-Nh1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xpr-rN-itL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="-52"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PZh-st-dlf">
+            <objects>
+                <viewController id="SGw-Jj-P2b" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Iah-VD-9fl"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZYN-4B-1ts"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZPI-eS-O4A">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Tiger sees a bird." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Kc-a9-TqD">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t86-Bg-QDK">
+                                <rect key="frame" x="126" y="467" width="348" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="The tiger starts running towards the bird."/>
+                                <connections>
+                                    <segue destination="XBK-Wy-Is5" kind="show" id="JR9-id-dzl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGG-9Q-I3G">
+                                <rect key="frame" x="177" y="411" width="246" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Tiger is scared from the bird."/>
+                                <connections>
+                                    <segue destination="XBK-Wy-Is5" kind="show" id="0UE-Tj-yJc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZYN-4B-1ts" firstAttribute="top" secondItem="t86-Bg-QDK" secondAttribute="bottom" constant="98" id="2i2-NR-672"/>
+                            <constraint firstItem="t86-Bg-QDK" firstAttribute="top" secondItem="YGG-9Q-I3G" secondAttribute="bottom" constant="21" id="AHO-zl-ePD"/>
+                            <constraint firstItem="2Kc-a9-TqD" firstAttribute="top" secondItem="Iah-VD-9fl" secondAttribute="bottom" constant="42" id="FMV-Vw-UUT"/>
+                            <constraint firstItem="ZYN-4B-1ts" firstAttribute="top" secondItem="2Kc-a9-TqD" secondAttribute="bottom" constant="250" id="V8I-Ew-tw3"/>
+                            <constraint firstItem="2Kc-a9-TqD" firstAttribute="leading" secondItem="ZPI-eS-O4A" secondAttribute="leadingMargin" constant="48" id="Ysm-5X-2hL"/>
+                            <constraint firstItem="YGG-9Q-I3G" firstAttribute="centerX" secondItem="ZPI-eS-O4A" secondAttribute="centerX" id="myp-ap-eq4"/>
+                            <constraint firstItem="2Kc-a9-TqD" firstAttribute="centerX" secondItem="ZPI-eS-O4A" secondAttribute="centerX" id="nc3-nv-ZYr"/>
+                            <constraint firstItem="t86-Bg-QDK" firstAttribute="centerX" secondItem="ZPI-eS-O4A" secondAttribute="centerX" id="wxn-mb-CUo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="n0k-NV-xTl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyu-kg-DJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="871" y="792"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Jf7-JR-xhi">
+            <objects>
+                <viewController id="esA-lT-C7p" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Lu-aU-u2s"/>
+                        <viewControllerLayoutGuide type="bottom" id="lcW-lT-Db0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VFS-T7-tJE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Zzzzz...." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dba-t7-RxF">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Dba-t7-RxF" firstAttribute="top" secondItem="7Lu-aU-u2s" secondAttribute="bottom" constant="42" id="0xp-Dn-COe"/>
+                            <constraint firstItem="lcW-lT-Db0" firstAttribute="top" secondItem="Dba-t7-RxF" secondAttribute="bottom" constant="250" id="W50-bc-kjK"/>
+                            <constraint firstItem="Dba-t7-RxF" firstAttribute="centerX" secondItem="VFS-T7-tJE" secondAttribute="centerX" id="od4-hm-kUI"/>
+                            <constraint firstItem="Dba-t7-RxF" firstAttribute="leading" secondItem="VFS-T7-tJE" secondAttribute="leadingMargin" constant="48" id="uHF-ce-WoU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fdO-AK-x1U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTF-jE-UiH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="-474"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HHX-Hm-nNt">
+            <objects>
+                <viewController id="XBK-Wy-Is5" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AuG-lM-Hqr"/>
+                        <viewControllerLayoutGuide type="bottom" id="F2R-Ml-45e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8ru-fH-Zxf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="He got tired from running. Tiger fell asleep. Zzzz..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hki-Sl-gcr">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hki-Sl-gcr" firstAttribute="centerX" secondItem="8ru-fH-Zxf" secondAttribute="centerX" id="LRz-Ie-lTi"/>
+                            <constraint firstItem="Hki-Sl-gcr" firstAttribute="leading" secondItem="8ru-fH-Zxf" secondAttribute="leadingMargin" constant="48" id="X0h-9o-AiT"/>
+                            <constraint firstItem="Hki-Sl-gcr" firstAttribute="top" secondItem="AuG-lM-Hqr" secondAttribute="bottom" constant="42" id="kcs-ji-dMD"/>
+                            <constraint firstItem="F2R-Ml-45e" firstAttribute="top" secondItem="Hki-Sl-gcr" secondAttribute="bottom" constant="250" id="lpj-wu-SEu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ngF-Gl-NpD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fAa-hO-vC3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="1044"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ryc-lZ-cFZ">
+            <objects>
+                <viewController id="q80-Jz-RSe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GAD-Fe-hNH"/>
+                        <viewControllerLayoutGuide type="bottom" id="XL0-V7-7F3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VEc-8B-LLj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="The neighbours join the party." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="d5A-lT-Bxc">
+                                <rect key="frame" x="68" y="106" width="464" height="244"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XL0-V7-7F3" firstAttribute="top" secondItem="d5A-lT-Bxc" secondAttribute="bottom" constant="250" id="aeh-MI-06G"/>
+                            <constraint firstItem="d5A-lT-Bxc" firstAttribute="top" secondItem="GAD-Fe-hNH" secondAttribute="bottom" constant="42" id="bca-J7-eiT"/>
+                            <constraint firstItem="d5A-lT-Bxc" firstAttribute="centerX" secondItem="VEc-8B-LLj" secondAttribute="centerX" id="gP3-20-dom"/>
+                            <constraint firstItem="d5A-lT-Bxc" firstAttribute="leading" secondItem="VEc-8B-LLj" secondAttribute="leadingMargin" constant="48" id="rXZ-H0-Clt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="CLS-0r-ftT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YF4-Ck-1tr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="252"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="JR9-id-dzl"/>
+    </inferredMetricsTieBreakers>
 </document>
