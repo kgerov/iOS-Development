@@ -37,10 +37,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
-
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool
     
-    {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailContoller = self.storyboard!.instantiateViewControllerWithIdentifier("DetailController") as! DetailController
+        detailContoller.villain = self.allVillains[indexPath.row]
+        self.navigationController!.pushViewController(detailContoller, animated: true)
+    }
+
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
 

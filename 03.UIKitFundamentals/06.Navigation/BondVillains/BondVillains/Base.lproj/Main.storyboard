@@ -67,10 +67,10 @@
             </objects>
             <point key="canvasLocation" x="458" y="463"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail Controller-->
         <scene sceneID="lGN-TB-FLh">
             <objects>
-                <viewController id="NOc-1S-2IA" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailController" id="NOc-1S-2IA" customClass="DetailController" customModule="BondVillains" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WPT-Yq-yAX"/>
                         <viewControllerLayoutGuide type="bottom" id="KGC-MZ-Gpo"/>
@@ -80,13 +80,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-uB-zoA" userLabel="VillianImage">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
+                                <rect key="frame" x="250" y="260" width="100" height="80"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="3ME-BE-6A4"/>
+                                    <constraint firstAttribute="height" constant="80" id="OEg-7m-6VS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="mwM-bH-xb4"/>
                                     <constraint firstAttribute="width" constant="240" id="nAP-Hh-1Ty"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="s4J-zj-kea"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3ME-BE-6A4"/>
+                                        <exclude reference="nAP-Hh-1Ty"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFp-pZ-TMr" userLabel="VillianName">
-                                <rect key="frame" x="180" y="387" width="240" height="21"/>
+                                <rect key="frame" x="250" y="363" width="100" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -94,7 +104,6 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
-                            <constraint firstItem="tSa-uB-zoA" firstAttribute="top" secondItem="WPT-Yq-yAX" secondAttribute="bottom" constant="216" id="4An-A0-7Rb"/>
                             <constraint firstItem="tSa-uB-zoA" firstAttribute="centerX" secondItem="LGN-mX-90O" secondAttribute="centerX" id="FIQ-fL-P9I"/>
                             <constraint firstItem="mFp-pZ-TMr" firstAttribute="centerX" secondItem="tSa-uB-zoA" secondAttribute="centerX" id="PDt-zu-fLL"/>
                             <constraint firstItem="tSa-uB-zoA" firstAttribute="centerY" secondItem="LGN-mX-90O" secondAttribute="centerY" id="cJj-sf-MyS"/>
@@ -102,6 +111,10 @@
                             <constraint firstItem="mFp-pZ-TMr" firstAttribute="width" secondItem="tSa-uB-zoA" secondAttribute="width" id="vmr-U8-Qgr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="villianImage" destination="tSa-uB-zoA" id="GtA-TE-X4s"/>
+                        <outlet property="villianName" destination="mFp-pZ-TMr" id="m71-Q6-Hgg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Dh-b3-fJs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
