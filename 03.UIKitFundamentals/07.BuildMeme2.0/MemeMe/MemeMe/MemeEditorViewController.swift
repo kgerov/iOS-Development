@@ -79,8 +79,10 @@ UINavigationControllerDelegate {
         let shareItems: Array = [memeImage]
         let activityController = UIActivityViewController(activityItems: shareItems, applicationActivities: nil)
         
-        activityController.excludedActivityTypes = [UIActivityTypePostToWeibo, UIActivityTypeCopyToPasteboard,
-                                                    UIActivityTypeAddToReadingList, UIActivityTypePostToVimeo]
+        activityController.excludedActivityTypes = [UIActivityTypePostToWeibo,
+                                                    UIActivityTypeCopyToPasteboard,
+                                                    UIActivityTypeAddToReadingList,
+                                                    UIActivityTypePostToVimeo]
         
         activityController.completionWithItemsHandler = {
             (activity, success, items, error) in
@@ -148,7 +150,7 @@ UINavigationControllerDelegate {
         let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!,
                         originalImage: self.imageView.image!, memeImage: memeImage)
         
-        // TODO: Save meme in app. Have a collection of memes
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
     func generateMemedImage() -> UIImage

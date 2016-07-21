@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  MemeMe
+//  BondVillains
 //
-//  Created by Konstantin Gerov on 7/4/16.
-//  Copyright © 2016 Konstantin Gerov. All rights reserved.
+//  Created by Jason on 11/19/14.
+//  Copyright (c) 2014 Udacity. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes = [Meme]()
+
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
