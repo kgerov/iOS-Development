@@ -13,8 +13,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // Get ahold of some villains, for the table
     // This is an array of Villain instances
     let allVillains = Villain.allVillains
-    
-    
+ 
     // MARK: Table View Data Source
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

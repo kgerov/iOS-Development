@@ -16,8 +16,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="o3f-Sg-gX9" kind="relationship" relationship="viewControllers" id="3qi-27-0aM"/>
-                        <segue destination="O7V-pP-Yvi" kind="relationship" relationship="viewControllers" id="kf3-zi-tAT"/>
+                        <segue destination="o3f-Sg-gX9" kind="relationship" relationship="viewControllers" id="WOX-5L-fAT"/>
+                        <segue destination="O7V-pP-Yvi" kind="relationship" relationship="viewControllers" id="H8x-M9-ql7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jV8-Ls-0qn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -28,7 +28,7 @@
         <scene sceneID="j5K-hX-kFm">
             <objects>
                 <navigationController title="Villian Table" id="o3f-Sg-gX9" userLabel="TableNavigationContoller" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CbV-Jh-yiB"/>
+                    <tabBarItem key="tabBarItem" title="Table" id="CbV-Jh-yiB" userLabel="Table"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="h6b-Jx-447">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -45,7 +45,7 @@
         <scene sceneID="u9r-jN-HIP">
             <objects>
                 <navigationController title="Villian Grid" id="O7V-pP-Yvi" userLabel="CollectionNavigationController" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ZB7-oR-j9A"/>
+                    <tabBarItem key="tabBarItem" title="Grid" id="ZB7-oR-j9A" userLabel="Grid"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gaf-HO-u89">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -66,20 +66,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="is8-j6-R7y">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="126" height="110"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hiv-Wt-owd">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomVillainCell" id="hiv-Wt-owd" customClass="CustomVillainCell" customModule="BondVillains" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="126" height="110"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="126" height="110"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="coF-hS-Ung">
+                                            <rect key="frame" x="13" y="8" width="100" height="80"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="80" id="2DG-k5-vLi"/>
+                                                <constraint firstAttribute="width" constant="100" id="wj3-3I-gwF"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="coF-hS-Ung" firstAttribute="centerX" secondItem="hiv-Wt-owd" secondAttribute="centerX" id="XB9-tO-i0N"/>
+                                    <constraint firstItem="coF-hS-Ung" firstAttribute="top" secondItem="hiv-Wt-owd" secondAttribute="topMargin" id="rXk-S6-GxU"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageView" destination="coF-hS-Ung" id="WN3-g2-Dek"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
