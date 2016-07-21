@@ -89,6 +89,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="coF-hS-Ung" firstAttribute="centerX" secondItem="hiv-Wt-owd" secondAttribute="centerX" id="XB9-tO-i0N"/>
                                     <constraint firstItem="coF-hS-Ung" firstAttribute="top" secondItem="hiv-Wt-owd" secondAttribute="topMargin" id="rXk-S6-GxU"/>
@@ -104,6 +105,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="XN6-le-jwa"/>
+                    <connections>
+                        <outlet property="flowLayout" destination="is8-j6-R7y" id="KzN-di-PAh"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUB-5D-71d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
