@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -34,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="6Cz-zQ-OiI" kind="relationship" relationship="rootViewController" id="BE1-l5-4qH"/>
+                        <segue destination="gs8-83-1AE" kind="relationship" relationship="rootViewController" id="wgX-9N-pf6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaI-bU-avt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -42,48 +41,33 @@
             <point key="canvasLocation" x="-681" y="-31"/>
         </scene>
         <!--Meme Table View Controller-->
-        <scene sceneID="FVG-Xy-pqm">
+        <scene sceneID="qe3-z2-344">
             <objects>
-                <viewController id="6Cz-zQ-OiI" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Cby-Iw-0nu"/>
-                        <viewControllerLayoutGuide type="bottom" id="PhT-ej-xmY"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MPu-rJ-djT">
+                <tableViewController id="gs8-83-1AE" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UcX-DM-InI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pC5-99-684">
-                                <rect key="frame" x="0.0" y="40" width="600" height="560"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeTableViewCell" id="ZvM-Mm-kIY">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZvM-Mm-kIY" id="aHj-Dd-xUT">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="6Cz-zQ-OiI" id="OOd-s1-Z2j"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="PhT-ej-xmY" firstAttribute="top" secondItem="pC5-99-684" secondAttribute="bottom" id="cui-P9-VYo"/>
-                            <constraint firstItem="pC5-99-684" firstAttribute="leading" secondItem="MPu-rJ-djT" secondAttribute="leadingMargin" constant="-20" id="oWW-K3-VcB"/>
-                            <constraint firstItem="pC5-99-684" firstAttribute="top" secondItem="Cby-Iw-0nu" secondAttribute="bottom" constant="20" id="uA2-Ho-BRc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pC5-99-684" secondAttribute="trailing" constant="-20" id="z5v-p0-wSf"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="UIR-NM-vcf"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ijj-fw-h0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableViewCell" id="tfb-LO-6RH">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tfb-LO-6RH" id="4lh-Qq-xIe">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gs8-83-1AE" id="xO7-uE-s50"/>
+                            <outlet property="delegate" destination="gs8-83-1AE" id="Dn7-rC-v0r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="hSX-9v-nmm"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="afz-dL-Anx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="-31"/>
+            <point key="canvasLocation" x="31" y="-31"/>
         </scene>
         <!--Collection Navigation Controller-->
         <scene sceneID="JIn-MJ-gxc">

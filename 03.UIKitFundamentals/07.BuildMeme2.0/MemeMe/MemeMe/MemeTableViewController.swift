@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MemeTableViewController : UITableViewController {
     
     var memes: [Meme]!
     
@@ -19,18 +19,18 @@ class MemeTableViewController : UIViewController, UITableViewDataSource, UITable
         memes = applicationDelegate.memes
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
         let meme = memes[indexPath.row]
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
 }
