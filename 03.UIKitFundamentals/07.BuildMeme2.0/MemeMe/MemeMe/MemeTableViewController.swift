@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeTableViewController : UIViewController, UITableViewDataSource {
+class MemeTableViewController : UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var memes: [Meme]!
     
