@@ -94,10 +94,7 @@ UINavigationControllerDelegate {
     }
     
     @IBAction func cancelMemeEditing(sender: AnyObject) {
-        imageView.image = nil
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        shareButton.enabled = false
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
