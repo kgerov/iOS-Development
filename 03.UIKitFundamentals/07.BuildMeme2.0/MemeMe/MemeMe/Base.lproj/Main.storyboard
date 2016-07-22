@@ -44,18 +44,26 @@
         <scene sceneID="qe3-z2-344">
             <objects>
                 <tableViewController id="gs8-83-1AE" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UcX-DM-InI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" id="UcX-DM-InI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableViewCell" id="tfb-LO-6RH">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableViewCell" rowHeight="110" id="tfb-LO-6RH" customClass="MemeTableViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="110"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tfb-LO-6RH" id="4lh-Qq-xIe">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-4b-Ci5">
+                                            <rect key="frame" x="8" y="5" width="136" height="100"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="MemeImage" destination="Szd-4b-Ci5" id="nN2-7Y-UMy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -63,7 +71,14 @@
                             <outlet property="delegate" destination="gs8-83-1AE" id="Dn7-rC-v0r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hSX-9v-nmm"/>
+                    <navigationItem key="navigationItem" id="hSX-9v-nmm">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yfi-Au-dpa"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="P6O-EQ-zhr">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="qqa-NA-fVq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afz-dL-Anx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -115,7 +130,18 @@
                             <outlet property="delegate" destination="2mW-kb-jTh" id="Ddc-oD-Ewb"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="bk5-dT-iZa"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="KKJ-b5-h9t"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="bk5-dT-iZa">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="uwk-mS-pe2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4JZ-TB-gbo">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" id="tIX-f8-VKK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O4A-UE-OCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,4 +262,7 @@
         <image name="CollectionIcon" width="30" height="30"/>
         <image name="TableIcon" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="tIX-f8-VKK"/>
+    </inferredMetricsTieBreakers>
 </document>
