@@ -17,6 +17,7 @@
 		980C47F31D2A87EC0074F88A /* MemeTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C47F21D2A87EC0074F88A /* MemeTextFieldDelegate.swift */; };
 		980C47F51D2A8E6F0074F88A /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980C47F41D2A8E6F0074F88A /* Meme.swift */; };
 		982879201D41104E00AADE4B /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828791F1D41104E00AADE4B /* MemeCollectionViewController.swift */; };
+		982879261D422E7700AADE4B /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982879251D422E7700AADE4B /* MemeTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		980C47F21D2A87EC0074F88A /* MemeTextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTextFieldDelegate.swift; sourceTree = "<group>"; };
 		980C47F41D2A8E6F0074F88A /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		9828791F1D41104E00AADE4B /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		982879251D422E7700AADE4B /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				980C47C41D2A61010074F88A /* AppDelegate.swift */,
 				980C47C61D2A61010074F88A /* MemeEditorViewController.swift */,
 				9828791F1D41104E00AADE4B /* MemeCollectionViewController.swift */,
+				982879251D422E7700AADE4B /* MemeTableViewController.swift */,
 				980C47C81D2A61010074F88A /* Main.storyboard */,
 				980C47CB1D2A61010074F88A /* Assets.xcassets */,
 				980C47CD1D2A61010074F88A /* LaunchScreen.storyboard */,
@@ -285,6 +288,7 @@
 				980C47C71D2A61010074F88A /* MemeEditorViewController.swift in Sources */,
 				980C47F51D2A8E6F0074F88A /* Meme.swift in Sources */,
 				982879201D41104E00AADE4B /* MemeCollectionViewController.swift in Sources */,
+				982879261D422E7700AADE4B /* MemeTableViewController.swift in Sources */,
 				980C47F31D2A87EC0074F88A /* MemeTextFieldDelegate.swift in Sources */,
 				980C47C51D2A61010074F88A /* AppDelegate.swift in Sources */,
 			);
