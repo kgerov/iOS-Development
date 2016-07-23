@@ -11,13 +11,6 @@ import UIKit
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate {
     
-    let memeTextAttributes = [
-        NSStrokeColorAttributeName : UIColor.blackColor(),
-        NSForegroundColorAttributeName : UIColor.whiteColor(),
-        NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSStrokeWidthAttributeName : -3.3
-    ]
-    
     let memeDelegate = MemeTextFieldDelegate()
     
     @IBOutlet weak var topTextField: UITextField!
@@ -175,7 +168,7 @@ UINavigationControllerDelegate {
     }
     
     func addStyleToTextField(textField: UITextField) {
-        textField.defaultTextAttributes = memeTextAttributes
+        textField.defaultTextAttributes = Constants.Storyboard.memeTextAttributes
         textField.textAlignment = NSTextAlignment.Center
         textField.delegate = memeDelegate
     }

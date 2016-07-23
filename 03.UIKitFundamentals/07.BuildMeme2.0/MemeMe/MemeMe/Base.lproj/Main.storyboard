@@ -64,21 +64,21 @@
                                                 <constraint firstAttribute="height" constant="100" id="c0K-1O-Z1r"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-0S-0In">
-                                            <rect key="frame" x="69" y="10" width="28" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-0S-0In">
+                                            <rect key="frame" x="13" y="10" width="140" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="3" height="3"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-uN-dFK" userLabel="Meme Text">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-uN-dFK" userLabel="Meme Text">
                                             <rect key="frame" x="163" y="39" width="429" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSa-i3-XqJ">
-                                            <rect key="frame" x="54" y="83" width="59" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSa-i3-XqJ">
+                                            <rect key="frame" x="13" y="83" width="140" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -90,6 +90,8 @@
                                         <constraint firstItem="bSa-i3-XqJ" firstAttribute="centerX" secondItem="Szd-4b-Ci5" secondAttribute="centerX" id="N52-1A-7iu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="JiY-uN-dFK" secondAttribute="trailing" id="Pa9-HE-mTp"/>
                                         <constraint firstItem="LZ1-0S-0In" firstAttribute="centerX" secondItem="Szd-4b-Ci5" secondAttribute="centerX" id="QUH-sM-tf1"/>
+                                        <constraint firstItem="bSa-i3-XqJ" firstAttribute="width" secondItem="Szd-4b-Ci5" secondAttribute="width" id="biQ-5c-MWV"/>
+                                        <constraint firstItem="LZ1-0S-0In" firstAttribute="width" secondItem="Szd-4b-Ci5" secondAttribute="width" id="jEk-mD-hNd"/>
                                         <constraint firstItem="bSa-i3-XqJ" firstAttribute="bottom" secondItem="Szd-4b-Ci5" secondAttribute="bottom" constant="-5" id="jMW-OG-ViR"/>
                                         <constraint firstItem="LZ1-0S-0In" firstAttribute="top" secondItem="Szd-4b-Ci5" secondAttribute="top" constant="5" id="obh-VA-VXJ"/>
                                     </constraints>

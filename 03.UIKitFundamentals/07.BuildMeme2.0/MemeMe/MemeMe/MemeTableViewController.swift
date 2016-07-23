@@ -29,9 +29,7 @@ class MemeTableViewController : UITableViewController {
         let meme = memes[indexPath.row]
         
         cell.memeImage.image = meme.originalImage
-        cell.memeText.text = meme.topText + "..." + meme.bottomText
-        cell.topText.text = meme.topText
-        cell.bottomText.text = meme.bottomText
+        cell.addText(meme.topText, bottomText: meme.bottomText)
         
         return cell
     }
