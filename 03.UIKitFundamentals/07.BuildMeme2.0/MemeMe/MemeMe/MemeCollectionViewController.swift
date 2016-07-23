@@ -12,12 +12,19 @@ class MemeCollectionViewController : UICollectionViewController {
 
     var memes: [Meme]!
     
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupFlowLayout(view.frame.size)
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         let applicationDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = applicationDelegate.memes
-        tableView.reloadData()
+        collectionView!.reloadData()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -41,5 +48,24 @@ class MemeCollectionViewController : UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        setupFlowLayout(size)
+    }
+    
+    func setupFlowLayout(size: CGSize) {
+        let space: CGFloat = 3.0
+        var dimension: CGFloat
+        
+        if UIDevice.currentDevice().orientation.isLandscape.boolValue {
+            dimension = (size.width - (4 * space)) / 5.0
+        } else {
+            dimension = (size.width - (2 * space)) / 3.0
+        }
+        
+        flowLayout?.minimumInteritemSpacing = space
+        flowLayout?.minimumLineSpacing = space
+        flowLayout?.itemSize = CGSizeMake(dimension, dimension)
     }
 }
