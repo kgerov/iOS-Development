@@ -32,22 +32,28 @@ UINavigationControllerDelegate {
         // Hide cursos and keyboard on touch
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(MemeEditorViewController.hideKeyboard))
         view.addGestureRecognizer(tapRecognizer)
-        
-        // Draw Meme on screen if in edit mode
-        if meme != nil {
-            topTextField.text = meme.topText
-            bottomTextField.text = meme.bottomText
-            imageView.image = meme.originalImage
-        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
         // Enable camera button if device has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         // Subscribe to keyboard notification
         subscribeToKeyboardNotifications()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Draw Meme on screen if in edit mode
+        if meme != nil {
+            shareButton.enabled = true
+            topTextField.text = meme.topText
+            bottomTextField.text = meme.bottomText
+            imageView.image = meme.originalImage
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
