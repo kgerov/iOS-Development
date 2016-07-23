@@ -22,8 +22,8 @@ class MemeTableViewCell : UITableViewCell {
     }
     
     private func initLabel(label: UILabel, text: String) {
-        label.attributedText = NSAttributedString(string: "",
-                                                  attributes: Constants.Storyboard.memeTextAttributes)
+        label.attributedText = NSAttributedString(string: text,
+                                                  attributes: Constants.Storyboard.memeLabelAttributes)
         label.textAlignment = NSTextAlignment.Center
     }
 }
