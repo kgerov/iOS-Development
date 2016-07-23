@@ -41,7 +41,7 @@
             </objects>
             <point key="canvasLocation" x="-681" y="-31"/>
         </scene>
-        <!--Meme Table View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="qe3-z2-344">
             <objects>
                 <tableViewController id="gs8-83-1AE" customClass="MemeTableViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,7 +114,7 @@
                             <outlet property="delegate" destination="gs8-83-1AE" id="Dn7-rC-v0r"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="hSX-9v-nmm">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="hSX-9v-nmm">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yfi-Au-dpa">
                             <connections>
                                 <action selector="editButtonPressed:" destination="gs8-83-1AE" id="ekb-vf-kto"/>
@@ -148,7 +148,7 @@
             </objects>
             <point key="canvasLocation" x="-681" y="726"/>
         </scene>
-        <!--Meme Collection View Controller-->
+        <!--Sent Memes-->
         <scene sceneID="8XN-QO-IzS">
             <objects>
                 <collectionViewController id="2mW-kb-jTh" customClass="MemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -156,20 +156,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z6a-Rc-92U">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="200" height="200"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="Yez-15-mFy">
-                                <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionViewCell" id="Yez-15-mFy" customClass="MemeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G5v-QK-MBN">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="2CB-3M-9fg"/>
+                                                <constraint firstAttribute="height" constant="100" id="nIy-1I-can"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2CB-3M-9fg"/>
+                                                    <exclude reference="nIy-1I-can"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nx-KU-tA6">
+                                            <rect key="frame" x="0.0" y="5" width="200" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="3" height="3"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s49-pU-ik8">
+                                            <rect key="frame" x="0.0" y="178" width="200" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="3" height="3"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="G5v-QK-MBN" firstAttribute="centerX" secondItem="Yez-15-mFy" secondAttribute="centerX" id="514-UK-rut"/>
+                                    <constraint firstItem="s49-pU-ik8" firstAttribute="centerX" secondItem="G5v-QK-MBN" secondAttribute="centerX" id="O1Q-1z-G54"/>
+                                    <constraint firstItem="5Nx-KU-tA6" firstAttribute="top" secondItem="G5v-QK-MBN" secondAttribute="top" constant="5" id="O2C-Ue-WET"/>
+                                    <constraint firstItem="5Nx-KU-tA6" firstAttribute="width" secondItem="G5v-QK-MBN" secondAttribute="width" id="Q0n-zC-NhO"/>
+                                    <constraint firstItem="s49-pU-ik8" firstAttribute="width" secondItem="G5v-QK-MBN" secondAttribute="width" id="ajZ-Jg-9oq"/>
+                                    <constraint firstItem="5Nx-KU-tA6" firstAttribute="centerX" secondItem="G5v-QK-MBN" secondAttribute="centerX" id="mLd-LS-FHe"/>
+                                    <constraint firstItem="G5v-QK-MBN" firstAttribute="height" secondItem="Yez-15-mFy" secondAttribute="height" id="oXo-xW-1Cz"/>
+                                    <constraint firstItem="G5v-QK-MBN" firstAttribute="centerY" secondItem="Yez-15-mFy" secondAttribute="centerY" id="rpk-IZ-69I"/>
+                                    <constraint firstItem="s49-pU-ik8" firstAttribute="bottom" secondItem="G5v-QK-MBN" secondAttribute="bottom" constant="-5" id="tR0-Qu-TCk"/>
+                                    <constraint firstItem="G5v-QK-MBN" firstAttribute="width" secondItem="Yez-15-mFy" secondAttribute="width" id="yOi-i6-5qc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bottomText" destination="s49-pU-ik8" id="rb3-ZR-FIj"/>
+                                    <outlet property="memeImage" destination="G5v-QK-MBN" id="nNu-II-WN0"/>
+                                    <outlet property="topText" destination="5Nx-KU-tA6" id="VJm-dm-m80"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -180,8 +226,7 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="KKJ-b5-h9t"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="bk5-dT-iZa">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="uwk-mS-pe2"/>
+                    <navigationItem key="navigationItem" title="Sent Memes" id="bk5-dT-iZa">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="4JZ-TB-gbo">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="tIX-f8-VKK"/>
@@ -310,6 +355,6 @@
         <image name="TableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qqa-NA-fVq"/>
+        <segue reference="tIX-f8-VKK"/>
     </inferredMetricsTieBreakers>
 </document>
