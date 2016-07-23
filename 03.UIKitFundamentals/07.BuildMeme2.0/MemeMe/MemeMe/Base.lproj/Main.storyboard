@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -56,13 +57,53 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="109"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-4b-Ci5">
-                                            <rect key="frame" x="8" y="5" width="136" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Szd-4b-Ci5">
+                                            <rect key="frame" x="13" y="5" width="140" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="140" id="2tM-DP-DBc"/>
+                                                <constraint firstAttribute="height" constant="100" id="c0K-1O-Z1r"/>
+                                            </constraints>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZ1-0S-0In">
+                                            <rect key="frame" x="69" y="10" width="28" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="3" height="3"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiY-uN-dFK" userLabel="Meme Text">
+                                            <rect key="frame" x="163" y="39" width="429" height="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSa-i3-XqJ">
+                                            <rect key="frame" x="54" y="83" width="59" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <size key="shadowOffset" width="3" height="3"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JiY-uN-dFK" firstAttribute="leading" secondItem="Szd-4b-Ci5" secondAttribute="trailing" constant="10" id="JJ7-16-w2h"/>
+                                        <constraint firstItem="bSa-i3-XqJ" firstAttribute="centerX" secondItem="Szd-4b-Ci5" secondAttribute="centerX" id="N52-1A-7iu"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JiY-uN-dFK" secondAttribute="trailing" id="Pa9-HE-mTp"/>
+                                        <constraint firstItem="LZ1-0S-0In" firstAttribute="centerX" secondItem="Szd-4b-Ci5" secondAttribute="centerX" id="QUH-sM-tf1"/>
+                                        <constraint firstItem="bSa-i3-XqJ" firstAttribute="bottom" secondItem="Szd-4b-Ci5" secondAttribute="bottom" constant="-5" id="jMW-OG-ViR"/>
+                                        <constraint firstItem="LZ1-0S-0In" firstAttribute="top" secondItem="Szd-4b-Ci5" secondAttribute="top" constant="5" id="obh-VA-VXJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="JiY-uN-dFK" firstAttribute="centerY" secondItem="tfb-LO-6RH" secondAttribute="centerY" id="bNP-8C-6Or"/>
+                                    <constraint firstItem="Szd-4b-Ci5" firstAttribute="leading" secondItem="tfb-LO-6RH" secondAttribute="leading" constant="13" id="frh-2o-cy5"/>
+                                    <constraint firstItem="Szd-4b-Ci5" firstAttribute="centerY" secondItem="tfb-LO-6RH" secondAttribute="centerY" id="x0h-Wu-OSQ"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="MemeImage" destination="Szd-4b-Ci5" id="nN2-7Y-UMy"/>
+                                    <outlet property="bottomText" destination="bSa-i3-XqJ" id="egq-Yy-Kjx"/>
+                                    <outlet property="memeImage" destination="Szd-4b-Ci5" id="jDj-f9-ij6"/>
+                                    <outlet property="memeText" destination="JiY-uN-dFK" id="tYF-Rd-MvN"/>
+                                    <outlet property="topText" destination="LZ1-0S-0In" id="gV1-qc-bcg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -72,7 +113,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hSX-9v-nmm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yfi-Au-dpa"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="yfi-Au-dpa">
+                            <connections>
+                                <action selector="editButtonPressed:" destination="gs8-83-1AE" id="ekb-vf-kto"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="P6O-EQ-zhr">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="qqa-NA-fVq"/>
@@ -263,6 +308,6 @@
         <image name="TableIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="tIX-f8-VKK"/>
+        <segue reference="qqa-NA-fVq"/>
     </inferredMetricsTieBreakers>
 </document>

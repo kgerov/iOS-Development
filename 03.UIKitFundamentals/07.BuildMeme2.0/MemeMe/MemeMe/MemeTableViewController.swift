@@ -12,11 +12,12 @@ class MemeTableViewController : UITableViewController {
     
     var memes: [Meme]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         let applicationDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = applicationDelegate.memes
+        tableView.reloadData()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -24,13 +25,21 @@ class MemeTableViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell") as! MemeTableViewCell
         let meme = memes[indexPath.row]
+        
+        cell.memeImage.image = meme.originalImage
+        cell.memeText.text = meme.topText + "..." + meme.bottomText
+        cell.topText.text = meme.topText
+        cell.bottomText.text = meme.bottomText
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    }
+    
+    @IBAction func editButtonPressed(sender: AnyObject) {
+
     }
 }
