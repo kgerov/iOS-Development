@@ -18,5 +18,16 @@ class  MemeDetailViewController : UIViewController {
         super.viewWillAppear(animated)
         
         self.memeImage!.image = meme.memeImage
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(editImage))
+    }
+    
+    func editImage(){        
+        // Present new controller modally
+        var controller: MemeEditorViewController
+        
+        controller = self.storyboard?.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeEditorViewController
+        
+        controller.meme = meme
+        self.navigationController!.presentViewController(controller, animated: true, completion: nil)
     }
 }
