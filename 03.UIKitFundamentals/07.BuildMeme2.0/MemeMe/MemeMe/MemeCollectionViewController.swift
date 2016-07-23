@@ -12,11 +12,12 @@ class MemeCollectionViewController : UICollectionViewController {
 
     var memes: [Meme]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         let applicationDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         memes = applicationDelegate.memes
+        tableView.reloadData()
     }
     
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,9 +28,15 @@ class MemeCollectionViewController : UICollectionViewController {
         -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MemeCollectionViewCell", forIndexPath: indexPath)
+            as! MemeCollectionViewCell
+            
         let meme = memes[indexPath.row]
-        
+            
+        cell.memeImage.image = meme.originalImage
+        cell.addText(meme.topText, bottomText: meme.bottomText)
+            
         return cell
+
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
