@@ -47,7 +47,12 @@ class MemeCollectionViewController : UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let detailVC =
+            self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
+                as! MemeDetailViewController
         
+        detailVC.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailVC, animated: true)
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

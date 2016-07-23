@@ -35,6 +35,12 @@ class MemeTableViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let detailVC =
+            self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
+                as! MemeDetailViewController
+        
+        detailVC.meme = memes[indexPath.row]
+        navigationController!.pushViewController(detailVC, animated: true)
     }
     
     @IBAction func editButtonPressed(sender: AnyObject) {
