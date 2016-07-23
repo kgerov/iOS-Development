@@ -12,6 +12,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
 UINavigationControllerDelegate {
     
     let memeDelegate = MemeTextFieldDelegate()
+    var meme: Meme!
     
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -35,6 +36,13 @@ UINavigationControllerDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Draw Meme on screen if in edit mode
+        if meme != nil {
+            topTextField.text = meme.topText
+            bottomTextField.text = meme.bottomText
+            imageView.image = meme.originalImage
+        }
         
         // Enable camera button if device has a camera
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
