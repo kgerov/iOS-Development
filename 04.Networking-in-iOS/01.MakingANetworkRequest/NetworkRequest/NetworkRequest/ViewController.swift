@@ -22,10 +22,9 @@ class ViewController: UIViewController {
             if error == nil {
                 let image = UIImage(data: data!)
                 
-                //performUIUpdatesOnMain {
-                    
-                //}
-                self.imageView.image = image
+                performUIUpdatesOnMain {
+                    self.imageView.image = image
+                }
             }
         }
         

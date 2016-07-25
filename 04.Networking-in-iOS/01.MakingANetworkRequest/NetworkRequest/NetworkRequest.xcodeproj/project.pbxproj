@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9808AA8E1D465F1C00A3AA16 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808AA8D1D465F1C00A3AA16 /* GCDBlackBox.swift */; };
 		9828793F1D45F46C00AADE4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828793E1D45F46C00AADE4B /* AppDelegate.swift */; };
 		982879411D45F46C00AADE4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982879401D45F46C00AADE4B /* ViewController.swift */; };
 		982879441D45F46C00AADE4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 982879421D45F46C00AADE4B /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9808AA8D1D465F1C00A3AA16 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		9828793B1D45F46C00AADE4B /* NetworkRequest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkRequest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9828793E1D45F46C00AADE4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		982879401D45F46C00AADE4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				982879451D45F46C00AADE4B /* Assets.xcassets */,
 				982879471D45F46C00AADE4B /* LaunchScreen.storyboard */,
 				9828794A1D45F46C00AADE4B /* Info.plist */,
+				9808AA8D1D465F1C00A3AA16 /* GCDBlackBox.swift */,
 			);
 			path = NetworkRequest;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				982879411D45F46C00AADE4B /* ViewController.swift in Sources */,
+				9808AA8E1D465F1C00A3AA16 /* GCDBlackBox.swift in Sources */,
 				9828793F1D45F46C00AADE4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +488,7 @@
 				982879651D45F46D00AADE4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		982879661D45F46D00AADE4B /* Build configuration list for PBXNativeTarget "NetworkRequestTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +497,7 @@
 				982879681D45F46D00AADE4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		982879691D45F46D00AADE4B /* Build configuration list for PBXNativeTarget "NetworkRequestUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +506,7 @@
 				9828796B1D45F46D00AADE4B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
