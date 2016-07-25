@@ -9,15 +9,27 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var imageView: UILabel!
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let imageUrl = NSURL(string: "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg")
+        let imageUrl = NSURL(string: "https://upload.wikimedia.org/wikipedia/en/5/5f/Original_Doge_meme.jpg")!
         
-        NSURLSession.sharedSession()
+        let task = NSURLSession.sharedSession().dataTaskWithURL(imageUrl){ (data, response, error) in
+        
+            if error == nil {
+                let image = UIImage(data: data!)
+                
+                //performUIUpdatesOnMain {
+                    
+                //}
+                self.imageView.image = image
+            }
+        }
+        
+        task.resume()
     }
 }
 
