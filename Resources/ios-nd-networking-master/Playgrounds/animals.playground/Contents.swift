@@ -21,7 +21,41 @@ var parsingAnimalsError: NSError? = nil
 var parsedAnimalsJSON = try! NSJSONSerialization.JSONObjectWithData(rawAnimalsJSON!, options: .AllowFragments) as! NSDictionary
 
 func parseJSONAsDictionary(dictionary: NSDictionary) {
-    /* Start playing with JSON here... */
+    guard let photosDictionary = dictionary["photos"] as? [String: AnyObject],
+        let photosArray = photosDictionary["photo"] as? [[String: AnyObject]] else {
+        
+        print("No key 'photos' in array")
+        return
+    }
+    
+    print("Count: " + String(photosArray.count))
+    
+    for (index, photo) in photosArray.enumerate() {
+        
+        guard let content = photo["comment"] as? [String:String] else {
+            print("There were no comments")
+            return
+        }
+        
+        guard let comment = content["_content"] as String! else {
+            print("Failed to extract comment text")
+            return
+        }
+        
+        if (comment.containsString("interrufftion")) {
+            print(index)
+        }
+        
+        if (index == 2) {
+            guard let url = photo["url_m"] as? String else {
+                print("There was no url in \(photo)")
+                return
+            }
+            
+            print(url)
+        }
+    }
+
 }
 
 parseJSONAsDictionary(parsedAnimalsJSON)
