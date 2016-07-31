@@ -55,7 +55,15 @@ class ViewController: UIViewController {
         if !phraseTextField.text!.isEmpty {
             photoTitleLabel.text = "Searching..."
             // TODO: Set necessary parameters!
-            let methodParameters: [String: String!] = [:]
+            let methodParameters: [String: String!] =
+                [Constants.FlickrParameterKeys.SafeSearch: Constants.FlickrParameterValues.UseSafeSearch,
+                 Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+                 Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
+                 Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.SearchMethod,
+                 Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback,
+                 Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.ResponseFormat,
+                 Constants.FlickrParameterKeys.Text: phraseTextField.text]
+            
             displayImageFromFlickrBySearch(methodParameters)
         } else {
             setUIEnabled(true)
@@ -71,7 +79,15 @@ class ViewController: UIViewController {
         if isTextFieldValid(latitudeTextField, forRange: Constants.Flickr.SearchLatRange) && isTextFieldValid(longitudeTextField, forRange: Constants.Flickr.SearchLonRange) {
             photoTitleLabel.text = "Searching..."
             // TODO: Set necessary parameters!
-            let methodParameters: [String: String!] = [:]
+            let methodParameters: [String: String!] =
+                [Constants.FlickrParameterKeys.SafeSearch: Constants.FlickrParameterValues.UseSafeSearch,
+                 Constants.FlickrParameterKeys.APIKey: Constants.FlickrParameterValues.APIKey,
+                 Constants.FlickrParameterKeys.Extras: Constants.FlickrParameterValues.MediumURL,
+                 Constants.FlickrParameterKeys.Method: Constants.FlickrParameterValues.SearchMethod,
+                 Constants.FlickrParameterKeys.NoJSONCallback: Constants.FlickrParameterValues.DisableJSONCallback,
+                 Constants.FlickrParameterKeys.Format: Constants.FlickrParameterValues.ResponseFormat,
+                 Constants.FlickrParameterKeys.BoundingBox: bboxString(Double(latitudeTextField.text!)!, longitude: Double(longitudeTextField.text!)!)]
+            
             displayImageFromFlickrBySearch(methodParameters)
         }
         else {
@@ -80,13 +96,42 @@ class ViewController: UIViewController {
         }
     }
     
+    private func bboxString(latitude: Double, longitude: Double) -> String {
+        
+        let minLon = max(longitude - Constants.Flickr.SearchBBoxHalfWidth, Constants.Flickr.SearchLonRange.0)
+        let minLat = max(latitude - Constants.Flickr.SearchBBoxHalfHeight, Constants.Flickr.SearchLatRange.0)
+        let maxLon = min(longitude + Constants.Flickr.SearchBBoxHalfWidth, Constants.Flickr.SearchLonRange.1)
+        let maxLat = min(latitude + Constants.Flickr.SearchBBoxHalfHeight, Constants.Flickr.SearchLatRange.1)
+        
+        return "\(minLon),\(minLat),\(maxLon),\(maxLat)"
+    }
+    
     // MARK: Flickr API
     
     private func displayImageFromFlickrBySearch(methodParameters: [String:AnyObject]) {
+    
+        let session = NSURLSession.sharedSession()
+        let requestUrl = flickrURLFromParameters(methodParameters)
+        let request = NSURLRequest(URL: requestUrl)
         
-        print(flickrURLFromParameters(methodParameters))
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            func displayError(message: String) {
+                print(message)
+                performUIUpdatesOnMain {
+                    self.setUIEnabled(true)
+                    self.photoTitleLabel.text = "No photo returned. Try again"
+                    self.photoImageView.image = nil
+                }
+            }
+            if error == nil {
+                print(data)
+            } else {
+                print("Error")
+            }
+        }
         
-        // TODO: Make request to Flickr!
+        task.resume()
     }
     
     // MARK: Helper for Creating a URL from Parameters
