@@ -158,11 +158,84 @@ class ViewController: UIViewController {
                 return
             }
             
+            guard let photos = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String: AnyObject] else {
+                    
+                displayError("Cannont find key '\(Constants.FlickrResponseKeys.Photos)' in \(parsedResult)")
+                return
+            }
+            
+            guard let numberOfPages = photos[Constants.FlickrResponseKeys.Pages] as? Int else {
+                
+                displayError("Cannont find key '\(Constants.FlickrResponseKeys.Pages)'")
+                return
+            }
+            
+            let pageLimit = min(numberOfPages, Constants.Flickr.maxNumberOfPages)
+            let randomPage = Int(arc4random_uniform(UInt32(pageLimit))) + 1
+            
+            self.displayImageFromFlickrBySearch(methodParameters, withPageNumber: randomPage)
+        }
+        
+        task.resume()
+    }
+    
+    private func displayImageFromFlickrBySearch(var methodParameters: [String:AnyObject], withPageNumber: Int) {
+        
+        let session = NSURLSession.sharedSession()
+        
+        methodParameters[Constants.FlickrParameterKeys.Page] = withPageNumber
+        let requestUrl = flickrURLFromParameters(methodParameters)
+        let request = NSURLRequest(URL: requestUrl)
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            func displayError(message: String) {
+                print(message)
+                performUIUpdatesOnMain {
+                    self.setUIEnabled(true)
+                    self.photoTitleLabel.text = "No photo returned. Try again"
+                    self.photoImageView.image = nil
+                }
+            }
+            
+            guard (error == nil) else {
+                displayError("The request did not succeed: \(error)")
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+                where statusCode >= 200 && statusCode <= 299 else {
+                    
+                    displayError("Your request returned a status code different than 2xx")
+                    return
+            }
+            
+            guard let data = data else {
+                displayError("No data was returned by your request")
+                return
+            }
+            
+            let parsedResult: AnyObject!
+            
+            do {
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            } catch {
+                displayError("Could not parse the JSON data: \(data)")
+                return
+            }
+            
+            guard let stat = parsedResult[Constants.FlickrResponseKeys.Status] as? String
+                where stat == Constants.FlickrResponseValues.OKStatus else {
+                    
+                    displayError("Flickr API return an error. See error code and message in \(parsedResult)")
+                    return
+            }
+            
             guard let photos = parsedResult[Constants.FlickrResponseKeys.Photos] as? [String: AnyObject],
                 let photoArray = photos[Constants.FlickrResponseKeys.Photo] as? [[String: AnyObject]] else {
-                
-                displayError("Cannont find keys '\(Constants.FlickrResponseKeys.Photo)' and '\(Constants.FlickrResponseKeys.Photos)' in \(parsedResult)")
-                return
+                    
+                    displayError("Cannont find keys '\(Constants.FlickrResponseKeys.Photo)' and '\(Constants.FlickrResponseKeys.Photos)' in \(parsedResult)")
+                    return
             }
             
             guard (photoArray.count != 0) else {
@@ -175,9 +248,9 @@ class ViewController: UIViewController {
             
             guard let photoUrl = photo[Constants.FlickrResponseKeys.MediumURL] as? String,
                 let photoTitle = photo[Constants.FlickrResponseKeys.Title] as? String else {
-                
-                displayError("Cannot find key '\(Constants.FlickrResponseKeys.MediumURL)' in \(photo)")
-                return
+                    
+                    displayError("Cannot find key '\(Constants.FlickrResponseKeys.MediumURL)' in \(photo)")
+                    return
             }
             
             let imageUrl = NSURL(string: photoUrl)
@@ -189,7 +262,7 @@ class ViewController: UIViewController {
             
             performUIUpdatesOnMain {
                 self.photoImageView.image = UIImage(data: imageData)
-                self.photoTitleLabel.text = photoTitle
+                self.photoTitleLabel.text = photoTitle ?? "(Untitled)"
                 self.setUIEnabled(true)
             }
         }
