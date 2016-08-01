@@ -99,8 +99,59 @@ class LoginViewController: UIViewController {
         /* 4. Make the request */
         let task = appDelegate.sharedSession.dataTaskWithRequest(request) { (data, response, error) in
             
+            func displayError(message: String) {
+                print(message)
+                performUIUpdatesOnMain {
+                    self.setUIEnabled(true)
+                    self.debugTextLabel.text = message
+                }
+            }
+            
             /* 5. Parse the data */
+            
+            guard (error == nil) else {
+                displayError("The request returned an error: \(error)")
+                return
+            }
+            
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+                where statusCode >= 200 && statusCode <= 299 else {
+                
+                displayError("The request retrned a status code other than 2xx.")
+                return
+            }
+            
+            guard let data = data else {
+                displayError("No data was returned by your request")
+                return
+            }
+            
+            let parsedData: AnyObject!
+            
+            do {
+                parsedData = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+            } catch {
+                displayError("Could not parse the JSON data: \(data)")
+                return
+            }
+            
+            guard let isSuccess = parsedData[Constants.TMDBResponseKeys.Success] as? Bool
+                where isSuccess == true else {
+                
+                displayError("Could not receive a request token from TMDB: \(parsedData)")
+                return
+            }
+            
+            guard let token = parsedData[Constants.TMDBResponseKeys.RequestToken] as? String else {
+                
+                displayError("The key \(Constants.TMDBResponseKeys.RequestToken) was not found in \(parsedData)")
+                return
+            }
+            
             /* 6. Use the data! */
+            self.appDelegate.requestToken = token
+            // self.loginWithToken(token)
+            print(token)
         }
 
         /* 7. Start the request */
