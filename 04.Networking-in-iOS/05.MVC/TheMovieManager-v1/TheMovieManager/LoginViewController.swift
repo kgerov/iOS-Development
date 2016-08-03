@@ -49,7 +49,17 @@ class LoginViewController: UIViewController {
             Step 3: Create a session ID
             Bonus Step: Go ahead and get the user id 😄!
         */
-        getRequestToken()
+        
+        TMDBClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
+            
+            performUIUpdatesOnMain {
+                if success {
+                    self.completeLogin()
+                } else {
+                    self.displayError(errorString)
+                }
+            }
+        }
     }
     
     // MARK: Login
