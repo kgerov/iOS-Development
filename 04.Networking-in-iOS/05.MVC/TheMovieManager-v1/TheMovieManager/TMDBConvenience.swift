@@ -117,31 +117,55 @@ extension TMDBClient {
     private func getSessionID(requestToken: String?, completionHandlerForSession: (success: Bool, sessionID: String?, errorString: String?) -> Void) {
         
         /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
+        let methodParameters = [
+            ParameterKeys.RequestToken: requestToken!
+        ]
+        
         /* 2. Make the request */
-        /* 3. Send the desired value(s) to completion handler */
-        
-        /*
-        
-        taskForGETMethod(method, parameters: parameters) { (results, error) in
-        
+        self.taskForGETMethod(Methods.AuthenticationSessionNew, parameters: methodParameters) { (result, error) in
+            
+            guard (error == nil) else {
+                print(error)
+                completionHandlerForSession(success: false, sessionID: nil, errorString: "Login failed. (Session id)")
+                return
+            }
+            
+            /* 3. Send the desired value(s) to completion handler */
+            guard let sessionId = result[JSONResponseKeys.SessionID] as? String else {
+                
+                print("The key \(JSONResponseKeys.SessionID) was not found in \(result)")
+                return
+            }
+            
+            completionHandlerForSession(success: true, sessionID: sessionId, errorString: nil)
         }
-        
-        */
     }
     
     private func getUserID(completionHandlerForUserID: (success: Bool, userID: Int?, errorString: String?) -> Void) {
         
         /* 1. Specify parameters, the API method, and the HTTP body (if POST) */
+        let methodParameters = [
+            ParameterKeys.SessionID: self.sessionID!
+        ]
+        
         /* 2. Make the request */
-        /* 3. Send the desired value(s) to completion handler */
-        
-        /*
-        
-        taskForGETMethod(method, parameters: parameters) { (results, error) in
-        
+        taskForGETMethod(Methods.Account, parameters: methodParameters) { (result, error) in
+         
+            guard (error == nil) else {
+                print(error)
+                completionHandlerForUserID(success: false, userID: nil, errorString: "Login failed. (User id)")
+                return
+            }
+            
+            /* 3. Send the desired value(s) to completion handler */
+            guard let userId = result[JSONResponseKeys.UserID] as? Int else {
+                
+                print("The key \(JSONResponseKeys.UserID) was not found in \(result)")
+                return
+            }
+            
+            completionHandlerForUserID(success: true, userID: userId, errorString: nil)
         }
-        
-        */
     }
     
     // MARK: GET Convenience Methods
