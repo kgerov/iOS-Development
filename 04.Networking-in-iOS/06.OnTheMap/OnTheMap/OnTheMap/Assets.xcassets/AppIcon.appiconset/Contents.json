@@ -3,31 +3,30 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "OnTheMap_29.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "29x29",
-      "idiom" : "iphone",
       "filename" : "OnTheMap_58.png",
-      "scale" : "3x"
+      "scale" : "2x"
     },
     {
-      "size" : "40x40",
       "idiom" : "iphone",
-      "filename" : "OnTheMap_40.png",
-      "scale" : "2x"
+      "size" : "29x29",
+      "scale" : "3x"
     },
     {
       "size" : "40x40",
       "idiom" : "iphone",
       "filename" : "OnTheMap_80.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "OnTheMap_120.png",
       "scale" : "3x"
     },
     {
       "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "OnTheMap_120.png",
+      "filename" : "OnTheMap_120-1.png",
       "scale" : "2x"
     },
     {
@@ -39,7 +38,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "OnTheMap_29-1.png",
+      "filename" : "OnTheMap_29.png",
       "scale" : "1x"
     },
     {
@@ -51,12 +50,13 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "OnTheMap_40-1.png",
+      "filename" : "OnTheMap_40.png",
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "40x40",
+      "idiom" : "ipad",
+      "filename" : "OnTheMap_80-1.png",
       "scale" : "2x"
     },
     {
@@ -66,14 +66,14 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "ipad",
       "size" : "76x76",
+      "idiom" : "ipad",
+      "filename" : "OnTheMap_152.png",
       "scale" : "2x"
     },
     {
-      "size" : "83.5x83.5",
       "idiom" : "ipad",
-      "filename" : "OnTheMap_152.png",
+      "size" : "83.5x83.5",
       "scale" : "2x"
     }
   ],
