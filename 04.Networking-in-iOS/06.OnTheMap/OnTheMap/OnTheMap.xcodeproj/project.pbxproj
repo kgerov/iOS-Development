@@ -14,6 +14,9 @@
 		989CED411D538A810014A7B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3F1D538A810014A7B7 /* LaunchScreen.storyboard */; };
 		989CED4C1D538A810014A7B7 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED4B1D538A810014A7B7 /* OnTheMapTests.swift */; };
 		989CED571D538A810014A7B7 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED561D538A810014A7B7 /* OnTheMapUITests.swift */; };
+		989CED681D54E6520014A7B7 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED651D54E6520014A7B7 /* Roboto-Medium.ttf */; };
+		989CED691D54E6520014A7B7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */; };
+		989CED6A1D54E6520014A7B7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		989CED521D538A810014A7B7 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		989CED561D538A810014A7B7 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
 		989CED581D538A810014A7B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		989CED651D54E6520014A7B7 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +103,7 @@
 		989CED351D538A810014A7B7 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				989CED641D54E6370014A7B7 /* Resources */,
 				989CED361D538A810014A7B7 /* AppDelegate.swift */,
 				989CED381D538A810014A7B7 /* ViewController.swift */,
 				989CED3A1D538A810014A7B7 /* Main.storyboard */,
@@ -123,6 +130,16 @@
 				989CED581D538A810014A7B7 /* Info.plist */,
 			);
 			path = OnTheMapUITests;
+			sourceTree = "<group>";
+		};
+		989CED641D54E6370014A7B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				989CED651D54E6520014A7B7 /* Roboto-Medium.ttf */,
+				989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */,
+				989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +246,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989CED681D54E6520014A7B7 /* Roboto-Medium.ttf in Resources */,
 				989CED411D538A810014A7B7 /* LaunchScreen.storyboard in Resources */,
+				989CED6A1D54E6520014A7B7 /* Roboto-Thin.ttf in Resources */,
+				989CED691D54E6520014A7B7 /* Roboto-Regular.ttf in Resources */,
 				989CED3E1D538A810014A7B7 /* Assets.xcassets in Resources */,
 				989CED3C1D538A810014A7B7 /* Main.storyboard in Resources */,
 			);
