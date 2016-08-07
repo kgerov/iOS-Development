@@ -17,6 +17,7 @@
 		989CED681D54E6520014A7B7 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED651D54E6520014A7B7 /* Roboto-Medium.ttf */; };
 		989CED691D54E6520014A7B7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */; };
 		989CED6A1D54E6520014A7B7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */; };
+		989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		989CED651D54E6520014A7B7 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +105,11 @@
 		989CED351D538A810014A7B7 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
-				989CED641D54E6370014A7B7 /* Resources */,
 				989CED361D538A810014A7B7 /* AppDelegate.swift */,
 				989CED381D538A810014A7B7 /* ViewController.swift */,
-				989CED3A1D538A810014A7B7 /* Main.storyboard */,
-				989CED3D1D538A810014A7B7 /* Assets.xcassets */,
-				989CED3F1D538A810014A7B7 /* LaunchScreen.storyboard */,
-				989CED421D538A810014A7B7 /* Info.plist */,
+				989CED6B1D5705DB0014A7B7 /* Assets */,
+				989CED6C1D5705ED0014A7B7 /* Supporting Files */,
+				989CED641D54E6370014A7B7 /* Resources */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -140,6 +140,25 @@
 				989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		989CED6B1D5705DB0014A7B7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				989CED3A1D538A810014A7B7 /* Main.storyboard */,
+				989CED3D1D538A810014A7B7 /* Assets.xcassets */,
+				989CED3F1D538A810014A7B7 /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		989CED6C1D5705ED0014A7B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */,
+				989CED421D538A810014A7B7 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				989CED391D538A810014A7B7 /* ViewController.swift in Sources */,
+				989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */,
 				989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
