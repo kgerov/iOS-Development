@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED361D538A810014A7B7 /* AppDelegate.swift */; };
-		989CED391D538A810014A7B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED381D538A810014A7B7 /* ViewController.swift */; };
 		989CED3C1D538A810014A7B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3A1D538A810014A7B7 /* Main.storyboard */; };
 		989CED3E1D538A810014A7B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3D1D538A810014A7B7 /* Assets.xcassets */; };
 		989CED411D538A810014A7B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3F1D538A810014A7B7 /* LaunchScreen.storyboard */; };
@@ -18,6 +17,8 @@
 		989CED691D54E6520014A7B7 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */; };
 		989CED6A1D54E6520014A7B7 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */; };
 		989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */; };
+		989CED721D57999A0014A7B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED711D57999A0014A7B7 /* LoginViewController.swift */; };
+		989CED751D58D9E90014A7B7 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED741D58D9E90014A7B7 /* LoginTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +41,6 @@
 /* Begin PBXFileReference section */
 		989CED331D538A800014A7B7 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989CED361D538A810014A7B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		989CED381D538A810014A7B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		989CED3B1D538A810014A7B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		989CED3D1D538A810014A7B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		989CED401D538A810014A7B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +55,8 @@
 		989CED661D54E6520014A7B7 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
 		989CED671D54E6520014A7B7 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		989CED711D57999A0014A7B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		989CED741D58D9E90014A7B7 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				989CED361D538A810014A7B7 /* AppDelegate.swift */,
-				989CED381D538A810014A7B7 /* ViewController.swift */,
+				989CED6F1D57099C0014A7B7 /* Model */,
+				989CED731D58D9AB0014A7B7 /* View */,
+				989CED701D5709A80014A7B7 /* Controller */,
 				989CED6B1D5705DB0014A7B7 /* Assets */,
 				989CED6C1D5705ED0014A7B7 /* Supporting Files */,
 				989CED641D54E6370014A7B7 /* Resources */,
@@ -159,6 +163,29 @@
 				989CED421D538A810014A7B7 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		989CED6F1D57099C0014A7B7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		989CED701D5709A80014A7B7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				989CED711D57999A0014A7B7 /* LoginViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		989CED731D58D9AB0014A7B7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				989CED741D58D9E90014A7B7 /* LoginTextField.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,7 +322,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				989CED391D538A810014A7B7 /* ViewController.swift in Sources */,
+				989CED721D57999A0014A7B7 /* LoginViewController.swift in Sources */,
+				989CED751D58D9E90014A7B7 /* LoginTextField.swift in Sources */,
 				989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */,
 				989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */,
 			);

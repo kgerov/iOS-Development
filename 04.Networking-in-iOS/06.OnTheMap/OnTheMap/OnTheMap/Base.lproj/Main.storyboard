@@ -10,13 +10,16 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="to3-gR-NBm">
             <objects>
-                <viewController id="PJE-sT-YUT" sceneMemberID="viewController">
+                <viewController id="PJE-sT-YUT" customClass="LoginViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TF6-68-swb"/>
                         <viewControllerLayoutGuide type="bottom" id="LlS-SP-e14"/>
@@ -38,36 +41,12 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-Vy-Z75" userLabel="EmailTextField">
-                                <rect key="frame" x="20" y="280" width="560" height="40"/>
-                                <color key="backgroundColor" white="1" alpha="0.38327047413793103" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="7Yd-cz-wsA"/>
-                                </constraints>
-                                <attributedString key="attributedText">
-                                    <fragment content="Email">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="19" name="Roboto-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-I3-yqo" userLabel="PasswordTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kJq-I3-yqo" userLabel="PasswordTextField" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
                                 <rect key="frame" x="20" y="330" width="560" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="0.38327047409999998" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Password">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="19" name="Roboto-Regular"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QID-ua-G5R">
                                 <rect key="frame" x="20" y="380" width="560" height="40"/>
@@ -76,6 +55,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="PJE-sT-YUT" eventType="touchUpInside" id="ceA-qH-vir"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account? Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uz-9K-vd7">
                                 <rect key="frame" x="180" y="440" width="240" height="20"/>
@@ -83,10 +65,27 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k7c-4H-CfO">
+                                <rect key="frame" x="0.0" y="470" width="600" height="20"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RkA-Vy-Z75" userLabel="EmailTextField" customClass="LoginTextField" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="20" y="280" width="560" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="0.38327047413793103" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7Yd-cz-wsA"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ZZX-uw-LXf" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="2Cb-gd-WtZ"/>
+                            <constraint firstItem="k7c-4H-CfO" firstAttribute="top" secondItem="5uz-9K-vd7" secondAttribute="bottom" constant="10" id="6sZ-JG-BKj"/>
                             <constraint firstItem="QID-ua-G5R" firstAttribute="height" secondItem="kJq-I3-yqo" secondAttribute="height" id="8Se-5W-utU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="RkA-Vy-Z75" secondAttribute="leading" id="E3d-hW-rt0"/>
                             <constraint firstItem="RkA-Vy-Z75" firstAttribute="centerY" secondItem="2aV-Jy-X84" secondAttribute="centerY" id="HWO-PR-HCO"/>
@@ -96,6 +95,7 @@
                             <constraint firstItem="ZZX-uw-LXf" firstAttribute="top" secondItem="TF6-68-swb" secondAttribute="bottom" constant="30" id="Qtv-gh-QO3"/>
                             <constraint firstItem="kJq-I3-yqo" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="WC8-ew-Btq"/>
                             <constraint firstItem="5uz-9K-vd7" firstAttribute="top" secondItem="QID-ua-G5R" secondAttribute="bottom" constant="20" id="ZrT-FN-LhF"/>
+                            <constraint firstItem="k7c-4H-CfO" firstAttribute="width" secondItem="2aV-Jy-X84" secondAttribute="width" id="fdI-h1-dxK"/>
                             <constraint firstItem="RkA-Vy-Z75" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="g9h-vl-YyB"/>
                             <constraint firstItem="wFg-eU-2aG" firstAttribute="top" secondItem="ZZX-uw-LXf" secondAttribute="bottom" constant="20" id="izp-49-aTr"/>
                             <constraint firstItem="kJq-I3-yqo" firstAttribute="height" secondItem="RkA-Vy-Z75" secondAttribute="height" id="kBz-tP-ZdH"/>
@@ -105,9 +105,16 @@
                             <constraint firstItem="QID-ua-G5R" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="oyw-be-FRx"/>
                             <constraint firstItem="kJq-I3-yqo" firstAttribute="width" secondItem="RkA-Vy-Z75" secondAttribute="width" id="u7e-GR-vdD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RkA-Vy-Z75" secondAttribute="trailing" id="uOm-Jv-a3r"/>
+                            <constraint firstItem="k7c-4H-CfO" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="uiw-Cr-p5f"/>
                             <constraint firstItem="5uz-9K-vd7" firstAttribute="centerX" secondItem="2aV-Jy-X84" secondAttribute="centerX" id="w0X-uk-RCz"/>
+                            <constraint firstItem="k7c-4H-CfO" firstAttribute="height" secondItem="5uz-9K-vd7" secondAttribute="height" id="woF-xi-2pc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="debugField" destination="k7c-4H-CfO" id="UwY-Ni-Vh2"/>
+                        <outlet property="emailTextField" destination="RkA-Vy-Z75" id="UnC-9A-oUn"/>
+                        <outlet property="passwordTextField" destination="kJq-I3-yqo" id="nr8-S7-pdz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6je-q1-kIr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
