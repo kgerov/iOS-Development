@@ -133,7 +133,7 @@ class BaseClient : NSObject {
         return components.URL!
     }
     
-    private func initComponents(withPathExtension: String? = nil) -> NSURLComponents {
+    internal func initComponents(withPathExtension: String? = nil) -> NSURLComponents {
         let components = NSURLComponents()
         
         //components.scheme = TMDBClient.Constants.ApiScheme
