@@ -10,6 +10,8 @@ import Foundation
 
 class UdacityClient : BaseClient {
     
+    // MARK: Helpers
+    
     override func convertDataWithCompletionHandler(data: NSData, completionHandlerForConvertData: (result: AnyObject!, error: NSError?) -> Void) {
         
         let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
@@ -23,6 +25,16 @@ class UdacityClient : BaseClient {
         }
         
         completionHandlerForConvertData(result: parsedResult, error: nil)
+    }
+    
+    override func initComponents(withPathExtension: String? = nil) -> NSURLComponents {
+        let components = NSURLComponents()
+        
+        components.scheme = Udacity.Constants.ApiScheme
+        components.host = Udacity.Constants.ApiHost
+        components.path = Udacity.Constants.ApiPath + (withPathExtension ?? "")
+        
+        return components
     }
     
     // MARK: Shared Instance
