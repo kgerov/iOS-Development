@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980ACE0D1D5A345C00EF5C1B /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980ACE0C1D5A345C00EF5C1B /* BaseClient.swift */; };
 		989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED361D538A810014A7B7 /* AppDelegate.swift */; };
 		989CED3C1D538A810014A7B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3A1D538A810014A7B7 /* Main.storyboard */; };
 		989CED3E1D538A810014A7B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3D1D538A810014A7B7 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */; };
 		989CED721D57999A0014A7B7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED711D57999A0014A7B7 /* LoginViewController.swift */; };
 		989CED751D58D9E90014A7B7 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED741D58D9E90014A7B7 /* LoginTextField.swift */; };
+		989CED7A1D58DB680014A7B7 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED791D58DB680014A7B7 /* UdacityClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980ACE0C1D5A345C00EF5C1B /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
 		989CED331D538A800014A7B7 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989CED361D538A810014A7B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989CED3B1D538A810014A7B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 		989CED6D1D57093A0014A7B7 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		989CED711D57999A0014A7B7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		989CED741D58D9E90014A7B7 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		989CED791D58DB680014A7B7 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,7 @@
 		989CED6F1D57099C0014A7B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				989CED761D58DB0A0014A7B7 /* Clients */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -186,6 +191,31 @@
 				989CED741D58D9E90014A7B7 /* LoginTextField.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		989CED761D58DB0A0014A7B7 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				980ACE0C1D5A345C00EF5C1B /* BaseClient.swift */,
+				989CED781D58DB1C0014A7B7 /* Udacity */,
+				989CED771D58DB110014A7B7 /* Parse */,
+			);
+			name = Clients;
+			sourceTree = "<group>";
+		};
+		989CED771D58DB110014A7B7 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Parse;
+			sourceTree = "<group>";
+		};
+		989CED781D58DB1C0014A7B7 /* Udacity */ = {
+			isa = PBXGroup;
+			children = (
+				989CED791D58DB680014A7B7 /* UdacityClient.swift */,
+			);
+			name = Udacity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,6 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				989CED7A1D58DB680014A7B7 /* UdacityClient.swift in Sources */,
+				980ACE0D1D5A345C00EF5C1B /* BaseClient.swift in Sources */,
 				989CED721D57999A0014A7B7 /* LoginViewController.swift in Sources */,
 				989CED751D58D9E90014A7B7 /* LoginTextField.swift in Sources */,
 				989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */,
@@ -552,6 +584,7 @@
 				989CED5D1D538A810014A7B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		989CED5E1D538A810014A7B7 /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -560,6 +593,7 @@
 				989CED601D538A810014A7B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		989CED611D538A810014A7B7 /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -568,6 +602,7 @@
 				989CED631D538A810014A7B7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
