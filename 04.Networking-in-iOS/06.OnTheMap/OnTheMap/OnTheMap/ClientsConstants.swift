@@ -12,8 +12,25 @@ extension BaseClient {
         
         struct Constants {
             static let ApiScheme = "https"
-            static let ApiHost = "api.themoviedb.org"
+            static let ApiHost = "udacity.com"
             static let ApiPath = "/api"
+        }
+        
+        struct Methods {
+            static let Session = "/session"
+        }
+        
+        struct JSONBodyKeys {
+            static let Udacity = "udacity"
+            static let Username = "username"
+            static let Password = "password"
+        }
+        
+        struct JSONResponseKeys {
+            static let Account = "account"
+            static let Key = "key"
+            static let Session = "session"
+            static let Id = "id"
         }
     }
     

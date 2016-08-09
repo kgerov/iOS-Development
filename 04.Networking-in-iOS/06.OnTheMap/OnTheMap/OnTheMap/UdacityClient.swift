@@ -10,6 +10,9 @@ import Foundation
 
 class UdacityClient : BaseClient {
     
+    var userID: String? = nil
+    var sessionID: String? = nil
+    
     // MARK: Helpers
     
     override func convertDataWithCompletionHandler(data: NSData, completionHandlerForConvertData: (result: AnyObject!, error: NSError?) -> Void) {
