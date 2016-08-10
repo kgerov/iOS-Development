@@ -24,12 +24,9 @@ class BaseClient : NSObject {
     
     func taskForGETMethod(method: String, parameters: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-        /* Set the parameters */
-        var parametersWithApiKey = parameters
-        //parametersWithApiKey[ParameterKeys.ApiKey] = Constants.ApiKey
-        
         /* Build the URL, Configure the request */
-        let request = NSMutableURLRequest(URL: urlFromParameters(parametersWithApiKey, withPathExtension: method))
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
+        insertValuesInUrl(request)
         
         return makeHttpRequest(request, completionHandler: completionHandlerForGET)
     }
@@ -38,15 +35,12 @@ class BaseClient : NSObject {
     
     func taskForPOSTMethod(method: String, parameters: [String:AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
-        /* Set the parameters */
-        var parametersWithApiKey = parameters
-        //parametersWithApiKey[ParameterKeys.ApiKey] = Constants.ApiKey
-        
         /* Build the URL, Configure the request */
-        let request = NSMutableURLRequest(URL: urlFromParameters(parametersWithApiKey, withPathExtension: method))
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        insertValuesInUrl(request)
         request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
         
         return makeHttpRequest(request, completionHandler: completionHandlerForPOST)
@@ -92,6 +86,10 @@ class BaseClient : NSObject {
         task.resume()
         
         return task
+    }
+    
+    internal func insertValuesInUrl(request: NSMutableURLRequest) {
+    
     }
     
     // substitute the key for the value that is contained within the method name

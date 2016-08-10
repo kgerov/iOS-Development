@@ -160,7 +160,7 @@
         <!--Map View Controller-->
         <scene sceneID="XXW-y4-P9v">
             <objects>
-                <viewController title="Map View Controller" id="0yf-ci-Fiq" sceneMemberID="viewController">
+                <viewController title="Map View Controller" id="0yf-ci-Fiq" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="00d-MA-Bux"/>
                         <viewControllerLayoutGuide type="bottom" id="PBm-Dz-UW1"/>
@@ -171,6 +171,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="EGd-bL-HWM">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <connections>
+                                    <outlet property="delegate" destination="0yf-ci-Fiq" id="X1P-a2-pbC"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -189,6 +192,9 @@
                             <barButtonItem image="Pin" id="oY0-0y-gte"/>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="EGd-bL-HWM" id="4Q5-cP-Rfc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UD9-Tc-xWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
