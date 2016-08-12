@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PJE-sT-YUT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="r4V-Bg-TuV">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -13,6 +16,12 @@
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+            <string>Roboto-Regular</string>
+        </mutableArray>
+        <mutableArray key="Roboto-Thin.ttf">
+            <string>Roboto-Thin</string>
+            <string>Roboto-Thin</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -193,6 +202,100 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UD9-Tc-xWn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1147" y="-82"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PZd-Jb-mL9">
+            <objects>
+                <viewController id="Q2K-Pp-c3A" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W80-JS-YoX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gcd-i9-RSx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dy6-hT-lLL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Where are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8T4-9Y-tPN">
+                                <rect key="frame" x="0.0" y="50" width="600" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="studying" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WT-lc-GEE">
+                                <rect key="frame" x="0.0" y="93" width="600" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="today?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AZ7-x0-mFy">
+                                <rect key="frame" x="0.0" y="136" width="600" height="36"/>
+                                <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="30"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your location here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lq0-6S-p65">
+                                <rect key="frame" x="0.0" y="225" width="600" height="150"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="0.82047413793103452" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="OwH-JY-rtN"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axb-pU-lg5">
+                                <rect key="frame" x="200" y="530" width="200" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="197" id="hcz-cu-PPt"/>
+                                    <constraint firstAttribute="width" constant="200" id="opg-2D-D3m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="19"/>
+                                <state key="normal" title="Find on the Map">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="0.5361260775862069" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gcd-i9-RSx" firstAttribute="top" secondItem="axb-pU-lg5" secondAttribute="bottom" constant="35" id="6a3-Uy-hHp"/>
+                            <constraint firstItem="0WT-lc-GEE" firstAttribute="top" secondItem="8T4-9Y-tPN" secondAttribute="bottom" constant="7" id="8rG-zQ-9b4"/>
+                            <constraint firstItem="8T4-9Y-tPN" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="A7W-RF-C36"/>
+                            <constraint firstItem="0WT-lc-GEE" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="B5h-Z7-QmS"/>
+                            <constraint firstItem="Lq0-6S-p65" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="LEG-Ow-EbM"/>
+                            <constraint firstItem="Lq0-6S-p65" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="Ll8-i2-Gi9"/>
+                            <constraint firstItem="8T4-9Y-tPN" firstAttribute="top" secondItem="W80-JS-YoX" secondAttribute="bottom" constant="30" id="VKY-kv-FZY"/>
+                            <constraint firstItem="Lq0-6S-p65" firstAttribute="centerY" secondItem="Dy6-hT-lLL" secondAttribute="centerY" id="WMd-uh-Wgp"/>
+                            <constraint firstItem="AZ7-x0-mFy" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="WZ3-XM-jfD"/>
+                            <constraint firstItem="0WT-lc-GEE" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="Ycf-22-zUn"/>
+                            <constraint firstItem="AZ7-x0-mFy" firstAttribute="top" secondItem="0WT-lc-GEE" secondAttribute="bottom" constant="7" id="f2c-nW-nVb"/>
+                            <constraint firstItem="8T4-9Y-tPN" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="ob9-Od-1ar"/>
+                            <constraint firstItem="axb-pU-lg5" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="vQ9-om-Uei"/>
+                            <constraint firstItem="AZ7-x0-mFy" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="w3l-q6-mxO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="neG-5Q-Ck8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1963" y="291"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="v94-I1-7b5">
+            <objects>
+                <viewController id="70q-MD-RK1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1iz-Ab-nmR"/>
+                        <viewControllerLayoutGuide type="bottom" id="vQS-RE-2UV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NVw-sS-ubL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PEY-ud-FiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2717" y="291"/>
         </scene>
         <!--Table Navigation Controller Scene-->
         <scene sceneID="dkl-d2-9hY">

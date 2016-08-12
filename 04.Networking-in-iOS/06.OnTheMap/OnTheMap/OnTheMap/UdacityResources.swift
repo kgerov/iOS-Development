@@ -26,7 +26,6 @@ extension UdacityClient {
                     let id = session[Udacity.JSONResponseKeys.Id] as? String {
                     
                     self.userID = key
-                    print(key)
                     self.sessionID = id
                     completionHandler(success: true, error: nil)
                 } else {

@@ -61,7 +61,8 @@ class MapTabBarViewController : UITabBarController {
     }
     
     func newPinButtonPressed() {
-        print("new pin")
+        
+        // Check if user has already posted a pin
     }
     
     func reloadStudentLocations() {
