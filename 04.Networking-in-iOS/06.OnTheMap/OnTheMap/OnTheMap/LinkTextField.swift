@@ -10,7 +10,7 @@ import UIKit
 
 class LinkTextField: UITextField {
     
-    let padding = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0);
+    let padding = UIEdgeInsets(top: 0, left: 0, bottom: 40, right: 0);
     
     override func textRectForBounds(bounds: CGRect) -> CGRect {
         return UIEdgeInsetsInsetRect(bounds, padding)
