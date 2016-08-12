@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="70q-MD-RK1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PJE-sT-YUT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -308,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="1963" y="291"/>
         </scene>
-        <!--View Controller-->
+        <!--Link Input View Controller-->
         <scene sceneID="v94-I1-7b5">
             <objects>
-                <viewController id="70q-MD-RK1" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkInputViewController" id="70q-MD-RK1" customClass="LinkInputViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1iz-Ab-nmR"/>
                         <viewControllerLayoutGuide type="bottom" id="vQS-RE-2UV"/>
@@ -347,6 +347,7 @@
                                 </state>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="Q2K-Pp-c3A" eventType="touchUpInside" id="awM-jn-3iv"/>
+                                    <action selector="cancelButtonPressed:" destination="70q-MD-RK1" eventType="touchUpInside" id="t2b-08-FYp"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-5L-jY1">
@@ -365,6 +366,7 @@
                                 </state>
                                 <connections>
                                     <action selector="findLocationOnMap:" destination="Q2K-Pp-c3A" eventType="touchUpInside" id="IVo-nJ-1Uv"/>
+                                    <action selector="submitButtonPressed:" destination="70q-MD-RK1" eventType="touchUpInside" id="XBZ-Cm-UXW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -383,6 +385,10 @@
                             <constraint firstItem="6hu-5L-jY1" firstAttribute="centerX" secondItem="NVw-sS-ubL" secondAttribute="centerX" id="tuF-qM-dRq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="linkTextField" destination="yVD-Qx-ow5" id="bxO-MU-RDz"/>
+                        <outlet property="mapView" destination="6hu-5L-jY1" id="qJw-nm-gbt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEY-ud-FiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -49,8 +49,15 @@ class InputLocationViewController : UIViewController {
                 
                 if let placemark = placemarks?.first {
                     let annotation = MKPlacemark(placemark: placemark)
-                    print("success")
-                    // Transition to next controller
+                    
+                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LinkInputViewController") as! LinkInputViewController
+                    
+                    controller.annotation = annotation
+                    controller.studentAccount = self.studentAccount
+                    controller.httpMethod = self.httpMethod
+                    
+                    self.presentViewController(controller, animated: true, completion: nil)
+
                 }
             }
         })
