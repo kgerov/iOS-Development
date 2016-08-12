@@ -63,4 +63,25 @@ extension UdacityClient {
             }
         }
     }
+    
+    func getPublicUserData(completionHandler: (result: StudentAccount?, error: NSError?) -> Void) {
+        
+        let method: String = subtituteKeyInMethod(Udacity.Methods.UsersId, key: "id", value: self.userID!)!
+        
+        taskForGETMethod(method, parameters: [String : AnyObject](), requestValues: [String : String]()) { (result, error) in
+            
+            if let error = error {
+                completionHandler(result: nil, error: error)
+            } else {
+                
+                if let result = result[Udacity.JSONResponseKeys.User] as? [String:AnyObject] {
+                    
+                    let student = StudentAccount(dictionary: result)
+                    completionHandler(result: student, error: nil)
+                } else {
+                    completionHandler(result: nil, error: NSError(domain: "getStudentData parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
+                }
+            }
+        }
+    }
 }
