@@ -24,6 +24,8 @@ class LoginViewController : UIViewController {
         super.viewDidLoad()
         
         debugField.text = ""
+        emailTextField.text = ""
+        passwordTextField.text = ""
         
         setCustomPlaceholderText()
     }

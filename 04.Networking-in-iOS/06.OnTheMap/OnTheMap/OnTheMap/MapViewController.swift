@@ -57,12 +57,12 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         ParseClient.sharedInstance().getStudentLocations() { (result: [StudentInformation]?, error: NSError?) in
             
             guard error == nil else {
-                self.displayError("Failed to get student locations")
+                NotificationCenter.displayError(self, message: "Failed to get student locations")
                 return
             }
             
             guard let result = result else {
-                self.displayError("No student locations returned")
+                NotificationCenter.displayError(self, message: "No student locations returned")
                 return
             }
             
@@ -89,14 +89,9 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         
         return annotations
     }
-    
-    private func displayError(message: String) {
-        let alertController = UIAlertController(title: "", message:
-            message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
-    }
+}
+
+extension MapViewController {
     
     func reloadStudentLocations() {
         print("reload from map")

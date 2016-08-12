@@ -34,4 +34,33 @@ extension UdacityClient {
             }
         }
     }
+    
+    func deleteSessionId(completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        let method: String = Udacity.Methods.Session
+        var values = [String:String]()
+        
+        var xsrfCookie: NSHTTPCookie? = nil
+        let sharedCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie }
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            values[xsrfCookie.value] = "X-XSRF-TOKEN"
+        }
+        
+        taskForDELETEMethod(method, parameters: [String : AnyObject](), requestValues: values) { (result, error) in
+            
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                
+                self.userID = nil
+                self.sessionID = nil
+                completionHandler(success: true, error: nil)
+            }
+        }
+    }
 }

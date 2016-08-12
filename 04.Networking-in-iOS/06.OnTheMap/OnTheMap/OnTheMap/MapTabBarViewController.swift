@@ -46,7 +46,18 @@ class MapTabBarViewController : UITabBarController {
     // MARK: - Navbar Button Actions
     
     func logoutButtonPressed() {
-        print("logout")
+        
+        NotificationCenter.setUIEnabled(self, enabled: false)
+        
+        UdacityClient.sharedInstance().deleteSessionId { (success, error) in
+            if success {
+                NotificationCenter.setUIEnabled(self, enabled: true)
+                let controller = self.storyboard!.instantiateViewControllerWithIdentifier("loginViewController")
+                self.presentViewController(controller, animated: true, completion: nil)
+            } else {
+                NotificationCenter.displayError(self, message: "Could not logout")
+            }
+        }
     }
     
     func newPinButtonPressed() {

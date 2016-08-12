@@ -31,16 +31,18 @@ class MapTableViewController : UITableViewController {
         return cell
     }
     
+    // MARK: - Helpers
+    
     private func getStudentLocations() {
         ParseClient.sharedInstance().getStudentLocations() { (result: [StudentInformation]?, error: NSError?) in
             
             guard error == nil else {
-                self.displayError("Failed to get student locations")
+                NotificationCenter.displayError(self, message: "Failed to get student locations")
                 return
             }
             
             guard let result = result else {
-                self.displayError("No student locations returned")
+                NotificationCenter.displayError(self, message: "No student locations returned")
                 return
             }
             
@@ -51,16 +53,11 @@ class MapTableViewController : UITableViewController {
             }
         }
     }
+}
+
+extension MapTableViewController {
     
     func reloadStudentLocations() {
         print("reload from list")
-    }
-    
-    private func displayError(message: String) {
-        let alertController = UIAlertController(title: "", message:
-            message, preferredStyle: UIAlertControllerStyle.Alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-        
-        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }
