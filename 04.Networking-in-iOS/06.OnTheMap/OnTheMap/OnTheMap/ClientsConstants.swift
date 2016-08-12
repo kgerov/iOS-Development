@@ -58,6 +58,7 @@ extension BaseClient {
             static let Limit = "limit"
             static let Skip = "Skip"
             static let Order = "order"
+            static let Where = "where"
         }
         
         struct ParameterValues {

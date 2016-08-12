@@ -11,6 +11,7 @@ import Foundation
 class ParseClient : BaseClient {
     
     var studentLocations = [StudentInformation]()
+    var hasPostedLocation: Bool = false
     
     // MARK: Helpers
     

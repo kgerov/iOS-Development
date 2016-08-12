@@ -42,6 +42,11 @@ class MapTabBarViewController : UITabBarController {
         }
     }
     
+    func redirectToPostPinView(action: UIAlertAction?) {
+        
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("inputLocationViewController")
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
     
     // MARK: - Navbar Button Actions
     
@@ -63,6 +68,24 @@ class MapTabBarViewController : UITabBarController {
     func newPinButtonPressed() {
         
         // Check if user has already posted a pin
+        let userId = UdacityClient.sharedInstance().userID!
+        
+        ParseClient.sharedInstance().isUsersFirstPin(userId) { (isFirstPin, error) in
+            
+            performUIUpdatesOnMain {
+                guard error == nil else {
+                    NotificationCenter.displayError(self, message: "Failed to check if this is user's first pin")
+                    return
+                }
+                
+                
+                if let isFirstPin = isFirstPin where isFirstPin == true {
+                    self.redirectToPostPinView(nil)
+                } else {
+                    NotificationCenter.displayOVverwritePinAlert(self, overwriteHandler: self.redirectToPostPinView)
+                }
+            }
+        }
     }
     
     func reloadStudentLocations() {

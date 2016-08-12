@@ -63,20 +63,19 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     private func processStudentLocationData(result: [StudentInformation]?, error: NSError?) {
-        
-        guard error == nil else {
-            NotificationCenter.displayError(self, message: "Failed to get student locations")
-            return
-        }
-        
-        guard let result = result else {
-            NotificationCenter.displayError(self, message: "No student locations returned")
-            return
-        }
-        
-        let annotations = self.createAnnotationsFromStudentInformation(result)
-        
         performUIUpdatesOnMain {
+            guard error == nil else {
+                NotificationCenter.displayError(self, message: "Failed to get student locations")
+                return
+            }
+            
+            guard let result = result else {
+                NotificationCenter.displayError(self, message: "No student locations returned")
+                return
+            }
+            
+            let annotations = self.createAnnotationsFromStudentInformation(result)        
+        
             self.mapView.removeAnnotations(self.mapView.annotations)
             self.mapView.addAnnotations(annotations)
         }

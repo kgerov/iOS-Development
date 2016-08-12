@@ -31,7 +31,18 @@ class NotificationCenter : NSObject {
             alert.view.addSubview(loadingIndicator)
             controller.presentViewController(alert, animated: true, completion: nil)
         } else {
-            controller.dismissViewControllerAnimated(false, completion: nil)
+            controller.dismissViewControllerAnimated(true, completion: nil)
         }
+    }
+    
+    static func displayOVverwritePinAlert(controller: UIViewController, overwriteHandler: (action: UIAlertAction!) -> Void) {
+        
+        let refreshAlert = UIAlertController(title: nil, message: "You have already posted a Student Location. Would you like to overwrite your current location.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Overwrite", style: .Default, handler: overwriteHandler))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        
+        controller.presentViewController(refreshAlert, animated: true, completion: nil)
     }
 }

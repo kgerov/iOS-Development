@@ -46,18 +46,17 @@ class MapTableViewController : UITableViewController {
     
     private func processStudentLocationData(result: [StudentInformation]?, error: NSError?) {
         
-        guard error == nil else {
-            NotificationCenter.displayError(self, message: "Failed to get student locations")
-            return
-        }
-        
-        guard let result = result else {
-            NotificationCenter.displayError(self, message: "No student locations returned")
-            return
-        }
-        
-        
         performUIUpdatesOnMain {
+            guard error == nil else {
+                NotificationCenter.displayError(self, message: "Failed to get student locations")
+                return
+            }
+            
+            guard let result = result else {
+                NotificationCenter.displayError(self, message: "No student locations returned")
+                return
+            }
+        
             self.studentLocations = result
             self.tableView.reloadData()
         }

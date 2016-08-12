@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Q2K-Pp-c3A">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PJE-sT-YUT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -203,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="1147" y="-82"/>
         </scene>
-        <!--View Controller-->
+        <!--Input Location View Controller-->
         <scene sceneID="PZd-Jb-mL9">
             <objects>
-                <viewController id="Q2K-Pp-c3A" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="inputLocationViewController" id="Q2K-Pp-c3A" customClass="InputLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W80-JS-YoX"/>
                         <viewControllerLayoutGuide type="bottom" id="Gcd-i9-RSx"/>
@@ -260,12 +260,24 @@
                                     <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-0s-ill">
+                                <rect key="frame" x="515" y="20" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Nu7-jb-d2l"/>
+                                    <constraint firstAttribute="width" constant="65" id="lpp-Yi-v9d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Gcd-i9-RSx" firstAttribute="top" secondItem="axb-pU-lg5" secondAttribute="bottom" constant="35" id="6a3-Uy-hHp"/>
                             <constraint firstItem="0WT-lc-GEE" firstAttribute="top" secondItem="8T4-9Y-tPN" secondAttribute="bottom" constant="7" id="8rG-zQ-9b4"/>
                             <constraint firstItem="8T4-9Y-tPN" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="A7W-RF-C36"/>
+                            <constraint firstItem="av4-0s-ill" firstAttribute="top" secondItem="W80-JS-YoX" secondAttribute="bottom" id="A8d-t0-qe0"/>
                             <constraint firstItem="0WT-lc-GEE" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="B5h-Z7-QmS"/>
                             <constraint firstItem="Lq0-6S-p65" firstAttribute="width" secondItem="Dy6-hT-lLL" secondAttribute="width" id="LEG-Ow-EbM"/>
                             <constraint firstItem="Lq0-6S-p65" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="Ll8-i2-Gi9"/>
@@ -277,6 +289,7 @@
                             <constraint firstItem="8T4-9Y-tPN" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="ob9-Od-1ar"/>
                             <constraint firstItem="axb-pU-lg5" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="vQ9-om-Uei"/>
                             <constraint firstItem="AZ7-x0-mFy" firstAttribute="centerX" secondItem="Dy6-hT-lLL" secondAttribute="centerX" id="w3l-q6-mxO"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="av4-0s-ill" secondAttribute="trailing" id="znq-Oi-qBO"/>
                         </constraints>
                     </view>
                 </viewController>

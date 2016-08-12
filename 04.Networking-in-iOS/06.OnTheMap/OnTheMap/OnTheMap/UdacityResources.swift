@@ -77,6 +77,7 @@ extension UdacityClient {
                 if let result = result[Udacity.JSONResponseKeys.User] as? [String:AnyObject] {
                     
                     let student = StudentAccount(dictionary: result)
+                    self.studentAccount = student
                     completionHandler(result: student, error: nil)
                 } else {
                     completionHandler(result: nil, error: NSError(domain: "getStudentData parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student data"]))
@@ -84,4 +85,6 @@ extension UdacityClient {
             }
         }
     }
+    
+    
 }
