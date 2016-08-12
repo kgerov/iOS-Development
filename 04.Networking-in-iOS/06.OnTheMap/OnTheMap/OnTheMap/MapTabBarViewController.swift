@@ -27,7 +27,7 @@ class MapTabBarViewController : UITabBarController {
                                tableNavController.viewControllers[0]]
         
         for controller in viewControllers {
-            controller.title = "Test"
+            controller.title = "On The Map"
             
             controller.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(self.logoutButtonPressed))
             

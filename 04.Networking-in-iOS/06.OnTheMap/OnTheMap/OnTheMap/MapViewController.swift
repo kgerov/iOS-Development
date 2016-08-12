@@ -53,24 +53,32 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     // MARK: - Helpers
     
+    func reloadStudentLocations() {
+        
+        ParseClient.sharedInstance().downloadStudentLocations(processStudentLocationData)
+    }
+    
     private func placeStudentLocationsOnMap() {
-        ParseClient.sharedInstance().getStudentLocations() { (result: [StudentInformation]?, error: NSError?) in
-            
-            guard error == nil else {
-                NotificationCenter.displayError(self, message: "Failed to get student locations")
-                return
-            }
-            
-            guard let result = result else {
-                NotificationCenter.displayError(self, message: "No student locations returned")
-                return
-            }
-            
-            let annotations = self.createAnnotationsFromStudentInformation(result)
-            
-            performUIUpdatesOnMain {
-                self.mapView.addAnnotations(annotations)
-            }
+        ParseClient.sharedInstance().getStudentLocations(processStudentLocationData)
+    }
+    
+    private func processStudentLocationData(result: [StudentInformation]?, error: NSError?) {
+        
+        guard error == nil else {
+            NotificationCenter.displayError(self, message: "Failed to get student locations")
+            return
+        }
+        
+        guard let result = result else {
+            NotificationCenter.displayError(self, message: "No student locations returned")
+            return
+        }
+        
+        let annotations = self.createAnnotationsFromStudentInformation(result)
+        
+        performUIUpdatesOnMain {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            self.mapView.addAnnotations(annotations)
         }
     }
     
@@ -88,12 +96,5 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         }
         
         return annotations
-    }
-}
-
-extension MapViewController {
-    
-    func reloadStudentLocations() {
-        print("reload from map")
     }
 }
