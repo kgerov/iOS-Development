@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="PJE-sT-YUT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="70q-MD-RK1">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -10,6 +10,7 @@
             <string>Roboto-Medium</string>
         </mutableArray>
         <mutableArray key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
             <string>Roboto-Regular</string>
@@ -206,7 +207,7 @@
         <!--Input Location View Controller-->
         <scene sceneID="PZd-Jb-mL9">
             <objects>
-                <viewController storyboardIdentifier="inputLocationViewController" id="Q2K-Pp-c3A" customClass="InputLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputLocationViewController" id="Q2K-Pp-c3A" customClass="InputLocationViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="W80-JS-YoX"/>
                         <viewControllerLayoutGuide type="bottom" id="Gcd-i9-RSx"/>
@@ -259,6 +260,9 @@
                                 <state key="normal" title="Find on the Map">
                                     <color key="titleColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="findLocationOnMap:" destination="Q2K-Pp-c3A" eventType="touchUpInside" id="IUr-9o-YSV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="av4-0s-ill">
                                 <rect key="frame" x="515" y="20" width="65" height="30"/>
@@ -270,6 +274,9 @@
                                 <state key="normal" title="Cancel">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="Q2K-Pp-c3A" eventType="touchUpInside" id="41l-a6-87g"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -292,6 +299,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="av4-0s-ill" secondAttribute="trailing" id="znq-Oi-qBO"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="locationTextField" destination="Lq0-6S-p65" id="stC-6n-5Sv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="neG-5Q-Ck8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +318,52 @@
                     <view key="view" contentMode="scaleToFill" id="NVw-sS-ubL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" placeholder="Enter a link to share here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yVD-Qx-ow5" customClass="LinkTextField" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <color key="backgroundColor" red="0.20000000000000001" green="0.40000000000000002" blue="1" alpha="0.82047413790000001" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="pLr-LY-VyB"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ytm-Vy-hZl">
+                                <rect key="frame" x="515" y="20" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="RYc-8x-GvD"/>
+                                    <constraint firstAttribute="height" constant="30" id="f0t-at-2g8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="Q2K-Pp-c3A" eventType="touchUpInside" id="awM-jn-3iv"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6hu-5L-jY1">
+                                <rect key="frame" x="0.0" y="200" width="600" height="400"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="6hu-5L-jY1" firstAttribute="top" secondItem="yVD-Qx-ow5" secondAttribute="bottom" id="BRn-ag-9j3"/>
+                            <constraint firstItem="vQS-RE-2UV" firstAttribute="top" secondItem="6hu-5L-jY1" secondAttribute="bottom" id="NgG-gc-iiD"/>
+                            <constraint firstItem="yVD-Qx-ow5" firstAttribute="width" secondItem="NVw-sS-ubL" secondAttribute="width" id="OQ6-dV-clK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ytm-Vy-hZl" secondAttribute="trailing" id="UdO-5A-jt3"/>
+                            <constraint firstItem="yVD-Qx-ow5" firstAttribute="centerX" secondItem="NVw-sS-ubL" secondAttribute="centerX" id="cpG-ls-MIv"/>
+                            <constraint firstItem="6hu-5L-jY1" firstAttribute="width" secondItem="NVw-sS-ubL" secondAttribute="width" id="feR-9A-4GM"/>
+                            <constraint firstItem="Ytm-Vy-hZl" firstAttribute="top" secondItem="1iz-Ab-nmR" secondAttribute="bottom" id="gCY-Rg-cYg"/>
+                            <constraint firstItem="yVD-Qx-ow5" firstAttribute="top" secondItem="1iz-Ab-nmR" secondAttribute="bottom" constant="-20" id="qOc-SI-Ysw"/>
+                            <constraint firstItem="6hu-5L-jY1" firstAttribute="centerX" secondItem="NVw-sS-ubL" secondAttribute="centerX" id="tuF-qM-dRq"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PEY-ud-FiK" userLabel="First Responder" sceneMemberID="firstResponder"/>
