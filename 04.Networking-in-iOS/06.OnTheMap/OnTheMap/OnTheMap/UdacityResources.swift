@@ -15,7 +15,7 @@ extension UdacityClient {
         let method: String = Udacity.Methods.Session
         let jsonBody = "{\"\(Udacity.JSONBodyKeys.Udacity)\": {\"\(Udacity.JSONBodyKeys.Username)\": \"\(username)\", \"\(Udacity.JSONBodyKeys.Password)\": \"\(password)\"}}"
         
-        taskForPOSTMethod(method, parameters: [String: AnyObject](), jsonBody: jsonBody) { (result, error) in
+        taskForPOSTMethod(method, parameters: [String: AnyObject](), jsonBody: jsonBody, requestValues: [String:String]()) { (result, error) in
             
             if let error = error {
                 completionHandler(success: false, error: error)

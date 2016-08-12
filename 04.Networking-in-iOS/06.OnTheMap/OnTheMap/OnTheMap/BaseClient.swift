@@ -22,28 +22,50 @@ class BaseClient : NSObject {
     
     // MARK: GET
     
-    func taskForGETMethod(method: String, parameters: [String:AnyObject], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(method: String, parameters: [String:AnyObject], requestValues: [String: String], completionHandlerForGET: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
-        insertValuesInUrl(request)
+        
+        for (key, value) in requestValues {
+            request.addValue(key, forHTTPHeaderField: value)
+        }
         
         return makeHttpRequest(request, completionHandler: completionHandlerForGET)
     }
     
     // MARK: POST
     
-    func taskForPOSTMethod(method: String, parameters: [String:AnyObject], jsonBody: String, completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPOSTMethod(method: String, parameters: [String:AnyObject], jsonBody: String, requestValues: [String: String], completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
         /* Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        insertValuesInUrl(request)
+        
+        for (key, value) in requestValues {
+            request.addValue(key, forHTTPHeaderField: value)
+        }
+        
         request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
         
         return makeHttpRequest(request, completionHandler: completionHandlerForPOST)
+    }
+    
+    // MARK: POST
+    
+    func taskForDELETEMethod(method: String, parameters: [String:AnyObject], requestValues: [String: String], completionHandlerForDELETE: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        /* Build the URL, Configure the request */
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
+        request.HTTPMethod = "DELETE"
+        
+        for (key, value) in requestValues {
+            request.addValue(key, forHTTPHeaderField: value)
+        }
+        
+        return makeHttpRequest(request, completionHandler: completionHandlerForDELETE)
     }
     
     // MARK: Helpers
@@ -86,10 +108,6 @@ class BaseClient : NSObject {
         task.resume()
         
         return task
-    }
-    
-    internal func insertValuesInUrl(request: NSMutableURLRequest) {
-    
     }
     
     // substitute the key for the value that is contained within the method name

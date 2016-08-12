@@ -25,7 +25,12 @@ extension ParseClient {
             Parse.ParameterKeys.Order: Parse.ParameterValues.OrderByDate
         ]
         
-        taskForGETMethod(Parse.Methods.StudentLocation, parameters: parameters) { (result, error) in
+        let values = [
+            Parse.Constants.ApplicationId: Parse.RequestKeys.ApplicationId,
+            Parse.Constants.APIKey: Parse.RequestKeys.APIKey
+        ]
+        
+        taskForGETMethod(Parse.Methods.StudentLocation, parameters: parameters, requestValues: values) { (result, error) in
             
             if let error = error {
                 completionHandler(result: nil, error: error)

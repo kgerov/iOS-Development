@@ -24,11 +24,6 @@ class ParseClient : BaseClient {
         return components
     }
     
-    override func insertValuesInUrl(request: NSMutableURLRequest) {
-        request.addValue(Parse.Constants.ApplicationId, forHTTPHeaderField: Parse.RequestKeys.ApplicationId)
-        request.addValue(Parse.Constants.APIKey, forHTTPHeaderField: Parse.RequestKeys.APIKey)
-    }
-    
     // MARK: Shared Instance
     
     override class func sharedInstance() -> ParseClient {
