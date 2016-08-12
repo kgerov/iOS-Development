@@ -53,7 +53,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     // MARK: - Helpers
     
-    func placeStudentLocationsOnMap() {
+    private func placeStudentLocationsOnMap() {
         ParseClient.sharedInstance().getStudentLocations() { (result: [StudentInformation]?, error: NSError?) in
             
             guard error == nil else {
@@ -96,5 +96,9 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    func reloadStudentLocations() {
+        print("reload from map")
     }
 }
