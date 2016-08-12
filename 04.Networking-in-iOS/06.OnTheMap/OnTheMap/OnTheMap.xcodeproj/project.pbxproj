@@ -21,6 +21,7 @@
 		983F3FD01D5DE0D900A9E86C /* StudentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FCF1D5DE0D900A9E86C /* StudentAccount.swift */; };
 		983F3FD21D5DF96900A9E86C /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD11D5DF96900A9E86C /* BorderedButton.swift */; };
 		983F3FD41D5E15A700A9E86C /* InputLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD31D5E15A700A9E86C /* InputLocationViewController.swift */; };
+		983F3FD81D5E74E200A9E86C /* LinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD71D5E74E200A9E86C /* LinkTextField.swift */; };
 		989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED361D538A810014A7B7 /* AppDelegate.swift */; };
 		989CED3C1D538A810014A7B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3A1D538A810014A7B7 /* Main.storyboard */; };
 		989CED3E1D538A810014A7B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3D1D538A810014A7B7 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		983F3FCF1D5DE0D900A9E86C /* StudentAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentAccount.swift; sourceTree = "<group>"; };
 		983F3FD11D5DF96900A9E86C /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		983F3FD31D5E15A700A9E86C /* InputLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLocationViewController.swift; sourceTree = "<group>"; };
+		983F3FD71D5E74E200A9E86C /* LinkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTextField.swift; sourceTree = "<group>"; };
 		989CED331D538A800014A7B7 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989CED361D538A810014A7B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989CED3B1D538A810014A7B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				983F3FC91D5BBFD800A9E86C /* PinTableViewCell.swift */,
 				983F3FCD1D5DD93200A9E86C /* NotificationCenter.swift */,
 				983F3FD11D5DF96900A9E86C /* BorderedButton.swift */,
+				983F3FD71D5E74E200A9E86C /* LinkTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				980ACE131D5A86C500EF5C1B /* MapViewController.swift in Sources */,
 				989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */,
 				983F3FBC1D5A8E9100A9E86C /* ParseClient.swift in Sources */,
+				983F3FD81D5E74E200A9E86C /* LinkTextField.swift in Sources */,
 				983F3FCE1D5DD93200A9E86C /* NotificationCenter.swift in Sources */,
 				980ACE0F1D5A4CA900EF5C1B /* ClientsConstants.swift in Sources */,
 				983F3FBE1D5A8EEB00A9E86C /* ParseResources.swift in Sources */,

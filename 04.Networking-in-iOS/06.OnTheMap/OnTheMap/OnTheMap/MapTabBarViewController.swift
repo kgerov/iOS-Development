@@ -44,7 +44,15 @@ class MapTabBarViewController : UITabBarController {
     
     func redirectToPostPinView(action: UIAlertAction?) {
         
-        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("inputLocationViewController")
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("InputLocationViewController") as! InputLocationViewController
+        
+        // If action == nil, this is the user's first location
+        if action == nil {
+            controller.httpMethod = "POST"
+        } else {
+            controller.httpMethod = "PUT"
+        }
+        
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
