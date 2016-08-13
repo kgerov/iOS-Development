@@ -11,15 +11,12 @@ import MapKit
 
 class InputLocationViewController : UIViewController {
     
-    var httpMethod: String?
-    var studentAccount: StudentAccount?
-    
     @IBOutlet weak var locationTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.getUserProfileData()
+        self.getUserProfileData()
     }
     
     @IBAction func findLocationOnMap(sender: AnyObject) {
@@ -33,9 +30,6 @@ class InputLocationViewController : UIViewController {
 //            NotificationCenter.displayError(self, message: "Haven't got user's profile data. Please, try again.")
 //            return
 //        }
-        
-        print(locationTextField.text)
-        print(self.studentAccount)
         
         let address = locationTextField.text!
         let geocoder = CLGeocoder()
@@ -53,8 +47,6 @@ class InputLocationViewController : UIViewController {
                     let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LinkInputViewController") as! LinkInputViewController
                     
                     controller.annotation = annotation
-                    controller.studentAccount = self.studentAccount
-                    controller.httpMethod = self.httpMethod
                     
                     self.presentViewController(controller, animated: true, completion: nil)
 
@@ -72,12 +64,10 @@ class InputLocationViewController : UIViewController {
         UdacityClient.sharedInstance().getPublicUserData { (result, error) in
             
             performUIUpdatesOnMain {
-                guard error == nil else {
-                    NotificationCenter.displayError(self, message: "Could not get user's name")
-                    return
-                }
-                
-                self.studentAccount = result
+//                guard error == nil else {
+//                    NotificationCenter.displayError(self, message: "Could not get user's name")
+//                    return
+//                }
             }
         }
     }

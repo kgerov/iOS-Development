@@ -12,7 +12,7 @@ class UdacityClient : BaseClient {
     
     var userID: String? = nil
     var sessionID: String? = nil
-    var studentAccount: StudentAccount? = nil
+    var studentAccount: StudentAccount? = StudentAccount(dictionary: ["first_name": "Ivan", "last_name": "Dimitrov"])
     
     // MARK: Helpers
     

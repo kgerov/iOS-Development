@@ -23,6 +23,7 @@
 		983F3FD41D5E15A700A9E86C /* InputLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD31D5E15A700A9E86C /* InputLocationViewController.swift */; };
 		983F3FD81D5E74E200A9E86C /* LinkTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD71D5E74E200A9E86C /* LinkTextField.swift */; };
 		983F3FDA1D5E771300A9E86C /* LinkInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FD91D5E771300A9E86C /* LinkInputViewController.swift */; };
+		983F3FDD1D5E9E7100A9E86C /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F3FDC1D5E9E7100A9E86C /* DataReloadable.swift */; };
 		989CED371D538A810014A7B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989CED361D538A810014A7B7 /* AppDelegate.swift */; };
 		989CED3C1D538A810014A7B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3A1D538A810014A7B7 /* Main.storyboard */; };
 		989CED3E1D538A810014A7B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 989CED3D1D538A810014A7B7 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		983F3FD31D5E15A700A9E86C /* InputLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputLocationViewController.swift; sourceTree = "<group>"; };
 		983F3FD71D5E74E200A9E86C /* LinkTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkTextField.swift; sourceTree = "<group>"; };
 		983F3FD91D5E771300A9E86C /* LinkInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkInputViewController.swift; sourceTree = "<group>"; };
+		983F3FDC1D5E9E7100A9E86C /* DataReloadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
 		989CED331D538A800014A7B7 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		989CED361D538A810014A7B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		989CED3B1D538A810014A7B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		983F3FDB1D5E9E5000A9E86C /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				983F3FDC1D5E9E7100A9E86C /* DataReloadable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		989CED2A1D538A800014A7B7 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 		989CED701D5709A80014A7B7 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				983F3FDB1D5E9E5000A9E86C /* Protocols */,
 				989CED711D57999A0014A7B7 /* LoginViewController.swift */,
 				980ACE121D5A86C500EF5C1B /* MapViewController.swift */,
 				983F3FC71D5BBA9000A9E86C /* MapTableViewController.swift */,
@@ -411,6 +422,7 @@
 				980ACE131D5A86C500EF5C1B /* MapViewController.swift in Sources */,
 				989CED6E1D57093A0014A7B7 /* GCDBlackBox.swift in Sources */,
 				983F3FBC1D5A8E9100A9E86C /* ParseClient.swift in Sources */,
+				983F3FDD1D5E9E7100A9E86C /* DataReloadable.swift in Sources */,
 				983F3FD81D5E74E200A9E86C /* LinkTextField.swift in Sources */,
 				983F3FCE1D5DD93200A9E86C /* NotificationCenter.swift in Sources */,
 				980ACE0F1D5A4CA900EF5C1B /* ClientsConstants.swift in Sources */,

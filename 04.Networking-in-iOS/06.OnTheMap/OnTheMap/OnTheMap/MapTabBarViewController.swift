@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapTabBarViewController : UITabBarController {
+class MapTabBarViewController : UITabBarController, DataReloadable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,14 +45,6 @@ class MapTabBarViewController : UITabBarController {
     func redirectToPostPinView(action: UIAlertAction?) {
         
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("InputLocationViewController") as! InputLocationViewController
-        
-        // If action == nil, this is the user's first location
-        if action == nil {
-            controller.httpMethod = "POST"
-        } else {
-            controller.httpMethod = "PUT"
-        }
-        
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
@@ -78,7 +70,7 @@ class MapTabBarViewController : UITabBarController {
         // Check if user has already posted a pin
         let userId = UdacityClient.sharedInstance().userID!
         
-        ParseClient.sharedInstance().isUsersFirstPin(userId) { (isFirstPin, error) in
+        ParseClient.sharedInstance().isUsersFirstPin(userId) { (pinId, error) in
             
             performUIUpdatesOnMain {
                 guard error == nil else {
@@ -86,8 +78,7 @@ class MapTabBarViewController : UITabBarController {
                     return
                 }
                 
-                
-                if let isFirstPin = isFirstPin where isFirstPin == true {
+                if pinId == nil {
                     self.redirectToPostPinView(nil)
                 } else {
                     NotificationCenter.displayOVverwritePinAlert(self, overwriteHandler: self.redirectToPostPinView)
@@ -97,6 +88,8 @@ class MapTabBarViewController : UITabBarController {
     }
     
     func reloadStudentLocations() {
-        print("reload")
+        let navController = self.selectedViewController as? UINavigationController
+        let controller = navController?.visibleViewController as? DataReloadable
+        controller?.reloadStudentLocations()
     }
 }

@@ -47,7 +47,7 @@ extension ParseClient {
         }
     }
     
-    func isUsersFirstPin(userId: String, completionHandler: (isFirstPin: Bool?, error: NSError?) -> Void) {
+    func isUsersFirstPin(userId: String, completionHandler: (pinId: String?, error: NSError?) -> Void) {
         
         let parameters = [
             Parse.ParameterKeys.Where: "{\"\(Parse.JSONResponseKeys.UniqueKey)\":\"\(userId)\"}"
@@ -61,16 +61,76 @@ extension ParseClient {
         taskForGETMethod(Parse.Methods.StudentLocation, parameters: parameters, requestValues: values) { (result, error) in
             
             if let error = error {
-                completionHandler(isFirstPin: nil, error: error)
+                completionHandler(pinId: nil, error: error)
             } else {
                 
                 if let result = result[Parse.JSONResponseKeys.Results] as? [[String:AnyObject]] {
+                
+                    let objectId: String? = result.count == 0 ? nil : result[0][Parse.JSONResponseKeys.ObjectId] as? String
+                    self.locationId = objectId
+                    
+                    print(objectId)
                     print(result)
-                    print(result.count)
-                    let isFirstPin = result.count == 0 ? true : false
-                    completionHandler(isFirstPin: isFirstPin, error: nil)
+                    
+                    completionHandler(pinId: objectId, error: nil)
                 } else {
-                    completionHandler(isFirstPin: nil, error: NSError(domain: "getStudentPreviousLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student previous location"]))
+                    completionHandler(pinId: nil, error: NSError(domain: "getStudentPreviousLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student previous location"]))
+                }
+            }
+        }
+    }
+    
+    func createStudentLocation(key: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: String, longitude: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        let values = [
+            Parse.Constants.ApplicationId: Parse.RequestKeys.ApplicationId,
+            Parse.Constants.APIKey: Parse.RequestKeys.APIKey
+        ]
+        
+        let jsonBody = "{\"\(Parse.JSONResponseKeys.UniqueKey)\": \"\(key)\", \"\(Parse.JSONResponseKeys.FirstName)\": \"\(firstName)\", \"\(Parse.JSONResponseKeys.LastName)\": \"\(lastName)\",\"\(Parse.JSONResponseKeys.MapString)\": \"\(mapString)\", \"\(Parse.JSONResponseKeys.MediaURL)\": \"\(mediaUrl)\",\"\(Parse.JSONResponseKeys.Latitude)\": \(latitude), \"\(Parse.JSONResponseKeys.Longitude)\": \(longitude)}"
+        
+        
+        taskForPOSTMethod(Parse.Methods.StudentLocation, parameters: [String : AnyObject](), jsonBody: jsonBody, requestValues: values) { (result, error) in
+            
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                
+                if (result[Parse.JSONResponseKeys.ObjectId] as? String) != nil {
+                    
+                    completionHandler(success: true, error: nil)
+                } else {
+                    completionHandler(success: false, error: NSError(domain: "postStudentLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse posted student location"]))
+                }
+            }
+        }
+    }
+    
+    func updateStudentLocation(locationId: String, key: String, firstName: String, lastName: String, mapString: String, mediaUrl: String, latitude: String, longitude: String, completionHandler: (success: Bool, error: NSError?) -> Void) {
+        
+        let method: String = subtituteKeyInMethod(Parse.Methods.StudentLocationId, key: "id", value: locationId)!
+        
+        let parameters = [String:AnyObject]()
+        
+        let values = [
+            Parse.Constants.ApplicationId: Parse.RequestKeys.ApplicationId,
+            Parse.Constants.APIKey: Parse.RequestKeys.APIKey
+        ]
+        
+        let jsonBody = "{\"\(Parse.JSONResponseKeys.UniqueKey)\": \"\(key)\", \"\(Parse.JSONResponseKeys.FirstName)\": \"\(firstName)\", \"\(Parse.JSONResponseKeys.LastName)\": \"\(lastName)\",\"\(Parse.JSONResponseKeys.MapString)\": \"\(mapString)\", \"\(Parse.JSONResponseKeys.MediaURL)\": \"\(mediaUrl)\",\"\(Parse.JSONResponseKeys.Latitude)\": \(latitude), \"\(Parse.JSONResponseKeys.Longitude)\": \(longitude)}"
+        
+        
+        taskForPUTMethod(method, parameters: parameters, jsonBody: jsonBody, requestValues: values) { (result, error) in
+            
+            if let error = error {
+                completionHandler(success: false, error: error)
+            } else {
+                
+                if (result[Parse.JSONResponseKeys.UpdatedAt] as? String) != nil {
+                    
+                    completionHandler(success: true, error: nil)
+                } else {
+                    completionHandler(success: false, error: NSError(domain: "postStudentLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse posted student location"]))
                 }
             }
         }

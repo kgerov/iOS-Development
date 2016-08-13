@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MapTableViewController : UITableViewController {
+class MapTableViewController : UITableViewController, DataReloadable {
     
     var studentLocations: [StudentInformation] = ParseClient.sharedInstance().studentLocations
     

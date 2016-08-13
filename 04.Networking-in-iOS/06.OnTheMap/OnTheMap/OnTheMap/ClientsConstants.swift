@@ -74,6 +74,9 @@ extension BaseClient {
             static let MediaURL = "mediaURL"
             static let UniqueKey = "uniqueKey"
             static let Results = "results"
+            static let MapString = "mapString"
+            static let ObjectId = "objectId"
+            static let UpdatedAt = "updatedAt"
         }
         
         struct RequestKeys {

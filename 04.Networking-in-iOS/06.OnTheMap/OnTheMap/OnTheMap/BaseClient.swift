@@ -53,7 +53,7 @@ class BaseClient : NSObject {
         return makeHttpRequest(request, completionHandler: completionHandlerForPOST)
     }
     
-    // MARK: POST
+    // MARK: DELETE
     
     func taskForDELETEMethod(method: String, parameters: [String:AnyObject], requestValues: [String: String], completionHandlerForDELETE: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         
@@ -66,6 +66,25 @@ class BaseClient : NSObject {
         }
         
         return makeHttpRequest(request, completionHandler: completionHandlerForDELETE)
+    }
+    
+    // MARK: PUT
+    
+    func taskForPUTMethod(method: String, parameters: [String:AnyObject], jsonBody: String, requestValues: [String: String], completionHandlerForPOST: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        
+        /* Build the URL, Configure the request */
+        let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
+        request.HTTPMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        for (key, value) in requestValues {
+            request.addValue(key, forHTTPHeaderField: value)
+        }
+        
+        request.HTTPBody = jsonBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        return makeHttpRequest(request, completionHandler: completionHandlerForPOST)
     }
     
     // MARK: Helpers

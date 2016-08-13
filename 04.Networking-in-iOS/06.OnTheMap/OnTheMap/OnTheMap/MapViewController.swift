@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapViewController : UIViewController, MKMapViewDelegate {
+class MapViewController : UIViewController, MKMapViewDelegate, DataReloadable {
     
     let pinReusableId = "pin"
     
