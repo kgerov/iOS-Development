@@ -22,12 +22,17 @@ extension UdacityClient {
             } else {
                 if let account = result[Udacity.JSONResponseKeys.Account] as? [String: AnyObject],
                     let key = account[Udacity.JSONResponseKeys.Key] as? String,
+                    let isRegistered = account[Udacity.JSONResponseKeys.Registered] as? Bool,
                     let session = result[Udacity.JSONResponseKeys.Session] as? [String: AnyObject],
                     let id = session[Udacity.JSONResponseKeys.Id] as? String {
                     
-                    self.userID = key
-                    self.sessionID = id
-                    completionHandler(success: true, error: nil)
+                    if isRegistered {
+                        self.userID = key
+                        self.sessionID = id
+                        completionHandler(success: true, error: nil)
+                    } else {
+                        completionHandler(success: false, error: NSError(domain: "userAccount does not exist", code: 0, userInfo: [NSLocalizedDescriptionKey: "This account does not exist."]))
+                    }
                 } else {
                     completionHandler(success: false, error: NSError(domain: "postSessionId parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse session"]))
                 }

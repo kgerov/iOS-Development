@@ -45,7 +45,7 @@ class LoginViewController : UIViewController {
                 if success {
                     self.completeLogin()
                 } else {
-                    self.displayError(error.debugDescription)
+                    self.displayError(String((error?.userInfo["NSLocalizedDescription"])!))
                 }
             }
         })
@@ -63,7 +63,6 @@ extension LoginViewController {
     
     private func setUIEnabled(enabled: Bool) {
         loginButton.enabled = enabled
-        debugField.enabled = enabled
         
         // adjust login button alpha
         if enabled {
