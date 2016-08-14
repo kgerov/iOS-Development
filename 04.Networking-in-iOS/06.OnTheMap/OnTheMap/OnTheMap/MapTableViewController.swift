@@ -31,6 +31,13 @@ class MapTableViewController : UITableViewController, DataReloadable {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let app = UIApplication.sharedApplication()
+        let toOpen = studentLocations[indexPath.row].mediaUrl
+        app.openURL(NSURL(string: toOpen)!)
+    }
+    
     // MARK: - Helpers
     
     func reloadStudentLocations() {
