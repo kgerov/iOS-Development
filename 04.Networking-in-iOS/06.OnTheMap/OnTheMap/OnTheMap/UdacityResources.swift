@@ -31,7 +31,7 @@ extension UdacityClient {
                         self.sessionID = id
                         completionHandler(success: true, error: nil)
                     } else {
-                        completionHandler(success: false, error: NSError(domain: "userAccount does not exist", code: 0, userInfo: [NSLocalizedDescriptionKey: "This account does not exist."]))
+                        completionHandler(success: false, error: NSError(domain: "userAccount does not exist", code: 0, userInfo: [NSLocalizedDescriptionKey: "Invalid username or password."]))
                     }
                 } else {
                     completionHandler(success: false, error: NSError(domain: "postSessionId parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse session"]))

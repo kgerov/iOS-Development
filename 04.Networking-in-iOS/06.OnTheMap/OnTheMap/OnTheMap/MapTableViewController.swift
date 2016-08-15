@@ -10,8 +10,6 @@ import UIKit
 
 class MapTableViewController : UITableViewController, DataReloadable {
     
-    var studentLocations: [StudentInformation] = ParseClient.sharedInstance().studentLocations
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -19,12 +17,12 @@ class MapTableViewController : UITableViewController, DataReloadable {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return studentLocations.count
+        return ParseClient.sharedInstance().studentLocations.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PinTableCell") as! PinTableViewCell
-        let studentLocation = studentLocations[indexPath.row]
+        let studentLocation = ParseClient.sharedInstance().studentLocations[indexPath.row]
         
         cell.studentName.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         
@@ -34,7 +32,7 @@ class MapTableViewController : UITableViewController, DataReloadable {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let app = UIApplication.sharedApplication()
-        let toOpen = studentLocations[indexPath.row].mediaUrl
+        let toOpen = ParseClient.sharedInstance().studentLocations[indexPath.row].mediaUrl
         app.openURL(NSURL(string: toOpen)!)
     }
     
@@ -59,12 +57,11 @@ class MapTableViewController : UITableViewController, DataReloadable {
                 return
             }
             
-            guard let result = result else {
+            guard result != nil else {
                 NotificationCenter.displayError(self, message: "No student locations returned")
                 return
             }
         
-            self.studentLocations = result
             self.tableView.reloadData()
         }
     }

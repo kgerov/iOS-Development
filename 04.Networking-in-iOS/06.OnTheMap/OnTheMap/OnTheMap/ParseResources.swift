@@ -69,9 +69,6 @@ extension ParseClient {
                     let objectId: String? = result.count == 0 ? nil : result[0][Parse.JSONResponseKeys.ObjectId] as? String
                     self.locationId = objectId
                     
-                    print(objectId)
-                    print(result)
-                    
                     completionHandler(pinId: objectId, error: nil)
                 } else {
                     completionHandler(pinId: nil, error: NSError(domain: "getStudentPreviousLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse student previous location"]))

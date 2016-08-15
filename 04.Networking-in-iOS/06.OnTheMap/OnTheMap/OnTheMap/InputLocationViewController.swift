@@ -26,16 +26,16 @@ class InputLocationViewController : UIViewController {
             return
         }
         
-//        guard self.studentAccount != nil else {
-//            NotificationCenter.displayError(self, message: "Haven't got user's profile data. Please, try again.")
-//            return
-//        }
-        
+        NotificationCenter.activateActivityView(self, activate: true)
+            
         let address = locationTextField.text!
         let geocoder = CLGeocoder()
         
         geocoder.geocodeAddressString(address, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+            
             performUIUpdatesOnMain {
+                NotificationCenter.activateActivityView(self, activate: false)
+                
                 guard error == nil else {
                     NotificationCenter.displayError(self, message: "Could not find geo location")
                     return
@@ -64,10 +64,11 @@ class InputLocationViewController : UIViewController {
         UdacityClient.sharedInstance().getPublicUserData { (result, error) in
             
             performUIUpdatesOnMain {
-//                guard error == nil else {
-//                    NotificationCenter.displayError(self, message: "Could not get user's name")
-//                    return
-//                }
+                guard error == nil else {
+                    NotificationCenter.displayError(self, message: "Could not get user's name")
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    return
+                }
             }
         }
     }

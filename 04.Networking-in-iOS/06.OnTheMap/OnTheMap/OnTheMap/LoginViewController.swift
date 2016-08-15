@@ -39,13 +39,13 @@ class LoginViewController : UIViewController {
         }
         
         self.setUIEnabled(false)
-        
         UdacityClient.sharedInstance().getSessionId(username, password: password, completionHandler: { (success, error) in
             performUIUpdatesOnMain {
                 if success {
                     self.completeLogin()
                 } else {
-                    self.displayError(String((error?.userInfo["NSLocalizedDescription"])!))
+                    self.setUIEnabled(true)
+                    self.displayError("Invalid username or password.")
                 }
             }
         })

@@ -98,7 +98,7 @@ class BaseClient : NSObject {
             func sendError(error: String) {
                 print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandler(result: nil, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+                completionHandler(result: nil, error: NSError(domain: "taskForHttpRequest", code: 1, userInfo: userInfo))
             }
             
             /* GUARD: Was there an error? */

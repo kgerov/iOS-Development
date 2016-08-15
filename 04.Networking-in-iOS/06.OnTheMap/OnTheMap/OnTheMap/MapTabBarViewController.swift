@@ -55,8 +55,10 @@ class MapTabBarViewController : UITabBarController, DataReloadable {
         NotificationCenter.setUIEnabled(self, enabled: false)
         
         UdacityClient.sharedInstance().deleteSessionId { (success, error) in
+
+            NotificationCenter.setUIEnabled(self, enabled: true)
+            
             if success {
-                NotificationCenter.setUIEnabled(self, enabled: true)
                 let controller = self.storyboard!.instantiateViewControllerWithIdentifier("loginViewController")
                 self.presentViewController(controller, animated: true, completion: nil)
             } else {
@@ -88,6 +90,7 @@ class MapTabBarViewController : UITabBarController, DataReloadable {
     }
     
     func reloadStudentLocations() {
+        
         let navController = self.selectedViewController as? UINavigationController
         let controller = navController?.visibleViewController as? DataReloadable
         controller?.reloadStudentLocations()

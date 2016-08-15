@@ -9,7 +9,9 @@
 import UIKit
 
 class NotificationCenter : NSObject {
-
+    
+    static let activityView = UIActivityIndicatorView(activityIndicatorStyle: .WhiteLarge)
+    
     static func displayError(controller: UIViewController, message: String) {
         let alertController = UIAlertController(title: nil, message:
             message, preferredStyle: UIAlertControllerStyle.Alert)
@@ -44,5 +46,16 @@ class NotificationCenter : NSObject {
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         
         controller.presentViewController(refreshAlert, animated: true, completion: nil)
+    }
+    
+    static func activateActivityView(controller: UIViewController, activate: Bool) {
+        
+        if activate {
+            activityView.center = controller.view.center
+            activityView.startAnimating()
+            controller.view.addSubview(activityView)
+        } else {
+            activityView.stopAnimating()
+        }
     }
 }
