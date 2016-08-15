@@ -45,13 +45,27 @@ class MapViewController : UIViewController, MKMapViewDelegate, DataReloadable {
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
             let app = UIApplication.sharedApplication()
-            if let toOpen = view.annotation?.subtitle! {
-                app.openURL(NSURL(string: toOpen)!)
+            let toOpen = view.annotation?.subtitle!
+            if  verifyUrl(toOpen) {
+                app.openURL(NSURL(string: toOpen!)!)
+            } else {
+                NotificationCenter.displayError(self, message: "Invalud URL.")
             }
         }
     }
     
     // MARK: - Helpers
+    
+    private func verifyUrl (urlString: String?) -> Bool {
+        
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.sharedApplication().canOpenURL(url)
+            }
+        }
+        
+        return false
+    }
     
     func reloadStudentLocations() {
         

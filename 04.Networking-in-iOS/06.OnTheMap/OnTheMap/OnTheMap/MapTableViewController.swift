@@ -33,7 +33,12 @@ class MapTableViewController : UITableViewController, DataReloadable {
         
         let app = UIApplication.sharedApplication()
         let toOpen = ParseClient.sharedInstance().studentLocations[indexPath.row].mediaUrl
-        app.openURL(NSURL(string: toOpen)!)
+        
+        if verifyUrl(toOpen) {
+            app.openURL(NSURL(string: toOpen)!)
+        } else {
+            NotificationCenter.displayError(self, message: "Invalid URL")
+        }
     }
     
     // MARK: - Helpers
@@ -43,6 +48,17 @@ class MapTableViewController : UITableViewController, DataReloadable {
         ParseClient.sharedInstance().downloadStudentLocations(processStudentLocationData)
     }
 
+    
+    private func verifyUrl (urlString: String?) -> Bool {
+        
+        if let urlString = urlString {
+            if let url = NSURL(string: urlString) {
+                return UIApplication.sharedApplication().canOpenURL(url)
+            }
+        }
+        
+        return false
+    }
     
     private func getStudentLocations() {
         
