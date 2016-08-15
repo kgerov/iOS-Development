@@ -45,7 +45,8 @@ class LoginViewController : UIViewController {
                     self.completeLogin()
                 } else {
                     self.setUIEnabled(true)
-                    NotificationCenter.displayError(self, message: "Invalid username or password.")
+
+                    NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
                 }
             }
         })

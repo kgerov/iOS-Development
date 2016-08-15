@@ -103,13 +103,22 @@ class BaseClient : NSObject {
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error)")
+                if error?.code == -1009 {
+                    sendError("The Internet connection appears to be offline.")
+                } else {
+                    sendError("There was an error with your request: \(error)")
+                }
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
-            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx! \(response)")
+            let statusCode = (response as? NSHTTPURLResponse)?.statusCode
+            guard statusCode != nil && statusCode >= 200 && statusCode <= 299 else {
+                if statusCode == 403 {
+                    sendError("Invalid username or password.")
+                } else {
+                    sendError("Your request returned a status code other than 2xx! \(response)")
+                }
                 return
             }
             
