@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController : UIViewController {
+class LoginViewController : UIViewController, UITextFieldDelegate {
     
     private let placeholderAttributes = [
         NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -23,11 +23,24 @@ class LoginViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.emailTextField.delegate = self;
+        self.passwordTextField.delegate = self;
+        
+        setCustomPlaceholderText()
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.hideKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
         debugField.text = ""
         emailTextField.text = ""
         passwordTextField.text = ""
         
-        setCustomPlaceholderText()
+        setUIEnabled(true)
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
@@ -84,5 +97,14 @@ extension LoginViewController {
             NSAttributedString(string:"Email", attributes: placeholderAttributes)
         passwordTextField.attributedPlaceholder =
             NSAttributedString(string:"Password", attributes: placeholderAttributes)
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

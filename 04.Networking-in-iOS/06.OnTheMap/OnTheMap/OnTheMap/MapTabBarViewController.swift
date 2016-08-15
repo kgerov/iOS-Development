@@ -59,8 +59,7 @@ class MapTabBarViewController : UITabBarController, DataReloadable {
             NotificationCenter.setUIEnabled(self, enabled: true)
             
             if success {
-                let controller = self.storyboard!.instantiateViewControllerWithIdentifier("loginViewController")
-                self.presentViewController(controller, animated: true, completion: nil)
+                self.dismissViewControllerAnimated(true, completion: nil)
             } else {
                 NotificationCenter.displayError(self, message: "Could not logout")
             }

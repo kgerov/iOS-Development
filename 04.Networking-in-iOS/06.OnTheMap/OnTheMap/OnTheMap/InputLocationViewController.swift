@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class InputLocationViewController : UIViewController {
+class InputLocationViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var locationTextField: UITextField!
     
@@ -17,6 +17,12 @@ class InputLocationViewController : UIViewController {
         super.viewDidLoad()
         
         self.getUserProfileData()
+        
+        locationTextField.delegate = self
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputLocationViewController.hideKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     @IBAction func findLocationOnMap(sender: AnyObject) {
@@ -71,5 +77,14 @@ class InputLocationViewController : UIViewController {
                 }
             }
         }
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }
