@@ -41,6 +41,7 @@ class PlaySoundsViewController: UIViewController {
         }
         
         setUserInterfaceToPlayMode(false)
+        initSliderValue()
     }
     
     func setUserInterfaceToPlayMode(isPlayMode: Bool) {
@@ -66,6 +67,11 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer.stop()
         audioEngine.stop()
         audioEngine.reset()
+    }
+    
+    @IBAction func sliderDidMove(sender: UISlider) {
+        print("Slider vaue: \(sliderView.value)")
+        saveSlideValue(sliderView.value)
     }
     
     func playAudioWithVariablePitch(pitch: Float){
@@ -96,7 +102,13 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
     
-    @IBAction func sliderDidMove(sender: UISlider) {
-        print("Slider vaue: \(sliderView.value)")
+    func saveSlideValue(value: Float) {
+        NSUserDefaults.standardUserDefaults().setFloat(value, forKey: "sliderValue")
+    }
+    
+    func initSliderValue() {
+        let savedSliderValue = NSUserDefaults.standardUserDefaults().floatForKey("sliderValue")
+        
+        self.sliderView.value = savedSliderValue
     }
 }

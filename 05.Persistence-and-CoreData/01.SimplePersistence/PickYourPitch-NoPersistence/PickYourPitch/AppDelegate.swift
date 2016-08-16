@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Usually this is not overridden. Using the "did finish launching" method is more typical
         print("App Delegate: will finish launching")
+        checkIfFirstLaunch()
         
         return true
     }
@@ -58,6 +59,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 
         print("App Delegate: will terminate")
+    }
+    
+    // MARK: - Helpers
+    
+    func checkIfFirstLaunch() {
+        if !(NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedBefore")) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunchedBefore")
+            NSUserDefaults.standardUserDefaults().setFloat(0.0, forKey: "sliderValue")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
     }
 }
 
