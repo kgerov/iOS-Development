@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980645E21D639BE000005603 /* StudentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980645E11D639BE000005603 /* StudentManager.swift */; };
 		980ACE0D1D5A345C00EF5C1B /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980ACE0C1D5A345C00EF5C1B /* BaseClient.swift */; };
 		980ACE0F1D5A4CA900EF5C1B /* ClientsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980ACE0E1D5A4CA900EF5C1B /* ClientsConstants.swift */; };
 		980ACE111D5A4FCA00EF5C1B /* UdacityResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980ACE101D5A4FCA00EF5C1B /* UdacityResources.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980645E11D639BE000005603 /* StudentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentManager.swift; sourceTree = "<group>"; };
 		980ACE0C1D5A345C00EF5C1B /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
 		980ACE0E1D5A4CA900EF5C1B /* ClientsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsConstants.swift; sourceTree = "<group>"; };
 		980ACE101D5A4FCA00EF5C1B /* UdacityResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityResources.swift; sourceTree = "<group>"; };
@@ -120,6 +122,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		980645E01D639BC300005603 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				980645E11D639BE000005603 /* StudentManager.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		983F3FDB1D5E9E5000A9E86C /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +222,7 @@
 		989CED6F1D57099C0014A7B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				980645E01D639BC300005603 /* Data */,
 				989CED761D58DB0A0014A7B7 /* Clients */,
 			);
 			name = Model;
@@ -410,6 +421,7 @@
 			files = (
 				983F3FC01D5A8F1E00A9E86C /* StudentInformation.swift in Sources */,
 				983F3FCC1D5DBF4900A9E86C /* MapTabBarViewController.swift in Sources */,
+				980645E21D639BE000005603 /* StudentManager.swift in Sources */,
 				983F3FDA1D5E771300A9E86C /* LinkInputViewController.swift in Sources */,
 				983F3FD21D5DF96900A9E86C /* BorderedButton.swift in Sources */,
 				989CED7A1D58DB680014A7B7 /* UdacityClient.swift in Sources */,

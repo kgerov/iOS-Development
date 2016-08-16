@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LinkInputViewController : UIViewController {
+class LinkInputViewController : UIViewController, UITextFieldDelegate {
     
     var annotation: MKPlacemark?
     
@@ -19,8 +19,16 @@ class LinkInputViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add annotation to map and zoom to annotation
         self.mapView.addAnnotation(annotation!)
         self.mapView.showAnnotations(self.mapView.annotations, animated: true)
+        
+        // Set text field delegate to this class
+        linkTextField.delegate = self
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(InputLocationViewController.hideKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
     @IBAction func submitButtonPressed(sender: AnyObject) {
@@ -47,6 +55,8 @@ class LinkInputViewController : UIViewController {
         self.presentingViewController!.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // MARK: - Helpers
+    
     private func submitCompletionHandler(success: Bool, error: NSError?) {
         performUIUpdatesOnMain {
             if success {
@@ -60,5 +70,14 @@ class LinkInputViewController : UIViewController {
                 NotificationCenter.displayError(self, message: "Failed to post location to server")
             }
         }
+    }
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

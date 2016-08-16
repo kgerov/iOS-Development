@@ -10,8 +10,8 @@ import Foundation
 
 class ParseClient : BaseClient {
     
-    var studentLocations = [StudentInformation]()
     var locationId: String? = nil
+    var studentManager: StudentManager = StudentManager.sharedInstance()
     
     // MARK: Helpers
     

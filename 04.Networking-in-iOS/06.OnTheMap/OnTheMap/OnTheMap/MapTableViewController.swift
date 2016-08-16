@@ -17,12 +17,12 @@ class MapTableViewController : UITableViewController, DataReloadable {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ParseClient.sharedInstance().studentLocations.count
+        return StudentManager.sharedInstance().studentLocations.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PinTableCell") as! PinTableViewCell
-        let studentLocation = ParseClient.sharedInstance().studentLocations[indexPath.row]
+        let studentLocation = StudentManager.sharedInstance().studentLocations[indexPath.row]
         
         cell.studentName.text = "\(studentLocation.firstName) \(studentLocation.lastName)"
         
@@ -32,7 +32,7 @@ class MapTableViewController : UITableViewController, DataReloadable {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let app = UIApplication.sharedApplication()
-        let toOpen = ParseClient.sharedInstance().studentLocations[indexPath.row].mediaUrl
+        let toOpen = StudentManager.sharedInstance().studentLocations[indexPath.row].mediaUrl
         
         if verifyUrl(toOpen) {
             app.openURL(NSURL(string: toOpen)!)
