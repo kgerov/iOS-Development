@@ -12,10 +12,37 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    func sandboxPlayground() {
+        
+        let fileManager = NSFileManager.defaultManager()
+        let urls = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let url = urls.last?.URLByAppendingPathComponent("file.txt")
+        
+        do {
+            try "Hi there!".writeToURL(url!, atomically: true, encoding: NSUTF8StringEncoding)
+        } catch {
+            print("Error while reading")
+        }
+        
+        do {
+            let content = try String(contentsOfURL: url!, encoding: NSUTF8StringEncoding)
+            
+            if content == "Hi there!" {
+                print("The text matches")
+            } else {
+                print("The text does not match")
+            }
+            
+        } catch {
+            print("Could not read file")
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        sandboxPlayground()
+        
         return true
     }
 
