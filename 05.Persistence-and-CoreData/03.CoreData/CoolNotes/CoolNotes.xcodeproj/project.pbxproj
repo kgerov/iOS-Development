@@ -16,6 +16,10 @@
 		9858ED3B1D65149C00B28F10 /* CoolNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED3A1D65149C00B28F10 /* CoolNotesUITests.swift */; };
 		9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED481D65150700B28F10 /* Model.xcdatamodeld */; };
 		9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED4C1D65185400B28F10 /* CoreDataStack.swift */; };
+		9858ED521D6518D700B28F10 /* Notebook+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED4E1D6518D700B28F10 /* Notebook+CoreDataProperties.swift */; };
+		9858ED531D6518D700B28F10 /* Notebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED4F1D6518D700B28F10 /* Notebook.swift */; };
+		9858ED541D6518D700B28F10 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED501D6518D700B28F10 /* Note+CoreDataProperties.swift */; };
+		9858ED551D6518D700B28F10 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED511D6518D700B28F10 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		9858ED3C1D65149C00B28F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9858ED491D65150700B28F10 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9858ED4C1D65185400B28F10 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		9858ED4E1D6518D700B28F10 /* Notebook+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Notebook+CoreDataProperties.swift"; path = "../Notebook+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9858ED4F1D6518D700B28F10 /* Notebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Notebook.swift; path = ../Notebook.swift; sourceTree = "<group>"; };
+		9858ED501D6518D700B28F10 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		9858ED511D6518D700B28F10 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +89,6 @@
 		9858ED0E1D65149C00B28F10 = {
 			isa = PBXGroup;
 			children = (
-				9858ED481D65150700B28F10 /* Model.xcdatamodeld */,
 				9858ED191D65149C00B28F10 /* CoolNotes */,
 				9858ED2E1D65149C00B28F10 /* CoolNotesTests */,
 				9858ED391D65149C00B28F10 /* CoolNotesUITests */,
@@ -134,6 +141,11 @@
 		9858ED4B1D65184800B28F10 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				9858ED4E1D6518D700B28F10 /* Notebook+CoreDataProperties.swift */,
+				9858ED4F1D6518D700B28F10 /* Notebook.swift */,
+				9858ED501D6518D700B28F10 /* Note+CoreDataProperties.swift */,
+				9858ED511D6518D700B28F10 /* Note.swift */,
+				9858ED481D65150700B28F10 /* Model.xcdatamodeld */,
 				9858ED4C1D65185400B28F10 /* CoreDataStack.swift */,
 			);
 			name = Model;
@@ -271,8 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9858ED1D1D65149C00B28F10 /* ViewController.swift in Sources */,
+				9858ED541D6518D700B28F10 /* Note+CoreDataProperties.swift in Sources */,
 				9858ED1B1D65149C00B28F10 /* AppDelegate.swift in Sources */,
+				9858ED551D6518D700B28F10 /* Note.swift in Sources */,
+				9858ED521D6518D700B28F10 /* Notebook+CoreDataProperties.swift in Sources */,
 				9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */,
+				9858ED531D6518D700B28F10 /* Notebook.swift in Sources */,
 				9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,8 +542,7 @@
 				9858ED491D65150700B28F10 /* Model.xcdatamodel */,
 			);
 			currentVersion = 9858ED491D65150700B28F10 /* Model.xcdatamodel */;
-			name = Model.xcdatamodeld;
-			path = CoolNotes/Model.xcdatamodeld;
+			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
