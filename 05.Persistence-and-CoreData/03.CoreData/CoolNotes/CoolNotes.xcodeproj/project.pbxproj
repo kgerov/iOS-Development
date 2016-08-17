@@ -14,6 +14,8 @@
 		9858ED251D65149C00B28F10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9858ED231D65149C00B28F10 /* LaunchScreen.storyboard */; };
 		9858ED301D65149C00B28F10 /* CoolNotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED2F1D65149C00B28F10 /* CoolNotesTests.swift */; };
 		9858ED3B1D65149C00B28F10 /* CoolNotesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED3A1D65149C00B28F10 /* CoolNotesUITests.swift */; };
+		9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED481D65150700B28F10 /* Model.xcdatamodeld */; };
+		9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED4C1D65185400B28F10 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		9858ED361D65149C00B28F10 /* CoolNotesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoolNotesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9858ED3A1D65149C00B28F10 /* CoolNotesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolNotesUITests.swift; sourceTree = "<group>"; };
 		9858ED3C1D65149C00B28F10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9858ED491D65150700B28F10 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		9858ED4C1D65185400B28F10 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +81,7 @@
 		9858ED0E1D65149C00B28F10 = {
 			isa = PBXGroup;
 			children = (
+				9858ED481D65150700B28F10 /* Model.xcdatamodeld */,
 				9858ED191D65149C00B28F10 /* CoolNotes */,
 				9858ED2E1D65149C00B28F10 /* CoolNotesTests */,
 				9858ED391D65149C00B28F10 /* CoolNotesUITests */,
@@ -97,6 +102,7 @@
 		9858ED191D65149C00B28F10 /* CoolNotes */ = {
 			isa = PBXGroup;
 			children = (
+				9858ED4B1D65184800B28F10 /* Model */,
 				9858ED1A1D65149C00B28F10 /* AppDelegate.swift */,
 				9858ED1C1D65149C00B28F10 /* ViewController.swift */,
 				9858ED1E1D65149C00B28F10 /* Main.storyboard */,
@@ -123,6 +129,14 @@
 				9858ED3C1D65149C00B28F10 /* Info.plist */,
 			);
 			path = CoolNotesUITests;
+			sourceTree = "<group>";
+		};
+		9858ED4B1D65184800B28F10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9858ED4C1D65185400B28F10 /* CoreDataStack.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +272,8 @@
 			files = (
 				9858ED1D1D65149C00B28F10 /* ViewController.swift in Sources */,
 				9858ED1B1D65149C00B28F10 /* AppDelegate.swift in Sources */,
+				9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */,
+				9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +518,20 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9858ED481D65150700B28F10 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9858ED491D65150700B28F10 /* Model.xcdatamodel */,
+			);
+			currentVersion = 9858ED491D65150700B28F10 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = CoolNotes/Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9858ED0F1D65149C00B28F10 /* Project object */;
 }
