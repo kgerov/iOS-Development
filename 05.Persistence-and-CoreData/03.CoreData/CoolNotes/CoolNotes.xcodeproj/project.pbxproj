@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		980907791D65DADE00E386E2 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */; };
 		9858ED1B1D65149C00B28F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED1A1D65149C00B28F10 /* AppDelegate.swift */; };
 		9858ED1D1D65149C00B28F10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED1C1D65149C00B28F10 /* ViewController.swift */; };
 		9858ED201D65149C00B28F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9858ED1E1D65149C00B28F10 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		9858ED171D65149C00B28F10 /* CoolNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9858ED1A1D65149C00B28F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9858ED1C1D65149C00B28F10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		980907771D65DAC900E386E2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		9858ED0E1D65149C00B28F10 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +119,7 @@
 		9858ED191D65149C00B28F10 /* CoolNotes */ = {
 			isa = PBXGroup;
 			children = (
+				980907771D65DAC900E386E2 /* Controllers */,
 				9858ED4B1D65184800B28F10 /* Model */,
 				9858ED1A1D65149C00B28F10 /* AppDelegate.swift */,
 				9858ED1C1D65149C00B28F10 /* ViewController.swift */,
@@ -290,6 +301,7 @@
 				9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */,
 				9858ED531D6518D700B28F10 /* Notebook.swift in Sources */,
 				9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */,
+				980907791D65DADE00E386E2 /* CoreDataTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +528,7 @@
 				9858ED411D65149C00B28F10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9858ED421D65149C00B28F10 /* Build configuration list for PBXNativeTarget "CoolNotesTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +537,7 @@
 				9858ED441D65149C00B28F10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9858ED451D65149C00B28F10 /* Build configuration list for PBXNativeTarget "CoolNotesUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +546,7 @@
 				9858ED471D65149C00B28F10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
