@@ -2,8 +2,8 @@
 //  CoreDataTableViewController.swift
 //  CoolNotes
 //
-//  Created by Konstantin Gerov on 8/18/16.
-//  Copyright © 2016 Konstantin Gerov. All rights reserved.
+//  Created by Fernando Rodríguez Romero on 22/02/16.
+//  Copyright © 2016 udacity.com. All rights reserved.
 //
 
 import UIKit
