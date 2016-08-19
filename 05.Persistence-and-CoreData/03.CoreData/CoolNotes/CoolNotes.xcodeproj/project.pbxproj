@@ -45,6 +45,7 @@
 		980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		9809077C1D65E1C900E386E2 /* NotebooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotebooksTableViewController.swift; sourceTree = "<group>"; };
 		9809077E1D65ECCC00E386E2 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		980907831D67C12F00E386E2 /* Model 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Model 2.xcdatamodel"; sourceTree = "<group>"; };
 		9858ED171D65149C00B28F10 /* CoolNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9858ED1A1D65149C00B28F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9858ED1F1D65149C00B28F10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -574,9 +575,10 @@
 		9858ED481D65150700B28F10 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				980907831D67C12F00E386E2 /* Model 2.xcdatamodel */,
 				9858ED491D65150700B28F10 /* Model.xcdatamodel */,
 			);
-			currentVersion = 9858ED491D65150700B28F10 /* Model.xcdatamodel */;
+			currentVersion = 980907831D67C12F00E386E2 /* Model 2.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

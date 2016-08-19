@@ -4,14 +4,20 @@
         <attribute name="creationDate" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="notebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notebook" inverseName="notes" inverseEntity="Notebook" syncable="YES"/>
+        <relationship name="photo" maxCount="1" deletionRule="Cascade" destinationEntity="PhotoFrame" inverseName="note" inverseEntity="PhotoFrame" syncable="YES"/>
     </entity>
     <entity name="Notebook" representedClassName=".Notebook" syncable="YES">
         <attribute name="creationDate" attributeType="Date" indexed="YES" syncable="YES"/>
         <attribute name="name" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="notebook" inverseEntity="Note" syncable="YES"/>
     </entity>
+    <entity name="PhotoFrame" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="note" maxCount="1" deletionRule="Nullify" destinationEntity="Note" inverseName="photo" inverseEntity="Note" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Note" positionX="-54" positionY="9" width="128" height="90"/>
+        <element name="Note" positionX="-54" positionY="9" width="128" height="105"/>
         <element name="Notebook" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="PhotoFrame" positionX="-63" positionY="27" width="128" height="75"/>
     </elements>
 </model>
