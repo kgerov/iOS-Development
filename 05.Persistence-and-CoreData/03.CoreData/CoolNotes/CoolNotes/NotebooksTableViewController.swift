@@ -82,4 +82,11 @@ class NotebooksTableViewController : CoreDataTableViewController {
             }
         }
     }
+    
+    @IBAction func addNewNotebook(sender: AnyObject) {
+        
+        let newNotebook = Notebook(name: "New Notebook", context: self.fetchedResultsController!.managedObjectContext)
+        
+        print(newNotebook)
+    }
 }

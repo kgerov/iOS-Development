@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // It looks like a Dictionary and the values in it are called
         // _Modelled Properties_. These are the properties defined in the
         // Data Model. They reside in the SQLite DB
-        print(codeNotes)
-        print(appIdeas)
+        // print(codeNotes)
+        // print(appIdeas)
         
         // Create Notes
         let wwdc = Note(text: "Watch some WWDC sessions", context: stack.context)
@@ -47,8 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Core Data validations only kick in when you try to save a context, and
         // we haven't done that so far. If we try to save right now, we would get
         // a crash.
-        print(wwdc)
-        print(kitura)
+        // print(wwdc)
+        // print(kitura)
         
         
         // Let's set the notebook property of those 2 notes

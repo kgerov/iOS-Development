@@ -63,7 +63,13 @@
                             <outlet property="delegate" destination="tNL-qf-haD" id="8q5-OP-lXM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZLy-TJ-AKT"/>
+                    <navigationItem key="navigationItem" id="ZLy-TJ-AKT">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="aQI-Dw-r2p">
+                            <connections>
+                                <action selector="addNewNotebook:" destination="tNL-qf-haD" id="cWx-Gz-cs1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H9D-xh-2vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,6 +107,8 @@
                             <outlet property="delegate" destination="bEG-cM-15i" id="yAo-99-f7t"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mpm-L6-niK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
