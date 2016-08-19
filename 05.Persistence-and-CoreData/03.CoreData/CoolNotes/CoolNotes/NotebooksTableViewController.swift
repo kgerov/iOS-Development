@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+
 class NotebooksTableViewController : CoreDataTableViewController {
     
     override func viewDidLoad() {
@@ -40,5 +41,45 @@ class NotebooksTableViewController : CoreDataTableViewController {
         cell.detailTextLabel?.text = "\(Int((notebook?.notes?.count)!)) notes"
         
         return cell
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        
+        if segue.identifier! == "displayNote"{
+            
+            if let notesVC = segue.destinationViewController as? NoteTableViewController{
+                
+                // Create Fetch Request
+                let fetchRequest = NSFetchRequest(entityName: "Note")
+                
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false),
+                                      NSSortDescriptor(key: "text", ascending: true)]
+                
+                // So far we have a search that will match ALL notes. However, we're
+                // only interested in those within the current notebook:
+                // NSPredicate to the rescue!
+                let indexPath = tableView.indexPathForSelectedRow!
+                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath)
+                
+                let notebookPredicate = NSPredicate(format: "notebook = %@", argumentArray: [notebook!])
+                
+                fetchRequest.predicate = notebookPredicate
+                
+                // Create FetchedResultsController
+                let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext:fetchedResultsController!.managedObjectContext,
+                                                    sectionNameKeyPath: nil,
+                                                    cacheName: nil)
+                
+                // Inject it into the notesVC
+                notesVC.fetchedResultsController = fetchController
+                notesVC.title = (notebook as? Notebook)?.name
+            }
+        }
     }
 }

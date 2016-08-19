@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		980907791D65DADE00E386E2 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */; };
 		9809077D1D65E1C900E386E2 /* NotebooksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9809077C1D65E1C900E386E2 /* NotebooksTableViewController.swift */; };
+		9809077F1D65ECCC00E386E2 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9809077E1D65ECCC00E386E2 /* NoteTableViewController.swift */; };
 		9858ED1B1D65149C00B28F10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9858ED1A1D65149C00B28F10 /* AppDelegate.swift */; };
 		9858ED201D65149C00B28F10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9858ED1E1D65149C00B28F10 /* Main.storyboard */; };
 		9858ED221D65149C00B28F10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9858ED211D65149C00B28F10 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 		9809077C1D65E1C900E386E2 /* NotebooksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotebooksTableViewController.swift; sourceTree = "<group>"; };
+		9809077E1D65ECCC00E386E2 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		9858ED171D65149C00B28F10 /* CoolNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoolNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9858ED1A1D65149C00B28F10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9858ED1F1D65149C00B28F10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				980907781D65DADE00E386E2 /* CoreDataTableViewController.swift */,
 				9809077C1D65E1C900E386E2 /* NotebooksTableViewController.swift */,
+				9809077E1D65ECCC00E386E2 /* NoteTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				9858ED551D6518D700B28F10 /* Note.swift in Sources */,
 				9809077D1D65E1C900E386E2 /* NotebooksTableViewController.swift in Sources */,
 				9858ED521D6518D700B28F10 /* Notebook+CoreDataProperties.swift in Sources */,
+				9809077F1D65ECCC00E386E2 /* NoteTableViewController.swift in Sources */,
 				9858ED4A1D65150700B28F10 /* Model.xcdatamodeld in Sources */,
 				9858ED531D6518D700B28F10 /* Notebook.swift in Sources */,
 				9858ED4D1D65185400B28F10 /* CoreDataStack.swift in Sources */,
