@@ -11,15 +11,19 @@ import MapKit
 
 class MapViewController : UIViewController, MKMapViewDelegate {
     
+    private var deleteModeOn: Bool = false
+    
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.deleteModeOn = false
     }
     
     @IBAction func removeButtonPressed(sender: AnyObject) {
-    
+        
+        self.deleteModeOn = !self.deleteModeOn
     }
     
     // MARK: - MKMapViewDelegate
@@ -43,10 +47,12 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     
-    // This delegate method is implemented to respond to taps. It opens the system browser
-    // to the URL specified in the annotationViews subtitle property.
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         
-        print("Open location's album")
+        if self.deleteModeOn {
+            print("Delete pin")
+        } else {
+            print("Open location's album")
+        }
     }
 }
