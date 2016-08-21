@@ -15,6 +15,7 @@
 		98FB21DD1D69CAA8003E700F /* VirtualTouristUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21DC1D69CAA8003E700F /* VirtualTouristUITests.swift */; };
 		98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21EE1D69CC97003E700F /* MapViewController.swift */; };
 		98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F01D69D0FE003E700F /* CoreDataStack.swift */; };
+		98FB21F41D69D7A5003E700F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F21D69D7A5003E700F /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		98FB21DE1D69CAA8003E700F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FB21EE1D69CC97003E700F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98FB21F01D69D0FE003E700F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		98FB21F31D69D7A5003E700F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				98FB21F01D69D0FE003E700F /* CoreDataStack.swift */,
+				98FB21F21D69D7A5003E700F /* Model.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */,
 				98FB21BD1D69CAA8003E700F /* AppDelegate.swift in Sources */,
 				98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */,
+				98FB21F41D69D7A5003E700F /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,6 +542,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		98FB21F21D69D7A5003E700F /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				98FB21F31D69D7A5003E700F /* Model.xcdatamodel */,
+			);
+			currentVersion = 98FB21F31D69D7A5003E700F /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 98FB21B11D69CAA8003E700F /* Project object */;
 }
