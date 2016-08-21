@@ -16,6 +16,8 @@
 		98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21EE1D69CC97003E700F /* MapViewController.swift */; };
 		98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F01D69D0FE003E700F /* CoreDataStack.swift */; };
 		98FB21F41D69D7A5003E700F /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F21D69D7A5003E700F /* Model.xcdatamodeld */; };
+		98FB21F61D69DEFE003E700F /* LocationCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F51D69DEFE003E700F /* LocationCollectionViewController.swift */; };
+		98FB21FA1D69DFE5003E700F /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F91D69DFE5003E700F /* PhotoCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		98FB21EE1D69CC97003E700F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98FB21F01D69D0FE003E700F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		98FB21F31D69D7A5003E700F /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		98FB21F51D69DEFE003E700F /* LocationCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCollectionViewController.swift; sourceTree = "<group>"; };
+		98FB21F91D69DFE5003E700F /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				98FB21ED1D69CC7F003E700F /* Controllers */,
+				98FB21F81D69DFC4003E700F /* View */,
 				98FB21EC1D69CC71003E700F /* Model */,
 				98FB21BC1D69CAA8003E700F /* AppDelegate.swift */,
 				98FB21EA1D69CAFB003E700F /* Assets */,
@@ -159,8 +164,17 @@
 			isa = PBXGroup;
 			children = (
 				98FB21EE1D69CC97003E700F /* MapViewController.swift */,
+				98FB21F51D69DEFE003E700F /* LocationCollectionViewController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		98FB21F81D69DFC4003E700F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				98FB21F91D69DFE5003E700F /* PhotoCollectionViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,7 +311,9 @@
 				98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */,
 				98FB21BD1D69CAA8003E700F /* AppDelegate.swift in Sources */,
 				98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */,
+				98FB21F61D69DEFE003E700F /* LocationCollectionViewController.swift in Sources */,
 				98FB21F41D69D7A5003E700F /* Model.xcdatamodeld in Sources */,
+				98FB21FA1D69DFE5003E700F /* PhotoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
