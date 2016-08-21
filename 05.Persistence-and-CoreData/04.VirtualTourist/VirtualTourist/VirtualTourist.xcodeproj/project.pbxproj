@@ -14,6 +14,7 @@
 		98FB21D21D69CAA8003E700F /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21D11D69CAA8003E700F /* VirtualTouristTests.swift */; };
 		98FB21DD1D69CAA8003E700F /* VirtualTouristUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21DC1D69CAA8003E700F /* VirtualTouristUITests.swift */; };
 		98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21EE1D69CC97003E700F /* MapViewController.swift */; };
+		98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FB21F01D69D0FE003E700F /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		98FB21DC1D69CAA8003E700F /* VirtualTouristUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristUITests.swift; sourceTree = "<group>"; };
 		98FB21DE1D69CAA8003E700F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98FB21EE1D69CC97003E700F /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		98FB21F01D69D0FE003E700F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 		98FB21EC1D69CC71003E700F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				98FB21F01D69D0FE003E700F /* CoreDataStack.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98FB21F11D69D0FE003E700F /* CoreDataStack.swift in Sources */,
 				98FB21BD1D69CAA8003E700F /* AppDelegate.swift in Sources */,
 				98FB21EF1D69CC97003E700F /* MapViewController.swift in Sources */,
 			);
