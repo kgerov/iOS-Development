@@ -11,6 +11,8 @@ import MapKit
 
 class LocationCollectionViewController : UIViewController {
     
+    // implement UICollectionViewDataSource
+    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var mapView: MKMapView!
     
