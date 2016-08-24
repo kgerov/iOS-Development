@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Map View Controller-->
+        <!--Virtual Tourist-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,28 +21,43 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="C8u-EZ-w09">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Pins to Delete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CP7-GN-PSa">
+                                <rect key="frame" x="0.0" y="546" width="600" height="54"/>
+                                <color key="backgroundColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="47p-IU-XU0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CP7-GN-PSa" secondAttribute="bottom" id="EUq-pp-uM3"/>
+                            <constraint firstItem="CP7-GN-PSa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IRN-xA-39v"/>
                             <constraint firstItem="C8u-EZ-w09" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Mvc-YI-1gK"/>
+                            <constraint firstItem="CP7-GN-PSa" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="NRH-SQ-Kv2"/>
                             <constraint firstItem="C8u-EZ-w09" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Vab-pE-AH3"/>
                             <constraint firstItem="C8u-EZ-w09" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hL7-rW-jZ1"/>
                             <constraint firstItem="C8u-EZ-w09" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="tfm-Z2-2O1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="13w-K6-sfZ">
-                        <barButtonItem key="rightBarButtonItem" title="Remove" id="gUn-fx-PPM">
+                    <navigationItem key="navigationItem" title="Virtual Tourist" id="13w-K6-sfZ">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="gUn-fx-PPM">
                             <connections>
                                 <action selector="removeButtonPressed:" destination="BYZ-38-t0r" id="VOt-RF-dp4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="deleteMessage" destination="CP7-GN-PSa" id="uf3-se-omt"/>
                         <outlet property="mapView" destination="C8u-EZ-w09" id="xGs-el-F3H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="333" y="350"/>
         </scene>
         <!--Location Collection View Controller-->
         <scene sceneID="jdx-kx-87Z">
@@ -149,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJi-5g-EKb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="952" y="350"/>
+            <point key="canvasLocation" x="1076" y="350"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="85U-6c-6xx">
