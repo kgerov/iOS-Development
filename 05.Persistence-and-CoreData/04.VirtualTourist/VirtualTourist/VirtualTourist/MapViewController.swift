@@ -19,8 +19,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     var fetchedResultsController : NSFetchedResultsController?{
         didSet{
-            // Whenever the frc changes, we execute the search and
-            // reload the table
             fetchedResultsController?.delegate = self
             executeSearch()
             self.placeLocationsOnMap()
@@ -33,9 +31,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         super.init(nibName: nil, bundle: nil)
     }
     
-    // Do not worry about this initializer. I has to be implemented
-    // because of the way Swift interfaces with an Objective C
-    // protocol called NSArchiving. It's not relevant.
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -112,7 +107,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     
-    
     // MARK: - Helpers
     
     func deleteLocation(view: MKAnnotationView) {
@@ -125,7 +119,27 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     func openPhotoAlbum(view: MKAnnotationView) {
-        print("Open location's album")
+        let albumVC: LocationCollectionViewController =
+            self.storyboard?.instantiateViewControllerWithIdentifier("LocationCollectionViewController") as! LocationCollectionViewController
+        
+        let location = view.annotation! as! Location
+        let fetchRequest = NSFetchRequest(entityName: "Photo")
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+        
+        let locationPredicate = NSPredicate(format: "location = %@", argumentArray: [location])
+        
+        fetchRequest.predicate = locationPredicate
+        
+        let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                            managedObjectContext: fetchedResultsController!.managedObjectContext,
+                                            sectionNameKeyPath: nil,
+                                            cacheName: nil)
+        
+        albumVC.fetchedResultsController = fetchController
+        albumVC.location = location
+        
+        self.navigationController?.pushViewController(albumVC, animated: true)
     }
     
     func tapOnMap(gestureReconizer: UILongPressGestureRecognizer) {
@@ -198,7 +212,6 @@ extension MapViewController: NSFetchedResultsControllerDelegate{
         case .Move:
             break
         }
-        
     }
     
     func fetchedResultsChangeInsert(location: Location) {
