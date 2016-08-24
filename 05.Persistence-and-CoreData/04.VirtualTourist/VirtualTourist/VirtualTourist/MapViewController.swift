@@ -105,13 +105,28 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         
         if self.deleteModeOn {
-            print("Delete pin")
+            self.deleteLocation(view)
         } else {
-            print("Open location's album")
+            self.openPhotoAlbum(view)
         }
     }
     
+    
+    
     // MARK: - Helpers
+    
+    func deleteLocation(view: MKAnnotationView) {
+        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        self.fetchedResultsController?.managedObjectContext.deleteObject(view.annotation! as! NSManagedObject)
+        self.mapView.removeAnnotation(view.annotation!)
+        
+        appDelegate.stack.save()
+    }
+    
+    func openPhotoAlbum(view: MKAnnotationView) {
+        print("Open location's album")
+    }
     
     func tapOnMap(gestureReconizer: UILongPressGestureRecognizer) {
         
