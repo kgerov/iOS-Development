@@ -12,12 +12,12 @@ import CoreData
 
 class Photo: NSManagedObject {
 
-    convenience init(url: String, context: NSManagedObjectContext) {
+    convenience init(imageData: NSData, context: NSManagedObjectContext) {
         
         if let ent = NSEntityDescription.entityForName("Photo", inManagedObjectContext: context) {
             
             self.init(entity: ent, insertIntoManagedObjectContext: context)
-            self.url = url
+            self.imageData = imageData
             self.dateCreated = NSDate()
         } else {
             fatalError("No entity with this name")

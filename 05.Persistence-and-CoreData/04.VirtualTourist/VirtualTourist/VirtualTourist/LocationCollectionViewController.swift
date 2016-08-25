@@ -72,15 +72,7 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
             
             let photo = fetchedResultsController!.objectAtIndexPath(indexPath) as! Photo
             
-            if let photoUrl = photo.url,
-                let imageUrl = NSURL(string: photoUrl),
-                let imageData = NSData(contentsOfURL: imageUrl) {
-                
-                cell.imageView.image = UIImage(data: imageData)
-            } else {
-                cell.imageView.image = UIImage()
-            }
-            
+            cell.imageView.image = UIImage(data: photo.imageData!)
         
         return cell
             
@@ -124,9 +116,17 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
                 
                 for url in result {
                     
-                    let photo = Photo(url: url, context: workerContext)
+                    let imageUrl = NSURL(string: url)
+                    let imageData = NSData(contentsOfURL: imageUrl!)
+                    let photo = Photo(imageData: imageData!, context: workerContext)
+                    
                     let contextLocation = workerContext.objectWithID(self.location.objectID) as? Location
                     photo.location = contextLocation
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    print("Post load")
+                    self.collectionView.reloadData()
                 }
             }
         }
