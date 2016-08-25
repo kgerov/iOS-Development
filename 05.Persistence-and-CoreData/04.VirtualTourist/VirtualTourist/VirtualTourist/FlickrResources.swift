@@ -10,7 +10,7 @@ import Foundation
 
 extension FlickrClient {
     
-    func getCollectionOfPhotos(latitude: Double, longitude: Double) {
+    func getCollectionOfPhotos(latitude: Double, longitude: Double, completionHandler: (result: [String]?, error: NSError?) -> Void) {
         
         let parameters: [String: String!] =
             [Flickr.ParameterKeys.SafeSearch: Flickr.ParameterValues.UseSafeSearch,
@@ -19,11 +19,32 @@ extension FlickrClient {
              Flickr.ParameterKeys.Method: Flickr.ParameterValues.SearchMethod,
              Flickr.ParameterKeys.NoJSONCallback: Flickr.ParameterValues.DisableJSONCallback,
              Flickr.ParameterKeys.Format: Flickr.ParameterValues.ResponseFormat,
+             Flickr.ParameterKeys.PerPage: Flickr.ParameterValues.PerPageValue,
              Flickr.ParameterKeys.BoundingBox: bboxString(latitude, longitude: longitude)]
         
         taskForGETMethod("", parameters: parameters, requestValues: [String : String]()) { (result, error) in
             
-            
+            if let error = error {
+                completionHandler(result: nil, error: error)
+            } else {
+                
+                if let results = result[Flickr.JSONResponseKeys.Photos] as? [String:AnyObject],
+                    let photos = results[Flickr.JSONResponseKeys.Photo] as? [[String:AnyObject]] {
+                    
+                    var photoUrls = [String]()
+                    
+                    for photo in photos {
+                        
+                        if let url = photo[Flickr.JSONResponseKeys.MediumURL] as? String {
+                            photoUrls.append(url)
+                        }
+                    }
+                    
+                    completionHandler(result: photoUrls, error: nil)
+                } else {
+                    completionHandler(result: nil, error: NSError(domain: "getLocation parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse photos"]))
+                }
+            }
         }
     }
     

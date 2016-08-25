@@ -18,14 +18,14 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noImagesLabel: UILabel!
     
     // FetchedResultsController
     
     var fetchedResultsController : NSFetchedResultsController?{
         didSet {
             fetchedResultsController?.delegate = self
-            executeSearch()
-            self.collectionView.reloadData()
+            self.reloadImagesInCollection()
         }
     }
     
@@ -41,6 +41,13 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     
     override func viewDidLoad() {
         
+        if location.hasBeenOpened == false {
+            location.hasBeenOpened = true
+            self.getCollectionFromFlickr()
+        }
+        
+        self.reloadImagesInCollection()
+
         // Add annotation to map and zoom to annotation
         if location != nil {
             self.mapView.addAnnotation(location!)
@@ -51,7 +58,7 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     // MARK: - Actions
     
     @IBAction func getNewCollection(sender: AnyObject) {
-        
+        self.getCollectionFromFlickr()
     }
     
     // MARK: - UICollectionView Methods
@@ -60,9 +67,20 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath)
         -> UICollectionViewCell {
             
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
-            as! PhotoCollectionViewCell
-        
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
+                as! PhotoCollectionViewCell
+            
+            let photo = fetchedResultsController!.objectAtIndexPath(indexPath) as! Photo
+            
+            if let photoUrl = photo.url,
+                let imageUrl = NSURL(string: photoUrl),
+                let imageData = NSData(contentsOfURL: imageUrl) {
+                
+                cell.imageView.image = UIImage(data: imageData)
+            } else {
+                cell.imageView.image = UIImage()
+            }
+            
         
         return cell
             
@@ -74,6 +92,53 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     }
     
     // MARK: - Helpers
+    
+    func getCollectionFromFlickr() {
+        
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let stack = delegate.stack
+        
+        stack.save()
+        
+        stack.performBackgroundBatchOperation { (workerContext) in
+            
+            FlickrClient.sharedInstance().getCollectionOfPhotos(Double(self.location.latitude!), longitude: Double(self.location.longitude!)) { (result, error) in
+                
+                func displayError(message: String) {
+                    let alertController = UIAlertController(title: nil, message:
+                        message, preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+                
+                guard error == nil else {
+                    displayError("Failed to get student locations")
+                    return
+                }
+                
+                guard let result = result else {
+                    displayError("No student locations returned")
+                    return
+                }
+                
+                for url in result {
+                    
+                    let photo = Photo(url: url, context: workerContext)
+                    let contextLocation = workerContext.objectWithID(self.location.objectID) as? Location
+                    photo.location = contextLocation
+                }
+            }
+        }
+    }
+    
+    func reloadImagesInCollection() {
+        executeSearch()
+        
+        if self.collectionView != nil {
+            self.collectionView.reloadData()
+        }
+    }
     
     // transitions
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {

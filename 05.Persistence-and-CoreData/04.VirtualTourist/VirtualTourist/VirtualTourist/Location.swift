@@ -19,6 +19,7 @@ class Location: NSManagedObject, MKAnnotation {
             self.init(entity: ent, insertIntoManagedObjectContext: context)
             self.latitude = latitude
             self.longitude = longitude
+            self.hasBeenOpened = false
         }else{
             fatalError("Unable to find Entity name!")
         }

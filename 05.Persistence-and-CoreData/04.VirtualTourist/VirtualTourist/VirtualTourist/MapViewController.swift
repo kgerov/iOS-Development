@@ -40,10 +40,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         
         self.deleteModeOn = false
         
-        // Add pins when tapping on map
-        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MapViewController.tapOnMap(_:)))
-        mapView.addGestureRecognizer(gestureRecognizer)
-        
         // Init the fetch controller
         
         // Get the stack
@@ -76,6 +72,20 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         }
     }
     
+    @IBAction func addAnnotationToMap(sender: UILongPressGestureRecognizer) {
+        
+        if sender.state == UIGestureRecognizerState.Began {
+            
+            let location = sender.locationInView(mapView)
+            let coordinate = mapView.convertPoint(location,toCoordinateFromView: mapView)
+            
+            // Add annotation:
+            let annotation = Location(latitude: Double(coordinate.latitude), longitude: Double(coordinate.longitude), context: self.fetchedResultsController!.managedObjectContext)
+            
+            mapView.addAnnotation(annotation)
+        }
+    }
+    
     // MARK: - MKMapViewDelegate
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -98,7 +108,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
-        
         if self.deleteModeOn {
             self.deleteLocation(view)
         } else {
@@ -119,38 +128,40 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     }
     
     func openPhotoAlbum(view: MKAnnotationView) {
-        let albumVC: LocationCollectionViewController =
-            self.storyboard?.instantiateViewControllerWithIdentifier("LocationCollectionViewController") as! LocationCollectionViewController
-        
-        let location = view.annotation! as! Location
-        let fetchRequest = NSFetchRequest(entityName: "Photo")
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
-        
-        let locationPredicate = NSPredicate(format: "location = %@", argumentArray: [location])
-        
-        fetchRequest.predicate = locationPredicate
-        
-        let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                            managedObjectContext: fetchedResultsController!.managedObjectContext,
-                                            sectionNameKeyPath: nil,
-                                            cacheName: nil)
-        
-        albumVC.fetchedResultsController = fetchController
-        albumVC.location = location
-        
-        self.navigationController?.pushViewController(albumVC, animated: true)
+        performSegueWithIdentifier("showLocationAlbum", sender: view)
     }
     
-    func tapOnMap(gestureReconizer: UILongPressGestureRecognizer) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let location = gestureReconizer.locationInView(mapView)
-        let coordinate = mapView.convertPoint(location,toCoordinateFromView: mapView)
+        let view = sender as! MKAnnotationView
         
-        // Add annotation:
-        let annotation = Location(latitude: Double(coordinate.latitude), longitude: Double(coordinate.longitude), context: self.fetchedResultsController!.managedObjectContext)
-
-        mapView.addAnnotation(annotation)
+        if let albumVC = segue.destinationViewController as? LocationCollectionViewController {
+            
+            let location = view.annotation! as! Location
+            
+            
+            FlickrClient.sharedInstance().getCollectionOfPhotos(Double(location.latitude!), longitude: Double(location.longitude!), completionHandler: { (result, error) in
+                
+            })
+            
+            let fetchRequest = NSFetchRequest(entityName: "Photo")
+            
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
+            
+            let locationPredicate = NSPredicate(format: "location = %@", argumentArray: [location])
+            
+            fetchRequest.predicate = locationPredicate
+            
+            let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                             managedObjectContext: fetchedResultsController!.managedObjectContext,
+                                                             sectionNameKeyPath: nil,
+                                                             cacheName: nil)
+            
+            albumVC.fetchedResultsController = fetchController
+            albumVC.location = location
+            
+            self.mapView.deselectAnnotation(location, animated: false)
+        }
     }
     
     func setView(view: UIView, hidden: Bool) {

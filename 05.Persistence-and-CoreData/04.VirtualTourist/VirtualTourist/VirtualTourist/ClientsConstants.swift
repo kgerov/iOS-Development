@@ -33,6 +33,7 @@ extension BaseClient {
             static let Text = "text"
             static let BoundingBox = "bbox"
             static let Page = "page"
+            static let PerPage = "per_page"
         }
         
         // MARK: Flickr Parameter Values
@@ -45,6 +46,7 @@ extension BaseClient {
             static let GalleryID = "5704-72157622566655097"
             static let MediumURL = "url_m"
             static let UseSafeSearch = "1"
+            static let PerPageValue = "21"
         }
         
         struct JSONResponseKeys {
