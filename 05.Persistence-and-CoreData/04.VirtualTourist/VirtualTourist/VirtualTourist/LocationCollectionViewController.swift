@@ -46,12 +46,9 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     }
     
     override func viewDidLoad() {
+                
+        self.executeSearch()
         
-        if location.hasBeenOpened == false {
-            location.hasBeenOpened = true
-            self.executeSearch()
-        }
-
         // Add annotation to map and zoom to annotation
         if location != nil {
             self.mapView.addAnnotation(location!)
@@ -264,19 +261,13 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
 extension LocationCollectionViewController {
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        if let fc = fetchedResultsController {
-            return (fc.sections?.count)!;
-        }else {
-            return 0
-        }
+        return self.fetchedResultsController!.sections?.count ?? 0
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if let fc = fetchedResultsController {
-            return fc.sections![section].numberOfObjects;
-        }else{
-            return 0
-        }
+        let sectionInfo = self.fetchedResultsController!.sections![section]
+        
+        return sectionInfo.numberOfObjects
     }
 }
 

@@ -139,13 +139,11 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         if let albumVC = segue.destinationViewController as? LocationCollectionViewController {
             
             let location = view.annotation! as! Location
-            
             let fetchRequest = NSFetchRequest(entityName: "Photo")
             
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
             
             let locationPredicate = NSPredicate(format: "location = %@", argumentArray: [location])
-            
             fetchRequest.predicate = locationPredicate
             
             let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
