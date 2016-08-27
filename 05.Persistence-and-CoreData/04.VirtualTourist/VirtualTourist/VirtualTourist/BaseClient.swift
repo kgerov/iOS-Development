@@ -87,6 +87,48 @@ class BaseClient : NSObject {
         return makeHttpRequest(request, completionHandler: completionHandlerForPOST)
     }
     
+    // MARK: GET Image
+    
+    func taskForGETImage(url: String, completionHandlerForImage: (imageData: NSData?, error: NSError?) -> Void) -> NSURLSessionTask {
+        
+        let nsUrl = NSURL(string: url)!
+        let request = NSURLRequest(URL: nsUrl)
+        
+        let task = session.dataTaskWithRequest(request) { (data, response, error) in
+            
+            func sendError(error: String) {
+                print(error)
+                let userInfo = [NSLocalizedDescriptionKey : error]
+                completionHandlerForImage(imageData: nil, error: NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                sendError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                sendError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                sendError("No data was returned by the request!")
+                return
+            }
+            
+            completionHandlerForImage(imageData: data, error: nil)
+        }
+        
+        task.resume()
+        
+        return task
+    }
+
+    
     // MARK: Helpers
     
     // make HTTP Reques

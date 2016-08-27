@@ -13,6 +13,7 @@ import CoreData
 class MapViewController : UIViewController, MKMapViewDelegate {
     
     private var deleteModeOn: Bool = false
+    private let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var deleteMessage: UILabel!
@@ -83,6 +84,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             let annotation = Location(latitude: Double(coordinate.latitude), longitude: Double(coordinate.longitude), context: self.fetchedResultsController!.managedObjectContext)
             
             mapView.addAnnotation(annotation)
+            self.downloadImageUrlsForLocation(annotation)
         }
     }
     
@@ -119,12 +121,11 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     // MARK: - Helpers
     
     func deleteLocation(view: MKAnnotationView) {
-        let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         self.fetchedResultsController?.managedObjectContext.deleteObject(view.annotation! as! NSManagedObject)
         self.mapView.removeAnnotation(view.annotation!)
         
-        appDelegate.stack.save()
+        self.appDelegate.stack.save()
     }
     
     func openPhotoAlbum(view: MKAnnotationView) {
@@ -139,11 +140,6 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             
             let location = view.annotation! as! Location
             
-            
-            FlickrClient.sharedInstance().getCollectionOfPhotos(Double(location.latitude!), longitude: Double(location.longitude!), completionHandler: { (result, error) in
-                
-            })
-            
             let fetchRequest = NSFetchRequest(entityName: "Photo")
             
             fetchRequest.sortDescriptors = [NSSortDescriptor(key: "dateCreated", ascending: false)]
@@ -153,7 +149,7 @@ class MapViewController : UIViewController, MKMapViewDelegate {
             fetchRequest.predicate = locationPredicate
             
             let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                             managedObjectContext: fetchedResultsController!.managedObjectContext,
+                                                             managedObjectContext: self.fetchedResultsController!.managedObjectContext,
                                                              sectionNameKeyPath: nil,
                                                              cacheName: nil)
             
@@ -174,6 +170,39 @@ class MapViewController : UIViewController, MKMapViewDelegate {
         
         self.mapView.removeAnnotations(self.mapView.annotations)
         self.mapView.addAnnotations(self.fetchedResultsController!.fetchedObjects as! [Location])
+    }
+    
+    func downloadImageUrlsForLocation(location: Location) {
+        
+        FlickrClient.sharedInstance().getCollectionOfPhotos(Double(location.latitude!), longitude: Double(location.longitude!)) { (result, error) in
+            
+            func displayError(message: String) {
+                let alertController = UIAlertController(title: nil, message:
+                    message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+            guard error == nil else {
+                displayError("Failed to get student locations")
+                return
+            }
+            
+            guard let result = result else {
+                displayError("No student locations returned")
+                return
+            }
+            
+            for url in result {
+                
+                let photo = Photo(url: url, context: self.fetchedResultsController!.managedObjectContext)
+                let contextLocation = self.fetchedResultsController?.managedObjectContext.objectWithID(location.objectID) as? Location
+                photo.location = contextLocation
+            }
+            
+            self.appDelegate.stack.save()
+        }
     }
 }
 

@@ -13,19 +13,25 @@ import CoreData
 class LocationCollectionViewController : UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var location: Location! = nil
-    var blockOperations: [NSBlockOperation] = []
+    
+    var selectedIndexes = [NSIndexPath]()
+    var insertedIndexPaths: [NSIndexPath]!
+    var deletedIndexPaths: [NSIndexPath]!
+    var updatedIndexPaths: [NSIndexPath]!
+    
+    private let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noImagesLabel: UILabel!
+    @IBOutlet weak var bottomButton: UIBarButtonItem!
     
     // FetchedResultsController
     
     var fetchedResultsController : NSFetchedResultsController?{
         didSet {
             fetchedResultsController?.delegate = self
-            self.reloadImagesInCollection()
         }
     }
     
@@ -43,60 +49,48 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
         
         if location.hasBeenOpened == false {
             location.hasBeenOpened = true
-            self.getCollectionFromFlickr()
+            self.executeSearch()
         }
-        
-        self.reloadImagesInCollection()
 
         // Add annotation to map and zoom to annotation
         if location != nil {
             self.mapView.addAnnotation(location!)
             self.mapView.showAnnotations(self.mapView.annotations, animated: true)
         }
+        
+        self.updateNoImagesLabel()
+        setupFlowLayout(view.frame.size)
     }
     
     // MARK: - Actions
     
-    @IBAction func getNewCollection(sender: AnyObject) {
-        self.getCollectionFromFlickr()
+    @IBAction func bottomButtonPressed(sender: AnyObject) {
+        
+        if self.bottomButton.title ==  "New Collection" {
+            self.getCollectionFromFlickr()
+        } else {
+            self.deleteSelectedPhotos()
+        }
     }
     
-    // MARK: - UICollectionView Methods
+    // MARK: - Configure Cell
     
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath)
-        -> UICollectionViewCell {
+    func configureCell(cell: PhotoCollectionViewCell, atIndexPath indexPath: NSIndexPath) {
+        
+        cell.activityIndicator.stopAnimating()
+        
+        let photo = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Photo
+        var cellImage = UIImage(named: "placeholder")
+        cell.imageView.image = nil
+        
+        if photo.imageData == nil {
             
-            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
-                as! PhotoCollectionViewCell
+            cell.activityIndicator.startAnimating()
             
-            let photo = fetchedResultsController!.objectAtIndexPath(indexPath) as! Photo
-            
-            cell.imageView.image = UIImage(data: photo.imageData!)
-        
-        return cell
-            
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
-        
-    }
-    
-    // MARK: - Helpers
-    
-    func getCollectionFromFlickr() {
-        
-        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let stack = delegate.stack
-        
-        stack.save()
-        
-        stack.performBackgroundBatchOperation { (workerContext) in
-            
-            FlickrClient.sharedInstance().getCollectionOfPhotos(Double(self.location.latitude!), longitude: Double(self.location.longitude!)) { (result, error) in
+            let task = FlickrClient.sharedInstance().taskForGETImage(photo.url!) { (imageData, error) in
                 
                 func displayError(message: String) {
+                    cell.activityIndicator.stopAnimating()
                     let alertController = UIAlertController(title: nil, message:
                         message, preferredStyle: UIAlertControllerStyle.Alert)
                     alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
@@ -105,38 +99,143 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
                 }
                 
                 guard error == nil else {
-                    displayError("Failed to get student locations")
+                    displayError("Failed to get image from url")
                     return
                 }
                 
-                guard let result = result else {
-                    displayError("No student locations returned")
+                guard let imageData = imageData else {
+                    displayError("No image  returned")
                     return
                 }
                 
-                for url in result {
-                    
-                    let imageUrl = NSURL(string: url)
-                    let imageData = NSData(contentsOfURL: imageUrl!)
-                    let photo = Photo(imageData: imageData!, context: workerContext)
-                    
-                    let contextLocation = workerContext.objectWithID(self.location.objectID) as? Location
-                    photo.location = contextLocation
-                }
+                photo.imageData = imageData
                 
                 dispatch_async(dispatch_get_main_queue()) {
-                    print("Post load")
-                    self.collectionView.reloadData()
+                    cell.imageView.image = UIImage(data: imageData)
+                    cell.activityIndicator.stopAnimating()
+                    
+                    self.appDelegate.stack.save()
                 }
+            }
+            
+            
+        } else {
+            cellImage = UIImage(data: photo.imageData!)
+        }
+        
+        cell.imageView.image = cellImage
+        
+        if selectedIndexes.indexOf(indexPath) != nil {
+            cell.alpha = 0.5
+        } else {
+            cell.alpha = 1.0
+        }
+    }
+    
+    // MARK: - UICollectionView Methods
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath)
+        -> UICollectionViewCell {
+            
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
+                as! PhotoCollectionViewCell
+            
+        self.configureCell(cell, atIndexPath: indexPath)
+        
+        return cell
+            
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
+            as! PhotoCollectionViewCell
+        
+        if let index = selectedIndexes.indexOf(indexPath) {
+            selectedIndexes.removeAtIndex(index)
+        } else {
+            selectedIndexes.append(indexPath)
+        }
+        
+        self.configureCell(cell, atIndexPath: indexPath)
+        
+        updateBottonToolbarText()
+    }
+    
+    // MARK: - Helpers
+    
+    func deleteSelectedPhotos() {
+        
+        var photos = [Photo]()
+        
+        for indexPath in selectedIndexes {
+            photos.append(fetchedResultsController!.objectAtIndexPath(indexPath) as! Photo)
+        }
+        
+        for photo in photos {
+            self.fetchedResultsController?.managedObjectContext.deleteObject(photo)
+        }
+        
+        self.appDelegate.stack.save()
+        selectedIndexes = [NSIndexPath]()
+    }
+    
+    func getCollectionFromFlickr() {
+        
+        for photo in self.fetchedResultsController!.fetchedObjects as! [Photo] {
+            self.fetchedResultsController!.managedObjectContext.deleteObject(photo)
+        }
+        
+        FlickrClient.sharedInstance().getCollectionOfPhotos(Double(self.location.latitude!), longitude: Double(self.location.longitude!)) { (result, error) in
+            
+            func displayError(message: String) {
+                let alertController = UIAlertController(title: nil, message:
+                    message, preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+            
+            guard error == nil else {
+                displayError("Failed to get student locations")
+                return
+            }
+            
+            guard let result = result else {
+                displayError("No student locations returned")
+                return
+            }
+            
+            for url in result {
+                
+                let photo = Photo(url: url, context: self.fetchedResultsController!.managedObjectContext)
+                let contextLocation = self.fetchedResultsController?.managedObjectContext.objectWithID(self.location.objectID) as? Location
+                photo.location = contextLocation
+            }
+            
+            self.appDelegate.stack.save()
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                self.collectionView.reloadData()
             }
         }
     }
     
-    func reloadImagesInCollection() {
-        executeSearch()
+    func updateBottonToolbarText() {
         
-        if self.collectionView != nil {
-            self.collectionView.reloadData()
+        if self.selectedIndexes.count > 0 {
+            self.bottomButton.title = "New Collection"
+        } else {
+            self.bottomButton.title = "Remove Selected Photos"
+        }
+    }
+    
+    func updateNoImagesLabel() {
+        
+        if self.location.photos?.count > 0 {
+            self.noImagesLabel.hidden = true
+        } else {
+            self.noImagesLabel.hidden = false
         }
     }
     
@@ -146,7 +245,7 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     }
     
     func setupFlowLayout(size: CGSize) {
-        let space: CGFloat = 3.0
+        let space: CGFloat = 1.0
         var dimension: CGFloat
         
         if UIDevice.currentDevice().orientation.isLandscape.boolValue {
@@ -158,14 +257,6 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
         flowLayout?.minimumInteritemSpacing = space
         flowLayout?.minimumLineSpacing = space
         flowLayout?.itemSize = CGSizeMake(dimension, dimension)
-    }
-    
-    deinit {
-        for operation: NSBlockOperation in blockOperations {
-            operation.cancel()
-        }
-        
-        blockOperations.removeAll(keepCapacity: false)
     }
 }
 
@@ -207,50 +298,10 @@ extension LocationCollectionViewController {
 extension LocationCollectionViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        blockOperations.removeAll(keepCapacity: false)
+        insertedIndexPaths = [NSIndexPath]()
+        deletedIndexPaths = [NSIndexPath]()
+        updatedIndexPaths = [NSIndexPath]()
     }
-    
-    func controller(controller: NSFetchedResultsController,
-                    didChangeSection sectionInfo: NSFetchedResultsSectionInfo,
-                                     atIndex sectionIndex: Int,
-                                             forChangeType type: NSFetchedResultsChangeType) {
-        
-        switch (type){
-            
-        case .Insert:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.insertSections(NSIndexSet(index: sectionIndex))
-                    }
-                })
-            )
-            
-        case .Update:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadSections(NSIndexSet(index: sectionIndex))
-                    }
-                    })
-            )
-            
-        case .Delete:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.deleteSections(NSIndexSet(index: sectionIndex))
-                    }
-                })
-            )
-            
-        default:
-            // irrelevant in our case
-            break
-            
-        }
-    }
-    
     
     func controller(controller: NSFetchedResultsController,
                     didChangeObject anObject: AnyObject,
@@ -258,56 +309,37 @@ extension LocationCollectionViewController: NSFetchedResultsControllerDelegate {
                                                 forChangeType type: NSFetchedResultsChangeType,
                                                               newIndexPath: NSIndexPath?) {
         
-        
-        
-        switch(type){
-            
-        case .Insert:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadItemsAtIndexPaths([indexPath!])
-                    }
-                })
-            )
-            
-        case .Delete:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.deleteItemsAtIndexPaths([indexPath!])
-                    }
-                })
-            )
-            
-        case .Update:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.reloadItemsAtIndexPaths([indexPath!])
-                    }
-                })
-            )
-            
-        case .Move:
-            blockOperations.append(
-                NSBlockOperation(block: { [weak self] in
-                    if let this = self {
-                        this.collectionView!.moveItemAtIndexPath(indexPath!, toIndexPath: newIndexPath!)
-                    }
-                })
-            )
+        switch type {
+            case .Insert:
+                insertedIndexPaths.append(newIndexPath!)
+                break
+            case .Delete:
+                deletedIndexPaths.append(indexPath!)
+                break
+            case .Update:
+                updatedIndexPaths.append(indexPath!)
+                break
+            case .Move:
+                break
         }
-        
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        collectionView!.performBatchUpdates({ () -> Void in
-            for operation: NSBlockOperation in self.blockOperations {
-                operation.start()
+        
+        collectionView.performBatchUpdates({() -> Void in
+            
+            for indexPath in self.insertedIndexPaths {
+                self.collectionView.insertItemsAtIndexPaths([indexPath])
             }
-            }, completion: { (finished) -> Void in
-                self.blockOperations.removeAll(keepCapacity: false)
-        })
+            
+            for indexPath in self.deletedIndexPaths {
+                self.collectionView.deleteItemsAtIndexPaths([indexPath])
+            }
+            
+            for indexPath in self.updatedIndexPaths {
+                self.collectionView.reloadItemsAtIndexPaths([indexPath])
+            }
+            
+            }, completion: nil)
     }
 }
