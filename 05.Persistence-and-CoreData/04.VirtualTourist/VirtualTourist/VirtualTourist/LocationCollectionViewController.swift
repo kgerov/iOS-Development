@@ -46,7 +46,7 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     }
     
     override func viewDidLoad() {
-                
+        
         self.executeSearch()
         
         // Add annotation to map and zoom to annotation
@@ -145,8 +145,7 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoCollectionViewCell", forIndexPath: indexPath)
-            as! PhotoCollectionViewCell
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! PhotoCollectionViewCell
         
         if let index = selectedIndexes.indexOf(indexPath) {
             selectedIndexes.removeAtIndex(index)
@@ -221,9 +220,9 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
     func updateBottonToolbarText() {
         
         if self.selectedIndexes.count > 0 {
-            self.bottomButton.title = "New Collection"
-        } else {
             self.bottomButton.title = "Remove Selected Photos"
+        } else {
+            self.bottomButton.title = "New Collection"
         }
     }
     
