@@ -106,7 +106,7 @@ extension CoreDataStack  {
 }
 
 // MARK:  - Batch processing in the background
-extension CoreDataStack{
+extension CoreDataStack {
     typealias Batch=(workerContext: NSManagedObjectContext) -> ()
     
     func performBackgroundBatchOperation(batch: Batch){

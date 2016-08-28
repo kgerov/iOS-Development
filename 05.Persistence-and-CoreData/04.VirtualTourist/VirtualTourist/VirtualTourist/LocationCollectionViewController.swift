@@ -105,13 +105,10 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
                     return
                 }
                 
-                photo.imageData = imageData
-                
                 dispatch_async(dispatch_get_main_queue()) {
+                    photo.imageData = imageData
                     cell.imageView.image = UIImage(data: imageData)
                     cell.activityIndicator.stopAnimating()
-                    
-                    self.appDelegate.stack.save()
                 }
             }
             
@@ -202,14 +199,15 @@ class LocationCollectionViewController : UIViewController, UICollectionViewDeleg
                 return
             }
             
-            for url in result {
-                
-                let photo = Photo(url: url, context: self.fetchedResultsController!.managedObjectContext)
-                let contextLocation = self.fetchedResultsController?.managedObjectContext.objectWithID(self.location.objectID) as? Location
-                photo.location = contextLocation
+            self.appDelegate.stack.performBackgroundBatchOperation { (workerContext) in
+                for url in result {
+                    
+                    let photo = Photo(url: url, context: workerContext)
+                    let contextLocation = workerContext.objectWithID(self.location.objectID) as? Location
+                    photo.location = contextLocation
+                }
             }
             
-            self.appDelegate.stack.save()
             
             dispatch_async(dispatch_get_main_queue()) {
                 self.collectionView.reloadData()

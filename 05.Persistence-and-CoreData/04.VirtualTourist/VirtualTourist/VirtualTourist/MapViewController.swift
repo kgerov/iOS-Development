@@ -75,17 +75,18 @@ class MapViewController : UIViewController, MKMapViewDelegate {
     
     @IBAction func addAnnotationToMap(sender: UILongPressGestureRecognizer) {
         
-        if sender.state == UIGestureRecognizerState.Began {
-            
-            let location = sender.locationInView(mapView)
-            let coordinate = mapView.convertPoint(location,toCoordinateFromView: mapView)
-            
-            // Add annotation:
-            let annotation = Location(latitude: Double(coordinate.latitude), longitude: Double(coordinate.longitude), context: self.fetchedResultsController!.managedObjectContext)
-            
-            mapView.addAnnotation(annotation)
-            self.downloadImageUrlsForLocation(annotation)
+        if sender.state != UIGestureRecognizerState.Ended {
+            return
         }
+            
+        let location = sender.locationInView(mapView)
+        let coordinate = mapView.convertPoint(location,toCoordinateFromView: mapView)
+        
+        // Add annotation:
+        let annotation = Location(latitude: Double(coordinate.latitude), longitude: Double(coordinate.longitude), context: self.fetchedResultsController!.managedObjectContext)
+        
+        mapView.addAnnotation(annotation)
+        self.downloadImageUrlsForLocation(annotation)
     }
     
     // MARK: - MKMapViewDelegate
@@ -192,14 +193,14 @@ class MapViewController : UIViewController, MKMapViewDelegate {
                 return
             }
             
-            for url in result {
-                
-                let photo = Photo(url: url, context: self.fetchedResultsController!.managedObjectContext)
-                let contextLocation = self.fetchedResultsController?.managedObjectContext.objectWithID(location.objectID) as? Location
-                photo.location = contextLocation
+            self.appDelegate.stack.performBackgroundBatchOperation { (workerContext) in
+                for url in result {
+                    
+                    let photo = Photo(url: url, context: workerContext)
+                    let contextLocation = workerContext.objectWithID(location.objectID) as? Location
+                    photo.location = contextLocation
+                }
             }
-            
-            self.appDelegate.stack.save()
         }
     }
 }
