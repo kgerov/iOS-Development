@@ -1,0 +1,1 @@
+The app should also be submitted with a readme.txt file that describes experience that the user is expected to have, and any particular instructions a use might need.
