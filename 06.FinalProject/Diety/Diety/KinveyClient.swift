@@ -1,5 +1,5 @@
 //
-//  KumulosClient.swift
+//  KinveyClient.swift
 //  Diety
 //
 //  Created by Konstantin Gerov on 9/4/16.
@@ -8,25 +8,26 @@
 
 import Foundation
 
-class KumulosClient : BaseClient {
+class KinveyClient : BaseClient {
+    
+    var authToken: String? = nil
     
     // MARK: Helpers
-    
     override func initComponents(withPathExtension: String? = nil) -> NSURLComponents {
         let components = NSURLComponents()
         
-        components.scheme = Kumulos.Constants.ApiScheme
-        components.host = Kumulos.Constants.ApiHost
-        components.path = Kumulos.Constants.ApiPath + (withPathExtension ?? "")
+        components.scheme = Kinvey.Constants.ApiScheme
+        components.host = Kinvey.Constants.ApiHost
+        components.path = Kinvey.Constants.ApiPath + (withPathExtension ?? "")
         
         return components
     }
     
     // MARK: Shared Instance
     
-    override class func sharedInstance() -> KumulosClient {
+    override class func sharedInstance() -> KinveyClient {
         struct Singleton {
-            static var sharedInstance = KumulosClient()
+            static var sharedInstance = KinveyClient()
         }
         
         return Singleton.sharedInstance

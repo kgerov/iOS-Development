@@ -1,5 +1,5 @@
 //
-//  KumulosResources.swift
+//  Meal.swift
 //  Diety
 //
 //  Created by Konstantin Gerov on 9/4/16.
@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import CoreData
 
-extension KumulosClient {
 
-
+class Meal: NSManagedObject {
+    
 }

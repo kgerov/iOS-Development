@@ -27,6 +27,9 @@ class BaseClient : NSObject {
         /* Build the URL, Configure the request */
         let request = NSMutableURLRequest(URL: urlFromParameters(parameters, withPathExtension: method))
         
+        request.addValue("no-cache", forHTTPHeaderField: "Cache-Control")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
         for (key, value) in requestValues {
             request.addValue(key, forHTTPHeaderField: value)
         }

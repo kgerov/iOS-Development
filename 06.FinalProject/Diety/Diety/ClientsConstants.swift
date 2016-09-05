@@ -8,31 +8,41 @@
 
 extension BaseClient {
     
-    struct Kumulos {
+    struct Kinvey {
         
         struct Constants {
             static let ApiScheme = "https"
-            static let ApiHost = "api.flickr.com"
-            static let ApiPath = "/services/rest"
+            static let ApiHost = "baas.kinvey.com"
+            static let ApiPath = ""
+            
+            static let AppId = "kid_S1ew1tcj"
+            static let AppSecret = "b38e4456b9ae4db5ad3d6b22527c46d1"
+            static let AppMasterSecret = "9a9cbec2c51d436f82a4815850da7c6c"
+        }
+        
+        struct Methods {
+            static let LoginUser = "/user/" + Constants.AppId + "/login"
+            static let RegisterUser = "/user/" + Constants.AppId
+            static let LogoutUser = "/user/" + Constants.AppId + "/_logout"
+            static let mealByType = "/appdata/" + Constants.AppId + "/meals/?query={\"type\":\"{type}\"}"
+            static let allMeals = "/appdata/" + Constants.AppId + "/meals"
         }
         
         // MARK: Kumulos Parameter Keys
         struct ParameterKeys {
-            static let Method = "method"
-            static let APIKey = "api_key"
-            static let GalleryID = "gallery_id"
+            static let Username = "username"
+            static let Password = "password"
         }
         
         // MARK: Kumulos Parameter Values
         struct ParameterValues {
-            static let SearchMethod = "flickr.photos.search"
-            static let APIKey = "4ee61635b36c45193563ca374f9ab284" // PUT NEW API KEY
+            
         }
         
         // MARK: Kumulos Parameter Values
         struct JSONResponseKeys {
-            static let Status = "stat"
-            static let Photos = "photos"
+            static let KMD = "_kmd"
+            static let AuthToken = "authtoken"
         }
     }
 }

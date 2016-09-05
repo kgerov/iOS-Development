@@ -18,8 +18,12 @@
 		988189FD1D7D08BF00E405E2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 988189FB1D7D08BF00E405E2 /* Model.xcdatamodeld */; };
 		988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189FE1D7D0A1600E405E2 /* BaseClient.swift */; };
 		98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A001D7D0A2900E405E2 /* ClientsConstants.swift */; };
-		98818A041D7D0A4E00E405E2 /* KumulosClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A031D7D0A4E00E405E2 /* KumulosClient.swift */; };
-		98818A061D7D0A5800E405E2 /* KumulosResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A051D7D0A5800E405E2 /* KumulosResources.swift */; };
+		98818A041D7D0A4E00E405E2 /* KinveyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A031D7D0A4E00E405E2 /* KinveyClient.swift */; };
+		98818A061D7D0A5800E405E2 /* KinveyResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A051D7D0A5800E405E2 /* KinveyResources.swift */; };
+		98818A101D7D4E8100E405E2 /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A0E1D7D4E8100E405E2 /* Meal+CoreDataProperties.swift */; };
+		98818A111D7D4E8100E405E2 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A0F1D7D4E8100E405E2 /* Meal.swift */; };
+		98818A131D7D545200E405E2 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A121D7D545200E405E2 /* NotificationCenter.swift */; };
+		98818A151D7D56E700E405E2 /* DietyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A141D7D56E700E405E2 /* DietyTabViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +40,12 @@
 		988189FC1D7D08BF00E405E2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		988189FE1D7D0A1600E405E2 /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
 		98818A001D7D0A2900E405E2 /* ClientsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsConstants.swift; sourceTree = "<group>"; };
-		98818A031D7D0A4E00E405E2 /* KumulosClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KumulosClient.swift; sourceTree = "<group>"; };
-		98818A051D7D0A5800E405E2 /* KumulosResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KumulosResources.swift; sourceTree = "<group>"; };
+		98818A031D7D0A4E00E405E2 /* KinveyClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyClient.swift; sourceTree = "<group>"; };
+		98818A051D7D0A5800E405E2 /* KinveyResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KinveyResources.swift; sourceTree = "<group>"; };
+		98818A0E1D7D4E8100E405E2 /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Meal+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		98818A0F1D7D4E8100E405E2 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		98818A121D7D545200E405E2 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
+		98818A141D7D56E700E405E2 /* DietyTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietyTabViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 			children = (
 				988189F01D7D012000E405E2 /* LoginViewController.swift */,
 				988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */,
+				98818A141D7D56E700E405E2 /* DietyTabViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -111,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				988189EE1D7CFF7400E405E2 /* LoginTextField.swift */,
+				98818A121D7D545200E405E2 /* NotificationCenter.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -128,6 +138,8 @@
 		988189F91D7D089300E405E2 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				98818A0E1D7D4E8100E405E2 /* Meal+CoreDataProperties.swift */,
+				98818A0F1D7D4E8100E405E2 /* Meal.swift */,
 				988189FB1D7D08BF00E405E2 /* Model.xcdatamodeld */,
 			);
 			name = Data;
@@ -146,8 +158,8 @@
 		98818A021D7D0A3C00E405E2 /* Kumulos */ = {
 			isa = PBXGroup;
 			children = (
-				98818A031D7D0A4E00E405E2 /* KumulosClient.swift */,
-				98818A051D7D0A5800E405E2 /* KumulosResources.swift */,
+				98818A031D7D0A4E00E405E2 /* KinveyClient.swift */,
+				98818A051D7D0A5800E405E2 /* KinveyResources.swift */,
 			);
 			name = Kumulos;
 			sourceTree = "<group>";
@@ -223,15 +235,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				98818A041D7D0A4E00E405E2 /* KumulosClient.swift in Sources */,
+				98818A041D7D0A4E00E405E2 /* KinveyClient.swift in Sources */,
 				98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */,
 				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,
 				988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */,
+				98818A111D7D4E8100E405E2 /* Meal.swift in Sources */,
 				988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */,
 				988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */,
 				988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */,
+				98818A101D7D4E8100E405E2 /* Meal+CoreDataProperties.swift in Sources */,
+				98818A131D7D545200E405E2 /* NotificationCenter.swift in Sources */,
+				98818A151D7D56E700E405E2 /* DietyTabViewController.swift in Sources */,
 				988189DB1D7B516000E405E2 /* AppDelegate.swift in Sources */,
-				98818A061D7D0A5800E405E2 /* KumulosResources.swift in Sources */,
+				98818A061D7D0A5800E405E2 /* KinveyResources.swift in Sources */,
 				988189FD1D7D08BF00E405E2 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,10 +363,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Diety/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Diety",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kgerov.Diety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -358,10 +381,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Diety/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Diety",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = kgerov.Diety;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
 			};
 			name = Release;
 		};
