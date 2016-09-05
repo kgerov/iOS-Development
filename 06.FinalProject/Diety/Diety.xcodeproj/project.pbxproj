@@ -16,6 +16,10 @@
 		988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */; };
 		988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189F71D7D083900E405E2 /* CoreDataStack.swift */; };
 		988189FD1D7D08BF00E405E2 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 988189FB1D7D08BF00E405E2 /* Model.xcdatamodeld */; };
+		988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189FE1D7D0A1600E405E2 /* BaseClient.swift */; };
+		98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A001D7D0A2900E405E2 /* ClientsConstants.swift */; };
+		98818A041D7D0A4E00E405E2 /* KumulosClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A031D7D0A4E00E405E2 /* KumulosClient.swift */; };
+		98818A061D7D0A5800E405E2 /* KumulosResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A051D7D0A5800E405E2 /* KumulosResources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		988189F71D7D083900E405E2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		988189FC1D7D08BF00E405E2 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		988189FE1D7D0A1600E405E2 /* BaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseClient.swift; sourceTree = "<group>"; };
+		98818A001D7D0A2900E405E2 /* ClientsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientsConstants.swift; sourceTree = "<group>"; };
+		98818A031D7D0A4E00E405E2 /* KumulosClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KumulosClient.swift; sourceTree = "<group>"; };
+		98818A051D7D0A5800E405E2 /* KumulosResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KumulosResources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +136,20 @@
 		988189FA1D7D089B00E405E2 /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				988189FE1D7D0A1600E405E2 /* BaseClient.swift */,
+				98818A001D7D0A2900E405E2 /* ClientsConstants.swift */,
+				98818A021D7D0A3C00E405E2 /* Kumulos */,
 			);
 			name = Clients;
+			sourceTree = "<group>";
+		};
+		98818A021D7D0A3C00E405E2 /* Kumulos */ = {
+			isa = PBXGroup;
+			children = (
+				98818A031D7D0A4E00E405E2 /* KumulosClient.swift */,
+				98818A051D7D0A5800E405E2 /* KumulosResources.swift */,
+			);
+			name = Kumulos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,11 +223,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				98818A041D7D0A4E00E405E2 /* KumulosClient.swift in Sources */,
+				98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */,
 				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,
 				988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */,
+				988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */,
 				988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */,
 				988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */,
 				988189DB1D7B516000E405E2 /* AppDelegate.swift in Sources */,
+				98818A061D7D0A5800E405E2 /* KumulosResources.swift in Sources */,
 				988189FD1D7D08BF00E405E2 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
