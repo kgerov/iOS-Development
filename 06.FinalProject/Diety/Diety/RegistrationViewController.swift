@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  RegistrationViewController.swift
 //  Diety
 //
 //  Created by Konstantin Gerov on 9/4/16.
@@ -8,16 +8,18 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class RegistrationViewController : UIViewController {
     
     @IBOutlet weak var usernameTextField: LoginTextField!
     @IBOutlet weak var passwordTextField: LoginTextField!
+    @IBOutlet weak var repeatedPasswordTextField: LoginTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
+    
+    @IBAction func registerButtonPressed(sender: AnyObject) {
         
     }
 }

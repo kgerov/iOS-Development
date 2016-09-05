@@ -13,6 +13,8 @@
 		988189E51D7B516000E405E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 988189E31D7B516000E405E2 /* LaunchScreen.storyboard */; };
 		988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189EE1D7CFF7400E405E2 /* LoginTextField.swift */; };
 		988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189F01D7D012000E405E2 /* LoginViewController.swift */; };
+		988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */; };
+		988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988189F71D7D083900E405E2 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		988189E61D7B516000E405E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		988189EE1D7CFF7400E405E2 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		988189F01D7D012000E405E2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		988189F71D7D083900E405E2 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 				988189DA1D7B516000E405E2 /* AppDelegate.swift */,
 				988189F21D7D028100E405E2 /* Controllers */,
 				988189F31D7D028700E405E2 /* Views */,
+				988189F61D7D080F00E405E2 /* Model */,
 				988189EC1D7B546800E405E2 /* Assets */,
 				988189ED1D7B548000E405E2 /* Supporting Files */,
 			);
@@ -87,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				988189F01D7D012000E405E2 /* LoginViewController.swift */,
+				988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -97,6 +103,14 @@
 				988189EE1D7CFF7400E405E2 /* LoginTextField.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		988189F61D7D080F00E405E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				988189F71D7D083900E405E2 /* CoreDataStack.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,8 +184,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,
 				988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */,
 				988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */,
+				988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */,
 				988189DB1D7B516000E405E2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

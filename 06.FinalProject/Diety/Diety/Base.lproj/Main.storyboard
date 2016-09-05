@@ -61,6 +61,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYV-Kj-DfE"/>
+                                    <segue destination="Uox-eb-yQi" kind="show" id="iSe-I6-zx3"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmz-zW-ULN" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
@@ -107,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="-331" y="416"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="q0c-2a-vVr">
             <objects>
-                <viewController id="Uox-eb-yQi" customClass="LoginViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Uox-eb-yQi" customClass="RegistrationViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tf0-HA-Kv2"/>
                         <viewControllerLayoutGuide type="bottom" id="kQc-Hp-zlm"/>
@@ -182,6 +183,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="uUb-SN-8ph"/>
+                                    <action selector="registerButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="LXk-TJ-ERN"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -207,8 +209,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="8W4-GC-hVA" id="CDM-BA-9A2"/>
-                        <outlet property="usernameTextField" destination="9j1-lT-6L7" id="sxF-QS-GII"/>
+                        <outlet property="passwordTextField" destination="8W4-GC-hVA" id="xft-iP-nVm"/>
+                        <outlet property="repeatedPasswordTextField" destination="t5A-xI-Jj5" id="7iC-2B-2XQ"/>
+                        <outlet property="usernameTextField" destination="9j1-lT-6L7" id="RFH-ps-f8i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vwB-wl-mQl" sceneMemberID="firstResponder"/>
