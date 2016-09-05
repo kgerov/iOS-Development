@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -125,11 +126,11 @@
             </objects>
             <point key="canvasLocation" x="569" y="-121"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="GPu-F7-ZoJ">
             <objects>
                 <navigationController id="j13-Lb-X8B" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="8kN-e0-Xct"/>
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="8kN-e0-Xct"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cz2-gA-wpB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -142,10 +143,10 @@
             </objects>
             <point key="canvasLocation" x="1447" y="-399"/>
         </scene>
-        <!--View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="ULc-3v-scv">
             <objects>
-                <viewController id="395-XC-XgV" sceneMemberID="viewController">
+                <viewController id="395-XC-XgV" customClass="DashboardViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mJI-2H-Ee6"/>
                         <viewControllerLayoutGuide type="bottom" id="6N7-4a-L6X"/>
@@ -154,30 +155,50 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U62-gx-Vti">
-                                <rect key="frame" x="262" y="290" width="76" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Diety's Dashboard" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U62-gx-Vti">
+                                <rect key="frame" x="162" y="83" width="276" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-lN-RaW">
+                                <rect key="frame" x="20" y="522" width="89" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4fh-Cz-7tD">
+                                <rect key="frame" x="129" y="517" width="51" height="31"/>
+                                <connections>
+                                    <action selector="changeTheme:" destination="395-XC-XgV" eventType="valueChanged" id="lD8-i2-lJN"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="U62-gx-Vti" firstAttribute="centerX" secondItem="Bsd-J9-hfP" secondAttribute="centerX" id="g4X-QI-hYo"/>
-                            <constraint firstItem="U62-gx-Vti" firstAttribute="centerY" secondItem="Bsd-J9-hfP" secondAttribute="centerY" id="wEn-uU-33n"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5Ne-lN-RaW" secondAttribute="leading" id="Img-4o-JWV"/>
+                            <constraint firstItem="6N7-4a-L6X" firstAttribute="top" secondItem="5Ne-lN-RaW" secondAttribute="bottom" constant="8" id="Nec-yt-xgi"/>
+                            <constraint firstItem="U62-gx-Vti" firstAttribute="centerX" secondItem="Bsd-J9-hfP" secondAttribute="centerX" id="Y4f-aw-A2M"/>
+                            <constraint firstItem="6N7-4a-L6X" firstAttribute="top" secondItem="4fh-Cz-7tD" secondAttribute="bottom" constant="3" id="ZdO-fJ-Baw"/>
+                            <constraint firstItem="U62-gx-Vti" firstAttribute="top" secondItem="mJI-2H-Ee6" secondAttribute="bottom" constant="19" id="k5b-5x-kH5"/>
+                            <constraint firstItem="4fh-Cz-7tD" firstAttribute="leading" secondItem="5Ne-lN-RaW" secondAttribute="trailing" constant="20" id="uZf-ll-Olq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wTv-lR-wGJ"/>
+                    <connections>
+                        <outlet property="darkThemeSwitch" destination="4fh-Cz-7tD" id="URf-Zw-aVQ"/>
+                        <outlet property="dashboardView" destination="Bsd-J9-hfP" id="VLt-6K-yFT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Xd-BQ-Tjj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2127" y="-399"/>
         </scene>
-        <!--Item-->
+        <!--Meals-->
         <scene sceneID="MjH-dy-DCa">
             <objects>
                 <navigationController id="kKF-c4-fUF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="OQP-2c-Nja"/>
+                    <tabBarItem key="tabBarItem" title="Meals" image="Food" id="OQP-2c-Nja"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kbU-ry-Y1r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -190,10 +211,10 @@
             </objects>
             <point key="canvasLocation" x="1447" y="298"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Meals Table View Controller-->
         <scene sceneID="WLZ-CF-Nf5">
             <objects>
-                <tableViewController id="W57-FW-LaA" sceneMemberID="viewController">
+                <tableViewController id="W57-FW-LaA" customClass="MealsTableViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="i1d-yT-pqp">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,4 +363,7 @@
             <point key="canvasLocation" x="557" y="802"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Food" width="32" height="32"/>
+    </resources>
 </document>

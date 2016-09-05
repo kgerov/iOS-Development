@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let stack = CoreDataStack(modelName: "Model")!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        checkIfFirstLaunch()
+        
         // Autosave
         stack.autoSave(60)
         
@@ -44,6 +47,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // MARK: - Helpers
+    
+    func checkIfFirstLaunch() {
+        if !(NSUserDefaults.standardUserDefaults().boolForKey("hasLaunchedBefore")) {
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasLaunchedBefore")
+            NSUserDefaults.standardUserDefaults().setBool(false, forKey: "darkThemeOn")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
 }
 

@@ -24,6 +24,8 @@
 		98818A111D7D4E8100E405E2 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A0F1D7D4E8100E405E2 /* Meal.swift */; };
 		98818A131D7D545200E405E2 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A121D7D545200E405E2 /* NotificationCenter.swift */; };
 		98818A151D7D56E700E405E2 /* DietyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A141D7D56E700E405E2 /* DietyTabViewController.swift */; };
+		98818A171D7E1FB400E405E2 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A161D7E1FB400E405E2 /* DashboardViewController.swift */; };
+		98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		98818A0F1D7D4E8100E405E2 /* Meal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		98818A121D7D545200E405E2 /* NotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		98818A141D7D56E700E405E2 /* DietyTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietyTabViewController.swift; sourceTree = "<group>"; };
+		98818A161D7E1FB400E405E2 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,8 @@
 				988189F01D7D012000E405E2 /* LoginViewController.swift */,
 				988189F41D7D04AB00E405E2 /* RegistrationViewController.swift */,
 				98818A141D7D56E700E405E2 /* DietyTabViewController.swift */,
+				98818A161D7E1FB400E405E2 /* DashboardViewController.swift */,
+				98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -237,11 +243,13 @@
 			files = (
 				98818A041D7D0A4E00E405E2 /* KinveyClient.swift in Sources */,
 				98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */,
+				98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */,
 				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,
 				988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */,
 				98818A111D7D4E8100E405E2 /* Meal.swift in Sources */,
 				988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */,
 				988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */,
+				98818A171D7E1FB400E405E2 /* DashboardViewController.swift in Sources */,
 				988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */,
 				98818A101D7D4E8100E405E2 /* Meal+CoreDataProperties.swift in Sources */,
 				98818A131D7D545200E405E2 /* NotificationCenter.swift in Sources */,
