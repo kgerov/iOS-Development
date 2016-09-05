@@ -105,7 +105,115 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="350"/>
+            <point key="canvasLocation" x="-331" y="416"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="q0c-2a-vVr">
+            <objects>
+                <viewController id="Uox-eb-yQi" customClass="LoginViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Tf0-HA-Kv2"/>
+                        <viewControllerLayoutGuide type="bottom" id="kQc-Hp-zlm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5Zu-Iw-YpM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozN-aM-ewf">
+                                <rect key="frame" x="0.0" y="28" width="600" height="72"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="60"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9j1-lT-6L7" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
+                                <rect key="frame" x="30" y="280" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.059132543099999997" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ekj-dH-APS"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8W4-GC-hVA" userLabel="Password" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
+                                <rect key="frame" x="30" y="335" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.060533405169999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cXj-Eg-SEe"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Repeat Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t5A-xI-Jj5" userLabel="RepeatPassword" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
+                                <rect key="frame" x="30" y="390" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.060533405169999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="f70-lr-gQJ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do5-dW-9XE">
+                                <rect key="frame" x="30" y="455" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.072931714355945587" green="0.73543399572372437" blue="0.95973747968673706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="cHf-wW-whr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="uUb-SN-8ph"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.48647370290000003" green="0.80284593000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Do5-dW-9XE" firstAttribute="top" secondItem="t5A-xI-Jj5" secondAttribute="bottom" constant="25" id="12e-yR-3pO"/>
+                            <constraint firstItem="8W4-GC-hVA" firstAttribute="top" secondItem="9j1-lT-6L7" secondAttribute="bottom" constant="15" id="1fA-DK-2cK"/>
+                            <constraint firstItem="9j1-lT-6L7" firstAttribute="centerY" secondItem="5Zu-Iw-YpM" secondAttribute="centerY" id="22X-QU-HMt"/>
+                            <constraint firstItem="t5A-xI-Jj5" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="2Dq-Kd-EGX"/>
+                            <constraint firstItem="9j1-lT-6L7" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" multiplier="0.9" id="9n3-N7-3An"/>
+                            <constraint firstItem="Do5-dW-9XE" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" multiplier="0.9" id="A4N-qN-Hqj"/>
+                            <constraint firstItem="ozN-aM-ewf" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" id="BEW-MH-uhF"/>
+                            <constraint firstItem="9j1-lT-6L7" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="DTr-v3-G9o"/>
+                            <constraint firstItem="t5A-xI-Jj5" firstAttribute="height" secondItem="8W4-GC-hVA" secondAttribute="height" id="E8k-9z-u1a"/>
+                            <constraint firstItem="Do5-dW-9XE" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="Lxl-H6-Oji"/>
+                            <constraint firstItem="ozN-aM-ewf" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="ZWu-jo-ify"/>
+                            <constraint firstItem="8W4-GC-hVA" firstAttribute="width" secondItem="9j1-lT-6L7" secondAttribute="width" id="ZsW-kK-6Eq"/>
+                            <constraint firstItem="t5A-xI-Jj5" firstAttribute="width" secondItem="8W4-GC-hVA" secondAttribute="width" id="h4G-xM-ZcX"/>
+                            <constraint firstItem="8W4-GC-hVA" firstAttribute="height" secondItem="9j1-lT-6L7" secondAttribute="height" id="hAx-M4-fUt"/>
+                            <constraint firstItem="t5A-xI-Jj5" firstAttribute="top" secondItem="8W4-GC-hVA" secondAttribute="bottom" constant="15" id="tfU-b9-KuI"/>
+                            <constraint firstItem="ozN-aM-ewf" firstAttribute="top" secondItem="Tf0-HA-Kv2" secondAttribute="bottom" constant="8" id="tgw-S6-NSk"/>
+                            <constraint firstItem="8W4-GC-hVA" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="wLA-JW-ujz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="8W4-GC-hVA" id="CDM-BA-9A2"/>
+                        <outlet property="usernameTextField" destination="9j1-lT-6L7" id="sxF-QS-GII"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwB-wl-mQl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="557" y="802"/>
         </scene>
     </scenes>
 </document>
