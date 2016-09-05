@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="Diety" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,95 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diety" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNP-4a-I59">
+                                <rect key="frame" x="243" y="28" width="115" height="96"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="60"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNB-nP-miW" userLabel="Password" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
+                                <rect key="frame" x="30" y="335" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.06053340517241379" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JFP-AC-9z3"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n70-MU-Or1">
+                                <rect key="frame" x="30" y="400" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.072931714355945587" green="0.73543399572372437" blue="0.95973747968673706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="B9w-yp-Zd2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wDK-yu-YcC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEj-QL-fG4">
+                                <rect key="frame" x="0.0" y="541" width="600" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Sign Up.">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYV-Kj-DfE"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gmz-zW-ULN" customClass="LoginTextField" customModule="Diety" customModuleProvider="target">
+                                <rect key="frame" x="30" y="280" width="540" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.059132543103448273" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zzy-5v-oaf"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.48647370285456526" green="0.80284593000957549" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="RNB-nP-miW" firstAttribute="width" secondItem="gmz-zW-ULN" secondAttribute="width" id="2JI-fY-cqn"/>
+                            <constraint firstItem="FNP-4a-I59" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="8Pg-re-Sbm"/>
+                            <constraint firstItem="n70-MU-Or1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="EdT-QA-GyR"/>
+                            <constraint firstItem="RNB-nP-miW" firstAttribute="top" secondItem="gmz-zW-ULN" secondAttribute="bottom" constant="15" id="GKC-KF-W58"/>
+                            <constraint firstItem="gmz-zW-ULN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MWi-ot-7wP"/>
+                            <constraint firstItem="yEj-QL-fG4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XNy-To-RCe"/>
+                            <constraint firstItem="gmz-zW-ULN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="bU1-WB-YP4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yEj-QL-fG4" secondAttribute="bottom" constant="25" id="bzS-G2-pyJ"/>
+                            <constraint firstItem="RNB-nP-miW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fL8-k1-sut"/>
+                            <constraint firstItem="gmz-zW-ULN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="sDV-g9-nLB"/>
+                            <constraint firstItem="FNP-4a-I59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tfv-Hv-Cr0"/>
+                            <constraint firstItem="yEj-QL-fG4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="wc2-tz-XAU"/>
+                            <constraint firstItem="n70-MU-Or1" firstAttribute="top" secondItem="RNB-nP-miW" secondAttribute="bottom" constant="25" id="xAG-KM-qNz"/>
+                            <constraint firstItem="RNB-nP-miW" firstAttribute="height" secondItem="gmz-zW-ULN" secondAttribute="height" id="xsk-2R-2aa"/>
+                            <constraint firstItem="n70-MU-Or1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y9a-Nl-yCm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="RNB-nP-miW" id="LV7-Cf-eGt"/>
+                        <outlet property="usernameTextField" destination="gmz-zW-ULN" id="GvF-vT-KPj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="375" y="350"/>
         </scene>
     </scenes>
 </document>
