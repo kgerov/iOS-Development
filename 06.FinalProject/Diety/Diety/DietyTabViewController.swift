@@ -38,6 +38,18 @@ class DietyTabViewController : UITabBarController {
     
     func logoutButtonPressed() {
         
+        NotificationCenter.setUIEnabled(self, enabled: false, completion: nil)
+        
+        KinveyClient.sharedInstance().logout { (success, error) in
+            
+            NotificationCenter.setUIEnabled(self, enabled: true, completion: {
+                if success {
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
+                }
+            })
+        }
     }
     
     func addMeal() {

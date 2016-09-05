@@ -296,6 +296,16 @@
                                     <action selector="registerButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="LXk-TJ-ERN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jYg-zq-csb">
+                                <rect key="frame" x="0.0" y="558" width="600" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Login.">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="showLoginMenu:" destination="Uox-eb-yQi" eventType="touchUpInside" id="sR4-Vp-1cp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.48647370290000003" green="0.80284593000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -306,13 +316,16 @@
                             <constraint firstItem="9j1-lT-6L7" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" multiplier="0.9" id="9n3-N7-3An"/>
                             <constraint firstItem="Do5-dW-9XE" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" multiplier="0.9" id="A4N-qN-Hqj"/>
                             <constraint firstItem="ozN-aM-ewf" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" id="BEW-MH-uhF"/>
+                            <constraint firstItem="jYg-zq-csb" firstAttribute="width" secondItem="5Zu-Iw-YpM" secondAttribute="width" id="Bdd-ie-7pI"/>
                             <constraint firstItem="9j1-lT-6L7" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="DTr-v3-G9o"/>
                             <constraint firstItem="t5A-xI-Jj5" firstAttribute="height" secondItem="8W4-GC-hVA" secondAttribute="height" id="E8k-9z-u1a"/>
+                            <constraint firstItem="jYg-zq-csb" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="Fa2-Gc-nUt"/>
                             <constraint firstItem="Do5-dW-9XE" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="Lxl-H6-Oji"/>
                             <constraint firstItem="ozN-aM-ewf" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="ZWu-jo-ify"/>
                             <constraint firstItem="8W4-GC-hVA" firstAttribute="width" secondItem="9j1-lT-6L7" secondAttribute="width" id="ZsW-kK-6Eq"/>
                             <constraint firstItem="t5A-xI-Jj5" firstAttribute="width" secondItem="8W4-GC-hVA" secondAttribute="width" id="h4G-xM-ZcX"/>
                             <constraint firstItem="8W4-GC-hVA" firstAttribute="height" secondItem="9j1-lT-6L7" secondAttribute="height" id="hAx-M4-fUt"/>
+                            <constraint firstItem="kQc-Hp-zlm" firstAttribute="top" secondItem="jYg-zq-csb" secondAttribute="bottom" constant="8" id="m5q-IQ-kmh"/>
                             <constraint firstItem="t5A-xI-Jj5" firstAttribute="top" secondItem="8W4-GC-hVA" secondAttribute="bottom" constant="15" id="tfU-b9-KuI"/>
                             <constraint firstItem="ozN-aM-ewf" firstAttribute="top" secondItem="Tf0-HA-Kv2" secondAttribute="bottom" constant="8" id="tgw-S6-NSk"/>
                             <constraint firstItem="8W4-GC-hVA" firstAttribute="centerX" secondItem="5Zu-Iw-YpM" secondAttribute="centerX" id="wLA-JW-ujz"/>

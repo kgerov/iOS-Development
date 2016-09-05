@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RegistrationViewController : UIViewController {
+class RegistrationViewController : UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: LoginTextField!
     @IBOutlet weak var passwordTextField: LoginTextField!
@@ -16,8 +16,27 @@ class RegistrationViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        repeatedPasswordTextField.delegate = self
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.hideKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.usernameTextField.text = ""
+        self.passwordTextField.text = ""
+        self.repeatedPasswordTextField.text = ""
+    }
+    
+    @IBAction func showLoginMenu(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func registerButtonPressed(sender: AnyObject) {
         
@@ -33,7 +52,7 @@ class RegistrationViewController : UIViewController {
             return
         }
         
-        NotificationCenter.setUIEnabled(self, enabled: false)
+        NotificationCenter.setUIEnabled(self, enabled: false, completion: nil)
         
         KinveyClient.sharedInstance().register(username, password: password) { (success, error) in
             
@@ -44,22 +63,35 @@ class RegistrationViewController : UIViewController {
                     KinveyClient.sharedInstance().login(username, password: password) { (success, error) in
                         
                         dispatch_async(dispatch_get_main_queue()) {
-                            NotificationCenter.setUIEnabled(self, enabled: true)
-                            
-                            if success {
-                                
-                                let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DietyTabViewController") as! UITabBarController
-                                self.presentViewController(controller, animated: true, completion: nil)
-                            } else {
-                                NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
-                            }
+                            NotificationCenter.setUIEnabled(self, enabled: true, completion: {
+                                if success {
+                                    
+                                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DietyTabViewController") as! UITabBarController
+                                    self.presentViewController(controller, animated: true, completion: nil)
+                                } else {
+                                    NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
+                                }
+                            })
                         }
                     }
                 } else {
-                    NotificationCenter.setUIEnabled(self, enabled: true)
-                    NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
+                    NotificationCenter.setUIEnabled(self, enabled: true, completion: {
+                        NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
+                    })
                 }
             }
         }
+    }
+}
+
+extension RegistrationViewController {
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

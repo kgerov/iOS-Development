@@ -8,13 +8,27 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var usernameTextField: LoginTextField!
     @IBOutlet weak var passwordTextField: LoginTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
+        // Hide cursos and keyboard on touch
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.hideKeyboard))
+        view.addGestureRecognizer(tapRecognizer)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.usernameTextField.text = ""
+        self.passwordTextField.text = ""
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
@@ -25,21 +39,34 @@ class LoginViewController: UIViewController {
                 return
         }
         
-        NotificationCenter.setUIEnabled(self, enabled: false)
+        NotificationCenter.setUIEnabled(self, enabled: false, completion: nil)
         
         KinveyClient.sharedInstance().login(username, password: password) { (success, error) in
             
             dispatch_async(dispatch_get_main_queue()) {
-                NotificationCenter.setUIEnabled(self, enabled: true)
                 
-                if success {
-                    
-                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DietyTabViewController") as! UITabBarController
-                    self.presentViewController(controller, animated: true, completion: nil)
-                } else {
-                    NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
-                }
+                NotificationCenter.setUIEnabled(self, enabled: true, completion: { 
+                    if success {
+                        
+                        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("DietyTabViewController") as! UITabBarController
+                        self.presentViewController(controller, animated: true, completion: nil)
+                    } else {
+                        NotificationCenter.displayError(self, message: (error?.localizedDescription)!)
+                    }
+                })
             }
         }
+    }
+}
+
+extension LoginViewController {
+    
+    func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 }

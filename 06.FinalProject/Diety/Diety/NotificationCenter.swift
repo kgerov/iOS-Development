@@ -20,7 +20,7 @@ class NotificationCenter : NSObject {
         controller.presentViewController(alertController, animated: true, completion: nil)
     }
     
-    static func setUIEnabled(controller: UIViewController, enabled: Bool) {
+    static func setUIEnabled(controller: UIViewController, enabled: Bool, completion: (() -> Void)?) {
         if !enabled {
             let alert = UIAlertController(title: nil, message: "Please wait...", preferredStyle: .Alert)
             
@@ -33,7 +33,7 @@ class NotificationCenter : NSObject {
             alert.view.addSubview(loadingIndicator)
             controller.presentViewController(alert, animated: true, completion: nil)
         } else {
-            controller.dismissViewControllerAnimated(true, completion: nil)
+            controller.dismissViewControllerAnimated(true, completion: completion)
         }
     }
     
@@ -46,14 +46,5 @@ class NotificationCenter : NSObject {
         } else {
             activityView.stopAnimating()
         }
-    }
-    
-    static func displaySuccessRegistrationAlert(controller: UIViewController, overwriteHandler: (action: UIAlertAction!) -> Void) {
-        
-        let refreshAlert = UIAlertController(title: nil, message: "Registration successful. Login with your credentials.", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: overwriteHandler))
-    
-        controller.presentViewController(refreshAlert, animated: true, completion: nil)
     }
 }

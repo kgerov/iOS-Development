@@ -83,12 +83,12 @@ extension KinveyClient {
         let parameters = [String:AnyObject]()
 
         let values = [
-            "Kinvey \(self.authToken)": "Authorization"
+            "Kinvey \(self.authToken!)": "Authorization"
         ]
 
         taskForPOSTMethod(method, parameters: parameters, jsonBody: "", requestValues: values) { (result, error) in
             
-            if let error = error {
+            if let error = error where error.domain != "convertDataWithCompletionHandler" {
                 completionHandler(success: false, error: error)
             } else {
                 completionHandler(success: true, error: nil)

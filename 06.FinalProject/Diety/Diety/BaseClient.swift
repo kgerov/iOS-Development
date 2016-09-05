@@ -159,7 +159,7 @@ class BaseClient : NSObject {
             /* GUARD: Did we get a successful 2XX response? */
             let statusCode = (response as? NSHTTPURLResponse)?.statusCode
             guard statusCode != nil && statusCode >= 200 && statusCode <= 299 else {
-                if statusCode == 403 {
+                if statusCode == 401 {
                     sendError("Invalid username or password.")
                 } else {
                     sendError("Your request returned a status code other than 2xx! \(response)")
