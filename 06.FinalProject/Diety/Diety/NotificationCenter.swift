@@ -47,4 +47,13 @@ class NotificationCenter : NSObject {
             activityView.stopAnimating()
         }
     }
+    
+    static func displaySuccessRegistrationAlert(controller: UIViewController, overwriteHandler: (action: UIAlertAction!) -> Void) {
+        
+        let refreshAlert = UIAlertController(title: nil, message: "Registration successful. Login with your credentials.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: overwriteHandler))
+    
+        controller.presentViewController(refreshAlert, animated: true, completion: nil)
+    }
 }

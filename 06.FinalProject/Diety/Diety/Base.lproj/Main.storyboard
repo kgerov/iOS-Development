@@ -60,7 +60,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="signupButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DYV-Kj-DfE"/>
                                     <segue destination="Uox-eb-yQi" kind="show" id="iSe-I6-zx3"/>
                                 </connections>
                             </button>
@@ -294,7 +293,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="uUb-SN-8ph"/>
                                     <action selector="registerButtonPressed:" destination="Uox-eb-yQi" eventType="touchUpInside" id="LXk-TJ-ERN"/>
                                 </connections>
                             </button>
