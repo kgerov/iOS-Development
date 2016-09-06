@@ -63,9 +63,22 @@ extension CoreDataTableViewController{
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let fc = fetchedResultsController{
-            return fc.sections![section].numberOfObjects;
-        }else{
+        if let fc = fetchedResultsController {
+            let numberOfObjects = fc.sections![section].numberOfObjects
+            
+            if numberOfObjects == 0 {
+                let noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+                noDataLabel.text = "No meals"
+                noDataLabel.textColor = UIColor.blackColor()
+                noDataLabel.textAlignment = .Center
+                tableView.backgroundView = noDataLabel
+                tableView.separatorStyle = .None
+            } else {
+                tableView.backgroundView = nil
+            }
+            
+            return numberOfObjects
+        }else {
             return 0
         }
     }

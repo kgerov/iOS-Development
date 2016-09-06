@@ -57,12 +57,12 @@ class MealsTableViewController : UITableViewController {
                 
                 fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
                 
-//                let predicate = NSPredicate(format: "type = %@", argumentArray: [mealType])
-//                fetchRequest.predicate = predicate
+                let predicate = NSPredicate(format: "type = %@", argumentArray: [mealType])
+                fetchRequest.predicate = predicate
                 
                 let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                     managedObjectContext: self.stack!.context,
-                                                    sectionNameKeyPath: "",
+                                                    sectionNameKeyPath: nil,
                                                     cacheName: nil)
                 
                 mealVC.fetchedResultsController = fetchController
