@@ -15,6 +15,7 @@ class AddMealViewController : UIViewController, UITextFieldDelegate, UIPickerVie
                      AppConstants.MealTypes.Dinner]
 
     var selectedRow = AppConstants.MealTypes.Breakfast
+    var stack: CoreDataStack?
     
     @IBOutlet weak var titleTextField: LoginTextField!
     @IBOutlet weak var ingridientsTextField: LoginTextField!
@@ -22,6 +23,10 @@ class AddMealViewController : UIViewController, UITextFieldDelegate, UIPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get stack
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.stack = delegate.stack
         
         // UIPickerView
         self.mealTypePicker.dataSource = self;
@@ -54,9 +59,8 @@ class AddMealViewController : UIViewController, UITextFieldDelegate, UIPickerVie
                 return
         }
         
-        print(title)
-        print(ingridients)
-        print(self.selectedRow)
+        let meal = Meal(title: title, ingridients: ingridients, type: self.selectedRow, context: self.stack!.context)
+        NotificationCenter.displayError(self, message: meal.title! + " was created.")
         
         clearTextFields()
     }

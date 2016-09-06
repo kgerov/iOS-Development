@@ -8,9 +8,20 @@
 
 import UIKit
 
-class MealsDetailTableViewController : UITableViewController {
+class MealsDetailTableViewController : CoreDataTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let meal = fetchedResultsController!.objectAtIndexPath(indexPath) as! Meal
+        let cell = tableView.dequeueReusableCellWithIdentifier("MealCell", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = meal.title
+        cell.detailTextLabel?.text = meal.ingridients
+        
+        return cell
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MealsTableViewController : UITableViewController {
     
@@ -14,8 +15,14 @@ class MealsTableViewController : UITableViewController {
                      AppConstants.MealTypes.Lunch, AppConstants.MealTypes.Snack,
                      AppConstants.MealTypes.Dinner]
     
+    var stack: CoreDataStack?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get stack
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.stack = delegate.stack
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,29 +48,24 @@ class MealsTableViewController : UITableViewController {
         
         if segue.identifier! == "displayMeals" {
             
-            if let notesVC = segue.destinationViewController as? MealsDetailTableViewController {
+            if let mealVC = segue.destinationViewController as? MealsDetailTableViewController {
                 
                 let indexPath = tableView.indexPathForSelectedRow!
-                print(self.mealTypes[indexPath.row])
+                let mealType = self.mealTypes[indexPath.row]
                 
-//                let fr = NSFetchRequest(entityName: "Note")
-//                
-//                fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false),
-//                                      NSSortDescriptor(key: "text", ascending: true)]
-//                
-//                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
-//                
-//                let pred = NSPredicate(format: "notebook = %@", argumentArray: [notebook!])
-//                
-//                fr.predicate = pred
-//                
-//                let fc = NSFetchedResultsController(fetchRequest: fr,
-//                                                    managedObjectContext:fetchedResultsController!.managedObjectContext,
-//                                                    sectionNameKeyPath: "humanReadableAge",
-//                                                    cacheName: nil)
-//                
-//                notesVC.fetchedResultsController = fc
-//                notesVC.notebook = notebook
+                let fetchRequest = NSFetchRequest(entityName: "Meal")
+                
+                fetchRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+                
+                let predicate = NSPredicate(format: "type = %@", argumentArray: [mealType])
+                fetchRequest.predicate = predicate
+                
+                let fetchController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                    managedObjectContext: self.stack!.context,
+                                                    sectionNameKeyPath: "",
+                                                    cacheName: nil)
+                
+                mealVC.fetchedResultsController = fetchController
             }
         }
     }

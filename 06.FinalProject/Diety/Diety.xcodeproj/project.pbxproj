@@ -29,6 +29,7 @@
 		98818A1B1D7E4AE900E405E2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1A1D7E4AE900E405E2 /* AppConstants.swift */; };
 		98818A1D1D7E50A700E405E2 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */; };
 		98818A1F1D7E50E700E405E2 /* MealsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */; };
+		98818A211D7E67A200E405E2 /* CoreDataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A201D7E67A200E405E2 /* CoreDataTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		98818A1A1D7E4AE900E405E2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
 		98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsDetailTableViewController.swift; sourceTree = "<group>"; };
+		98818A201D7E67A200E405E2 /* CoreDataTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */,
 				98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */,
 				98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */,
+				98818A201D7E67A200E405E2 /* CoreDataTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				98818A151D7D56E700E405E2 /* DietyTabViewController.swift in Sources */,
 				988189DB1D7B516000E405E2 /* AppDelegate.swift in Sources */,
 				98818A061D7D0A5800E405E2 /* KinveyResources.swift in Sources */,
+				98818A211D7E67A200E405E2 /* CoreDataTableViewController.swift in Sources */,
 				988189FD1D7D08BF00E405E2 /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
