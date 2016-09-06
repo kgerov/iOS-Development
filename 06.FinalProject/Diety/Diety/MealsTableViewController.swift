@@ -67,4 +67,9 @@ class MealsTableViewController : UITableViewController {
             }
         }
     }
+    
+    func addMeal() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AddMealViewController")
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 }

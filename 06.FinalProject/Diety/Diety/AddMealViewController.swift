@@ -8,7 +8,13 @@
 
 import UIKit
 
-class AddMealViewController : UIViewController, UITextFieldDelegate {
+class AddMealViewController : UIViewController, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    let mealTypes = [AppConstants.MealTypes.Breakfast, AppConstants.MealTypes.Brunch,
+                     AppConstants.MealTypes.Lunch, AppConstants.MealTypes.Snack,
+                     AppConstants.MealTypes.Dinner]
+
+    var selectedRow = AppConstants.MealTypes.Breakfast
     
     @IBOutlet weak var titleTextField: LoginTextField!
     @IBOutlet weak var ingridientsTextField: LoginTextField!
@@ -17,6 +23,11 @@ class AddMealViewController : UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // UIPickerView
+        self.mealTypePicker.dataSource = self;
+        self.mealTypePicker.delegate = self;
+        
+        // UITextFieldDelegate
         titleTextField.delegate = self
         ingridientsTextField.delegate = self
         
@@ -43,13 +54,37 @@ class AddMealViewController : UIViewController, UITextFieldDelegate {
                 return
         }
         
+        print(title)
+        print(ingridients)
+        print(self.selectedRow)
+        
         clearTextFields()
+    }
+    
+    // MARK - PickerView Methods
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mealTypes.count;
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mealTypes[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        self.selectedRow = self.mealTypes[row]
     }
     
     // MARK: - Helpers
     func clearTextFields() {
         self.titleTextField.text = ""
         self.ingridientsTextField.text = ""
+        self.mealTypePicker.selectedRowInComponent(0)
     }
 }
 

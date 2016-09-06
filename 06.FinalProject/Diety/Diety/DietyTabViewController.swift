@@ -30,9 +30,7 @@ class DietyTabViewController : UITabBarController {
             
             let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: controller, action: #selector(self.addMeal))
             
-            let rightBarButtonItems = [addButton]
-            
-            controller.navigationItem.setRightBarButtonItems(rightBarButtonItems, animated: true)
+            controller.navigationItem.rightBarButtonItem = addButton
         }
     }
     
@@ -55,6 +53,5 @@ class DietyTabViewController : UITabBarController {
     func addMeal() {
         let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AddMealViewController") 
         self.presentViewController(controller, animated: true, completion: nil)
-        
     }
 }

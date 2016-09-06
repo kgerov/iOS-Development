@@ -37,5 +37,10 @@ class DashboardViewController : UIViewController {
             NSUserDefaults.standardUserDefaults().setBool(false, forKey: "darkThemeOn")
         }
     }
+    
+    func addMeal() {
+        let controller = self.storyboard!.instantiateViewControllerWithIdentifier("AddMealViewController")
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
 }
 
