@@ -26,6 +26,7 @@
 		98818A151D7D56E700E405E2 /* DietyTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A141D7D56E700E405E2 /* DietyTabViewController.swift */; };
 		98818A171D7E1FB400E405E2 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A161D7E1FB400E405E2 /* DashboardViewController.swift */; };
 		98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */; };
+		98818A1B1D7E4AE900E405E2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1A1D7E4AE900E405E2 /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		98818A141D7D56E700E405E2 /* DietyTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DietyTabViewController.swift; sourceTree = "<group>"; };
 		98818A161D7E1FB400E405E2 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
+		98818A1A1D7E4AE900E405E2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				988189E61D7B516000E405E2 /* Info.plist */,
+				98818A1A1D7E4AE900E405E2 /* AppConstants.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				98818A041D7D0A4E00E405E2 /* KinveyClient.swift in Sources */,
+				98818A1B1D7E4AE900E405E2 /* AppConstants.swift in Sources */,
 				98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */,
 				98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */,
 				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,

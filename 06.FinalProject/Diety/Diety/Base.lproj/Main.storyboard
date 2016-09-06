@@ -167,6 +167,12 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VeggieHeart" translatesAutoresizingMaskIntoConstraints="NO" id="Z0t-5X-ZwR">
+                                <rect key="frame" x="150" y="-200" width="300" height="1000"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Tdt-i2-NfA"/>
+                                </constraints>
+                            </imageView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4fh-Cz-7tD">
                                 <rect key="frame" x="129" y="517" width="51" height="31"/>
                                 <connections>
@@ -178,9 +184,11 @@
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="5Ne-lN-RaW" secondAttribute="leading" id="Img-4o-JWV"/>
                             <constraint firstItem="6N7-4a-L6X" firstAttribute="top" secondItem="5Ne-lN-RaW" secondAttribute="bottom" constant="8" id="Nec-yt-xgi"/>
+                            <constraint firstItem="Z0t-5X-ZwR" firstAttribute="centerX" secondItem="Bsd-J9-hfP" secondAttribute="centerX" id="QHj-Jw-9Lg"/>
                             <constraint firstItem="U62-gx-Vti" firstAttribute="centerX" secondItem="Bsd-J9-hfP" secondAttribute="centerX" id="Y4f-aw-A2M"/>
                             <constraint firstItem="6N7-4a-L6X" firstAttribute="top" secondItem="4fh-Cz-7tD" secondAttribute="bottom" constant="3" id="ZdO-fJ-Baw"/>
                             <constraint firstItem="U62-gx-Vti" firstAttribute="top" secondItem="mJI-2H-Ee6" secondAttribute="bottom" constant="19" id="k5b-5x-kH5"/>
+                            <constraint firstItem="Z0t-5X-ZwR" firstAttribute="centerY" secondItem="Bsd-J9-hfP" secondAttribute="centerY" id="qP1-lz-zus"/>
                             <constraint firstItem="4fh-Cz-7tD" firstAttribute="leading" secondItem="5Ne-lN-RaW" secondAttribute="trailing" constant="20" id="uZf-ll-Olq"/>
                         </constraints>
                     </view>
@@ -220,7 +228,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Yny-sS-3hA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="mealTypeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="mealTypeCell" id="Yny-sS-3hA">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yny-sS-3hA" id="jtm-62-dTX">
@@ -365,5 +373,6 @@
     </scenes>
     <resources>
         <image name="Food" width="32" height="32"/>
+        <image name="VeggieHeart" width="1000" height="1000"/>
     </resources>
 </document>
