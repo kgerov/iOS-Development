@@ -36,4 +36,35 @@ class MealsTableViewController : UITableViewController {
         let mealType = self.mealTypes[indexPath.row]
         print(mealType)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier! == "displayMeals" {
+            
+            if let notesVC = segue.destinationViewController as? MealsDetailTableViewController {
+                
+                let indexPath = tableView.indexPathForSelectedRow!
+                print(self.mealTypes[indexPath.row])
+                
+//                let fr = NSFetchRequest(entityName: "Note")
+//                
+//                fr.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false),
+//                                      NSSortDescriptor(key: "text", ascending: true)]
+//                
+//                let notebook = fetchedResultsController?.objectAtIndexPath(indexPath) as? Notebook
+//                
+//                let pred = NSPredicate(format: "notebook = %@", argumentArray: [notebook!])
+//                
+//                fr.predicate = pred
+//                
+//                let fc = NSFetchedResultsController(fetchRequest: fr,
+//                                                    managedObjectContext:fetchedResultsController!.managedObjectContext,
+//                                                    sectionNameKeyPath: "humanReadableAge",
+//                                                    cacheName: nil)
+//                
+//                notesVC.fetchedResultsController = fc
+//                notesVC.notebook = notebook
+            }
+        }
+    }
 }

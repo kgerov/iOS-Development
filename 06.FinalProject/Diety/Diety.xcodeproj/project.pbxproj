@@ -27,6 +27,8 @@
 		98818A171D7E1FB400E405E2 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A161D7E1FB400E405E2 /* DashboardViewController.swift */; };
 		98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */; };
 		98818A1B1D7E4AE900E405E2 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1A1D7E4AE900E405E2 /* AppConstants.swift */; };
+		98818A1D1D7E50A700E405E2 /* AddMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */; };
+		98818A1F1D7E50E700E405E2 /* MealsDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		98818A161D7E1FB400E405E2 /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsTableViewController.swift; sourceTree = "<group>"; };
 		98818A1A1D7E4AE900E405E2 /* AppConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddMealViewController.swift; sourceTree = "<group>"; };
+		98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MealsDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				98818A141D7D56E700E405E2 /* DietyTabViewController.swift */,
 				98818A161D7E1FB400E405E2 /* DashboardViewController.swift */,
 				98818A181D7E1FF800E405E2 /* MealsTableViewController.swift */,
+				98818A1C1D7E50A700E405E2 /* AddMealViewController.swift */,
+				98818A1E1D7E50E700E405E2 /* MealsDetailTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -247,11 +253,13 @@
 				98818A041D7D0A4E00E405E2 /* KinveyClient.swift in Sources */,
 				98818A1B1D7E4AE900E405E2 /* AppConstants.swift in Sources */,
 				98818A011D7D0A2900E405E2 /* ClientsConstants.swift in Sources */,
+				98818A1D1D7E50A700E405E2 /* AddMealViewController.swift in Sources */,
 				98818A191D7E1FF800E405E2 /* MealsTableViewController.swift in Sources */,
 				988189F81D7D083900E405E2 /* CoreDataStack.swift in Sources */,
 				988189F11D7D012000E405E2 /* LoginViewController.swift in Sources */,
 				98818A111D7D4E8100E405E2 /* Meal.swift in Sources */,
 				988189FF1D7D0A1600E405E2 /* BaseClient.swift in Sources */,
+				98818A1F1D7E50E700E405E2 /* MealsDetailTableViewController.swift in Sources */,
 				988189EF1D7CFF7400E405E2 /* LoginTextField.swift in Sources */,
 				98818A171D7E1FB400E405E2 /* DashboardViewController.swift in Sources */,
 				988189F51D7D04AB00E405E2 /* RegistrationViewController.swift in Sources */,
